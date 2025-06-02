@@ -51,6 +51,7 @@ offset_bottom = 41.0
 text = "wrong"
 
 [node name="Label" type="Label" parent="."]
+layout_mode = 0
 offset_left = 330.0
 offset_top = 117.0
 offset_right = 394.0

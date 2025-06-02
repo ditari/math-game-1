@@ -109,50 +109,31 @@ func generateenemy():
 	#enemy di door paling kiri
 	e = Global.isenemyexist[1]
 	if e != 0 :
-		if e == 1 :
-			enemytype1(xgaps,(3*ygaps) + 128)
-		elif e == 2 :
-			enemytype2(xgaps,(3*ygaps) + 128)
-		else :			
-			enemytype3(xgaps,(3*ygaps) + 128)
+		enemytype(xgaps,(3*ygaps) + 128,1,e)
 	
 	#enemy di door tengah
 	e = Global.isenemyexist[2]
 	if e != 0 :
-		if e == 1 :
-			enemytype1((2*xgaps)+128,(3*ygaps) + 128)
-		elif e == 2 :
-			enemytype2((2*xgaps)+128,(3*ygaps) + 128)
-		else :			
-			enemytype3((2*xgaps)+128,(3*ygaps) + 128)
+		enemytype((2*xgaps)+128,(3*ygaps) + 128,2,e)
 
 	#enemy di door kanan
 	e = Global.isenemyexist[3]
 	if e != 0 :
-		if e == 1 :
-			enemytype1((3*xgaps)+256,(3*ygaps) + 128)
-		elif e == 2 :
-			enemytype2((3*xgaps)+256,(3*ygaps) + 128)
-		else :			
-			enemytype3((3*xgaps)+256,(3*ygaps) + 128)
+		enemytype((3*xgaps)+256,(3*ygaps) + 128,3,e)
 			
-			
-		
-func enemytype1(xpos,ypos):
-	enemy = enemy1.instantiate()
-	enemy.position = Vector2(xpos,ypos)
-	$array.add_child(enemy)
-	#belum connect signalnya
+func enemytype(xpos,ypos,number,type) :
+	if type == 1:
+		enemy = enemy1.instantiate()
+	elif type == 2:
+		enemy = enemy2.instantiate()
+	else :
+		enemy = enemy3.instantiate()
 	
-func enemytype2(xpos,ypos):
-	enemy = enemy2.instantiate()
 	enemy.position = Vector2(xpos,ypos)
-	$array.add_child(enemy)
-
-func enemytype3(xpos,ypos):
-	enemy = enemy3.instantiate()
-	enemy.position = Vector2(xpos,ypos)
-	$array.add_child(enemy)
+	enemy.number = number
+	enemy.type = type
+	$array.add_child(enemy)	
+			
 
 #---------------generate buat level berikutnya-----------
 func generatedoortype():
