@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://ck1ept43ybccc"]
+
+[ext_resource type="Texture2D" uid="uid://d1ihgagpkgtkp" path="res://assets/reddoor.png" id="1_4t8ut"]
+[ext_resource type="Script" path="res://scripts/reddoor.gd" id="1_v3glu"]
+[ext_resource type="Texture2D" uid="uid://cxlv7q4u4nkfo" path="res://assets/reddooropen.png" id="2_wgn0g"]
+[ext_resource type="Texture2D" uid="uid://dti68rs4l3ogj" path="res://assets/buttondoor.png" id="4_4nigm"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_50ann"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_4t8ut")
+}],
+"loop": false,
+"name": &"close",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_wgn0g")
+}],
+"loop": false,
+"name": &"open",
+"speed": 5.0
+}]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_v3glu")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(64, 126)
+sprite_frames = SubResource("SpriteFrames_50ann")
+animation = &"close"
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+texture_normal = ExtResource("4_4nigm")
+
+[connection signal="pressed" from="TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]
