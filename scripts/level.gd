@@ -4,7 +4,12 @@ var emptydoorscene: PackedScene = load("res://scenes/emptydoor.tscn")
 var stripedoorscene: PackedScene = load("res://scenes/stripedoor.tscn")
 var reddoorscene: PackedScene = load("res://scenes/reddoor.tscn")
 
+var enemy1: PackedScene = load("res://scenes/enemy1.tscn")
+var enemy2: PackedScene = load("res://scenes/enemy2.tscn")
+var enemy3: PackedScene = load("res://scenes/enemy3.tscn")
+
 var door
+var enemy
 var xgaps
 var ygaps
 
@@ -36,11 +41,17 @@ func update_sprite_position():
 	if numberofdoors == 3:
 		createdoor(3, Global.door3type)	
 	
-	$enemy.position.y = (3*ygaps) + 256
-	$enemy.position.x = (screen_size.x - 128)/2
+	#$enemy.position.y = (3*ygaps) + 128
+	#$enemy.position.x = (screen_size.x - 128)/2
+	generateenemy()
 
-	$pc.position.y = (4*ygaps)+384
+	#treasure ga pakai pc
+	$pc.position.y = 7*ygaps
 	$pc.position.x = (screen_size.x - 128)/2
+
+	#treasure
+	#$pc2.position.y = 6*ygaps
+	#$pc2.position.x = (screen_size.x - 128)/2
 
 func createdoor(doorposition, type):
 	#var type = generatedoortype()
@@ -57,13 +68,13 @@ func createdoor(doorposition, type):
 	
 	var n = 0
 	if  doorposition == 1 :
-		door.position = Vector2(xgaps,2*ygaps)
+		door.position = Vector2(xgaps,2*ygaps-64)#Vector2(xgaps, ygaps) #
 		n = 1
 	elif doorposition == 2 :
-		door.position = Vector2((2*xgaps)+128,2*ygaps)
+		door.position = Vector2((2*xgaps)+128,2*ygaps-64)
 		n = 2
 	else :
-		door.position = Vector2((3*xgaps)+256,2*ygaps)
+		door.position = Vector2((3*xgaps)+256,2*ygaps-64)
 		n = 3 
 
 	door.number = n		
@@ -72,31 +83,78 @@ func createdoor(doorposition, type):
 	if Global.arraydooropen [n] == 1 :
 		door.get_node("AnimatedSprite2D").play("open")
 	
-
-
 func _emptydoor_on_button_pressed(sender):
 	sender.get_node("AnimatedSprite2D").play("open")
 	await get_tree().create_timer(0.7).timeout
-	loadnextlevel()
-
+	loadnextlevel(1)
 
 func _stripedoor_on_button_pressed(number):
 	#kalau door open
 	if Global.arraydooropen [number] == 1 :
-		loadnextlevel()
+		loadnextlevel(2)
 	else :
 		Global.currentdoor = number
 		get_tree().change_scene_to_file("res://scenes/doorfight.tscn") 
-	
 	
 func _reddoor_on_button_pressed(sender):
 	if Global.hasredkey == 1:
 		sender.get_node("AnimatedSprite2D").play("open")
 		await get_tree().create_timer(0.7).timeout	
-		loadnextlevel()
+		loadnextlevel(3)
 	#else message you dont have key	
 
+func generateenemy():
+	var e = 0 
+	
+	#enemy di door paling kiri
+	e = Global.isenemyexist[1]
+	if e != 0 :
+		if e == 1 :
+			enemytype1(xgaps,(3*ygaps) + 128)
+		elif e == 2 :
+			enemytype2(xgaps,(3*ygaps) + 128)
+		else :			
+			enemytype3(xgaps,(3*ygaps) + 128)
+	
+	#enemy di door tengah
+	e = Global.isenemyexist[2]
+	if e != 0 :
+		if e == 1 :
+			enemytype1((2*xgaps)+128,(3*ygaps) + 128)
+		elif e == 2 :
+			enemytype2((2*xgaps)+128,(3*ygaps) + 128)
+		else :			
+			enemytype3((2*xgaps)+128,(3*ygaps) + 128)
 
+	#enemy di door kanan
+	e = Global.isenemyexist[3]
+	if e != 0 :
+		if e == 1 :
+			enemytype1((3*xgaps)+256,(3*ygaps) + 128)
+		elif e == 2 :
+			enemytype2((3*xgaps)+256,(3*ygaps) + 128)
+		else :			
+			enemytype3((3*xgaps)+256,(3*ygaps) + 128)
+			
+			
+		
+func enemytype1(xpos,ypos):
+	enemy = enemy1.instantiate()
+	enemy.position = Vector2(xpos,ypos)
+	$array.add_child(enemy)
+	#belum connect signalnya
+	
+func enemytype2(xpos,ypos):
+	enemy = enemy2.instantiate()
+	enemy.position = Vector2(xpos,ypos)
+	$array.add_child(enemy)
+
+func enemytype3(xpos,ypos):
+	enemy = enemy3.instantiate()
+	enemy.position = Vector2(xpos,ypos)
+	$array.add_child(enemy)
+
+#---------------generate buat level berikutnya-----------
 func generatedoortype():
 	var type
 	var rng = RandomNumberGenerator.new()	
@@ -126,13 +184,71 @@ func generatenumberofdoors():
 	var r = rng.randi_range(0, 6)
 	if r < 3 :
 		Global.numberofdoors = 3
+		return 3
 	elif r < 5 :
 		Global.numberofdoors = 2
+		return 2
 	else:
 		Global.numberofdoors = 1
+		return 1
+
+#func generatenumberofenemy():
+#	var rng = RandomNumberGenerator.new()	
 	
-func loadnextlevel():	
-	generatenumberofdoors()
+#	var r = rng.randi_range(0, 6)
+#	if r == 0 :
+#		return 0
+#	elif r < 4 :
+#		return 1
+#	elif r < 6 :
+#		return 2
+#	else :
+#		return 3	
+
+func generateenemyarray(numberofdoors):
+	var rng = RandomNumberGenerator.new()	
+	var enemy1type = rng.randi_range(1, 3)
+	var enemy2type = rng.randi_range(1, 3)
+	var enemy3type = rng.randi_range(1, 3)
+
+	#jumlah enemy	
+	#var n = generatenumberofenemy()
+	#if n > numberofdoors :
+	#	n = numberofdoors 
+	# masalahnya kalau ga kayak gini bisa enemy ada 2 pintu ada 1
+	var n = rng.randi_range(0,numberofdoors)
+	print (n)
+
+	
+	if numberofdoors == 1:
+		if n == 0:
+			Global.isenemyexist = [0,0,0,0]
+		elif n == 1:
+			Global.isenemyexist = [0,enemy1type,0,0]		
+	elif numberofdoors == 2:
+		if n == 0:
+			Global.isenemyexist = [0,0,0,0]
+		elif n == 1:#variasi
+			var v = rng.randi_range(0,1)
+			if v ==0:
+				Global.isenemyexist = [0,enemy1type,0,0]
+			else :		
+				Global.isenemyexist = [0,0,enemy1type,0]
+		elif n == 2	:
+			Global.isenemyexist = [0,enemy1type,enemy2type,0]			
+	else : 	
+		if n == 0:
+			Global.isenemyexist = [0,0,0,0]
+		elif n == 1:
+			Global.isenemyexist = [0,0,enemy1type,0]	
+		elif n == 2	:
+			Global.isenemyexist = [0,enemy1type,0,enemy2type]	
+		else :
+			Global.isenemyexist = [0,enemy1type,enemy2type,enemy3type]	
+	
+		
+func loadnextlevel(doortype):	
+	var d = generatenumberofdoors()
 	
 	Global.door1type = generatedoortype()
 	Global.door2type = generatedoortype()
@@ -140,6 +256,10 @@ func loadnextlevel():
 
 	Global.arraydooropen = [0,0,0,0]
 	Global.currentdoor = 0
+	
+	Global.previousdoortype = doortype
+	
+	generateenemyarray(d)
 	
 	get_tree().change_scene_to_file("res://scenes/level.tscn") 
 

@@ -44,6 +44,8 @@ func loadnextlevel():
 	Global.arraydooropen = [0,0,0,0]
 	Global.currentdoor = 0
 	
+	#yg awal ga ada enemy ya
+	#previous doortype juga ga ada?
 	get_tree().change_scene_to_file("res://scenes/level.tscn") 
 
 

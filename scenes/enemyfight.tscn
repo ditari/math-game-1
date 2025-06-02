@@ -1,0 +1,62 @@
+[gd_scene load_steps=4 format=3 uid="uid://tt6etmx0je27"]
+
+[ext_resource type="Script" path="res://scripts/enemyfight.gd" id="1_julud"]
+[ext_resource type="Texture2D" uid="uid://bvpce48rytcm2" path="res://assets/bg.png" id="2_1ixrh"]
+[ext_resource type="Texture2D" uid="uid://cxlg8b83gj1vt" path="res://assets/box.png" id="3_fwey7"]
+
+[node name="enemyfight" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -720.0
+offset_bottom = -1280.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_julud")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 720.0
+offset_bottom = 1280.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_1ixrh")
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+position = Vector2(141, 334)
+scale = Vector2(2.32813, 1)
+texture_normal = ExtResource("3_fwey7")
+
+[node name="Label" type="Label" parent="TouchScreenButton"]
+offset_left = 3.0
+offset_top = 10.0
+offset_right = 67.0
+offset_bottom = 52.0
+text = "correct"
+
+[node name="TouchScreenButton2" type="TouchScreenButton" parent="."]
+position = Vector2(383, 326)
+scale = Vector2(2.73438, 1)
+texture_normal = ExtResource("3_fwey7")
+
+[node name="Label" type="Label" parent="TouchScreenButton2"]
+offset_left = 9.87428
+offset_top = 18.0
+offset_right = 49.8743
+offset_bottom = 41.0
+text = "wrong"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 330.0
+offset_top = 117.0
+offset_right = 394.0
+offset_bottom = 143.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "enemy fight"
+
+[connection signal="pressed" from="TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]
+[connection signal="pressed" from="TouchScreenButton2" to="." method="_on_touch_screen_button_2_pressed"]

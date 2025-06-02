@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bo58wgpqbvvbx"]
+
+[ext_resource type="Texture2D" uid="uid://b2m2fkjm8lli0" path="res://assets/enemy2.png" id="1_5j4t2"]
+[ext_resource type="Script" path="res://scripts/enemy2.gd" id="1_lpf3n"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_lpf3n")
+
+[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+texture_normal = ExtResource("1_5j4t2")

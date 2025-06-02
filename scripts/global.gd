@@ -15,7 +15,17 @@ var arraydooropen = [0,0,0,0]
 #arraydooropen [1] berarti door1open 
 
 var currentdoor = 0
+var previousdoortype = 0 #untuk generate chance apakah ada treasure enemy atau apa
 
-var isenemyexist = 0
+#---------
+var isenemyexist = [0,0,0,0]
+#posisi enemy kalau satu berarti di pintu tengah [0,0,1,0]
+#kalau ada dua enemy berarti di kanan kiri [0,1,0,1]
+#kalau ada tiga enemy semua [0,1,1,1]
+#enemy 1 tipe 1
+#enemy 2 tipe 2 misal [0,1,2,1] berarti ada tiga enemy
+
+var currentenemy = 0
+
 
 var hasredkey = 1
