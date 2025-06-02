@@ -6,6 +6,7 @@
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_n3g4j")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(65, 65)
-texture = ExtResource("1_eigj0")
+[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
+texture_normal = ExtResource("1_eigj0")
+
+[connection signal="pressed" from="TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]

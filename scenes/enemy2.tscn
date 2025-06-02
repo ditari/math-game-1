@@ -8,3 +8,5 @@ script = ExtResource("1_lpf3n")
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="."]
 texture_normal = ExtResource("1_5j4t2")
+
+[connection signal="pressed" from="TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]

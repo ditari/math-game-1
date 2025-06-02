@@ -25,6 +25,7 @@ var isenemyexist = [0,0,0,0]
 #enemy 1 tipe 1
 #enemy 2 tipe 2 misal [0,1,2,1] berarti ada tiga enemy
 
+#ini position ya kalau 1 berarti di door kiri
 var currentenemy = 0
 
 

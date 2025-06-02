@@ -41,8 +41,6 @@ func update_sprite_position():
 	if numberofdoors == 3:
 		createdoor(3, Global.door3type)	
 	
-	#$enemy.position.y = (3*ygaps) + 128
-	#$enemy.position.x = (screen_size.x - 128)/2
 	generateenemy()
 
 	#treasure ga pakai pc
@@ -128,13 +126,23 @@ func enemytype(xpos,ypos,number,type) :
 		enemy = enemy2.instantiate()
 	else :
 		enemy = enemy3.instantiate()
+		
+	enemy.connect("button_pressed", _enemy_on_button_pressed)
 	
 	enemy.position = Vector2(xpos,ypos)
 	enemy.number = number
 	enemy.type = type
 	$array.add_child(enemy)	
 			
+func _enemy_on_button_pressed(number,type):
+	print("here9")
+	Global.currentenemy = number
+	
+	#jika type 1 ke scene 1
+	#jika type2 ke scene 2
+	get_tree().change_scene_to_file("res://scenes/enemy1fightlv1.tscn") 
 
+	
 #---------------generate buat level berikutnya-----------
 func generatedoortype():
 	var type
@@ -198,7 +206,7 @@ func generateenemyarray(numberofdoors):
 	#	n = numberofdoors 
 	# masalahnya kalau ga kayak gini bisa enemy ada 2 pintu ada 1
 	var n = rng.randi_range(0,numberofdoors)
-	print (n)
+	#print (n)
 
 	
 	if numberofdoors == 1:

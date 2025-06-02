@@ -13,8 +13,8 @@ func _process(delta):
 
 #jika win
 func _on_touch_screen_button_pressed():
-	#var n = Global.currentdoor
-	#Global.arraydooropen[n] = 1
+	var n = Global.currentenemy
+	Global.isenemyexist[n] = 0
 	
 	#dapat gold atau dapat redkey
 	get_tree().change_scene_to_file("res://scenes/level.tscn") 
