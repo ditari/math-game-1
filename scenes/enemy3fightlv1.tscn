@@ -1,10 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://dv1ejyp3beg81"]
+[gd_scene load_steps=4 format=3 uid="uid://dydkspcliia1p"]
 
-[ext_resource type="Script" path="res://scripts/enemy1fightlv1.gd" id="1_ae76m"]
-[ext_resource type="Texture2D" uid="uid://bvpce48rytcm2" path="res://assets/bg.png" id="2_1udob"]
-[ext_resource type="Texture2D" uid="uid://cxlg8b83gj1vt" path="res://assets/box.png" id="3_4l7px"]
+[ext_resource type="Script" path="res://scripts/enemy3fightlv1.gd" id="1_i5jdc"]
+[ext_resource type="Texture2D" uid="uid://bvpce48rytcm2" path="res://assets/bg.png" id="2_rrfiv"]
+[ext_resource type="Texture2D" uid="uid://cxlg8b83gj1vt" path="res://assets/box.png" id="3_oy722"]
 
-[node name="enemy1fight" type="Control"]
+[node name="enemy3fight" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -13,7 +13,7 @@ offset_right = -720.0
 offset_bottom = -1280.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_ae76m")
+script = ExtResource("1_i5jdc")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -24,12 +24,12 @@ offset_right = 720.0
 offset_bottom = 1280.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_1udob")
+texture = ExtResource("2_rrfiv")
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="."]
 position = Vector2(141, 334)
 scale = Vector2(2.32813, 1)
-texture_normal = ExtResource("3_4l7px")
+texture_normal = ExtResource("3_oy722")
 
 [node name="Label" type="Label" parent="TouchScreenButton"]
 offset_left = 3.0
@@ -41,7 +41,7 @@ text = "correct"
 [node name="TouchScreenButton2" type="TouchScreenButton" parent="."]
 position = Vector2(383, 326)
 scale = Vector2(2.73438, 1)
-texture_normal = ExtResource("3_4l7px")
+texture_normal = ExtResource("3_oy722")
 
 [node name="Label" type="Label" parent="TouchScreenButton2"]
 offset_left = 9.87428
@@ -57,8 +57,8 @@ offset_top = 117.0
 offset_right = 394.0
 offset_bottom = 143.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
-text = "enemy 1 fight"
+theme_override_font_sizes/font_size = 40
+text = "enemy 3 fight"
 
 [connection signal="pressed" from="TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]
 [connection signal="pressed" from="TouchScreenButton2" to="." method="_on_touch_screen_button_2_pressed"]

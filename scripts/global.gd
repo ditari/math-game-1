@@ -27,6 +27,7 @@ var isenemyexist = [0,0,0,0]
 
 #ini position ya kalau 1 berarti di door kiri
 var currentenemy = 0
+var currentenemytype = 0
 
-
+#ini belum dihapus, nanti kayaknya berdasarkan jumlah enemy atau apa
 var hasredkey = 1

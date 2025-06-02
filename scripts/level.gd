@@ -56,13 +56,13 @@ func createdoor(doorposition, type):
 	
 	if type == 1 :
 		door = emptydoorscene.instantiate()
-		door.connect("button_pressed", self._emptydoor_on_button_pressed.bind(door))
+		door.connect("button_pressed", self._emptydoor_on_button_pressed)
 	elif type == 2:
 		door = stripedoorscene.instantiate()
 		door.connect("button_pressed", _stripedoor_on_button_pressed)
 	else :
 		door = reddoorscene.instantiate()
-		door.connect("button_pressed", self._reddoor_on_button_pressed.bind(door))
+		door.connect("button_pressed", _reddoor_on_button_pressed)
 	
 	var n = 0
 	if  doorposition == 1 :
@@ -77,28 +77,48 @@ func createdoor(doorposition, type):
 
 	door.number = n		
 	$array.add_child(door)
-	#if door1open is true play animation open
+	#if dooropen is true play animation open
 	if Global.arraydooropen [n] == 1 :
 		door.get_node("AnimatedSprite2D").play("open")
 	
-func _emptydoor_on_button_pressed(sender):
-	sender.get_node("AnimatedSprite2D").play("open")
-	await get_tree().create_timer(0.7).timeout
-	loadnextlevel(1)
+func _emptydoor_on_button_pressed(sender, number):
+	#jika tidak ada enemy
+	if Global.isenemyexist[number]==0:	
+		sender.get_node("AnimatedSprite2D").play("open")
+		await get_tree().create_timer(0.7).timeout
+		loadnextlevel(1)
+	else :
+		print("enemy block the door")	
 
 func _stripedoor_on_button_pressed(number):
-	#kalau door open
-	if Global.arraydooropen [number] == 1 :
-		loadnextlevel(2)
+	#jika tidak ada enemy
+	if Global.isenemyexist[number]==0:	
+		#kalau door open
+		if Global.arraydooropen [number] == 1 :
+			loadnextlevel(2)
+		#doorclose	
+		else :
+			Global.currentdoor = number
+			get_tree().change_scene_to_file("res://scenes/doorfightlv1.tscn") 
 	else :
-		Global.currentdoor = number
-		get_tree().change_scene_to_file("res://scenes/doorfight.tscn") 
+		print("enemy block the door")	
 	
-func _reddoor_on_button_pressed(sender):
-	if Global.hasredkey == 1:
-		sender.get_node("AnimatedSprite2D").play("open")
-		await get_tree().create_timer(0.7).timeout	
-		loadnextlevel(3)
+func _reddoor_on_button_pressed(number):
+	#jika tidak ada enemy
+	if Global.isenemyexist[number]==0:	
+		#kalau door open
+		if Global.arraydooropen [number] == 1 :
+			loadnextlevel(3)
+		#doorclose	
+		else :
+			Global.currentdoor = number
+			get_tree().change_scene_to_file("res://scenes/doorunlocklv1.tscn") 
+	else :
+		print("enemy block the door")	
+	
+	
+	#	if Global.hasredkey == 1:	
+	#	loadnextlevel(3)
 	#else message you dont have key	
 
 func generateenemy():
@@ -135,13 +155,14 @@ func enemytype(xpos,ypos,number,type) :
 	$array.add_child(enemy)	
 			
 func _enemy_on_button_pressed(number,type):
-	print("here9")
 	Global.currentenemy = number
-	
-	#jika type 1 ke scene 1
-	#jika type2 ke scene 2
-	get_tree().change_scene_to_file("res://scenes/enemy1fightlv1.tscn") 
-
+	Global.currentenemytype = type
+	if type == 1:
+		get_tree().change_scene_to_file("res://scenes/enemy1fightlv1.tscn") 
+	elif type == 2:
+		get_tree().change_scene_to_file("res://scenes/enemy2fightlv1.tscn") 
+	else :
+		get_tree().change_scene_to_file("res://scenes/enemy3fightlv1.tscn") 
 	
 #---------------generate buat level berikutnya-----------
 func generatedoortype():
