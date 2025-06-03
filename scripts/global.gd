@@ -1,5 +1,9 @@
 extends Node
 
+var playerhp = 100
+
+#-------doors-----------
+
 var numberofdoors = 3
 
 #typenya 1 2 3
@@ -17,7 +21,7 @@ var arraydooropen = [0,0,0,0]
 var currentdoor = 0
 var previousdoortype = 0 #untuk generate chance apakah ada treasure enemy atau apa
 
-#---------
+#-------enemy---------
 var isenemyexist = [0,0,0,0]
 #posisi enemy kalau satu berarti di pintu tengah [0,0,1,0]
 #kalau ada dua enemy berarti di kanan kiri [0,1,0,1]

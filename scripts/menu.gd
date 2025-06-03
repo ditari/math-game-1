@@ -46,7 +46,7 @@ func loadnextlevel():
 	
 	#yg awal ga ada enemy ya
 	#previous doortype juga ga ada?
-	get_tree().change_scene_to_file("res://scenes/level.tscn") 
+	get_tree().change_scene_to_file("res://scenes/level1.tscn") 
 
 
 

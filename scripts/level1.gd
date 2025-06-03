@@ -19,7 +19,10 @@ func _ready():
 	update_sprite_position()
 	self.resized.connect(update_sprite_position)  # Godot 4 syntax
 	
-	
+	$playerprogressbar.value = Global.playerhp
+
+
+
 func update_sprite_position():
 	var screen_size = get_viewport_rect().size
 	
@@ -267,9 +270,10 @@ func loadnextlevel(doortype):
 	Global.arraydooropen = [0,0,0,0]
 	Global.currentdoor = 0
 	
+	#utk generate apakah empty, treasure, atau neraca
 	Global.previousdoortype = doortype
 	
 	generateenemyarray(d)
 	
-	get_tree().change_scene_to_file("res://scenes/level.tscn") 
+	get_tree().change_scene_to_file("res://scenes/level1.tscn") 
 

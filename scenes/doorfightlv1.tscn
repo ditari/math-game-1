@@ -1,8 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://83ik1i8q8co0"]
+[gd_scene load_steps=7 format=3 uid="uid://83ik1i8q8co0"]
 
 [ext_resource type="Script" path="res://scripts/doorfightlv1.gd" id="1_llxb1"]
 [ext_resource type="Texture2D" uid="uid://bvpce48rytcm2" path="res://assets/bg.png" id="2_sogsw"]
-[ext_resource type="Texture2D" uid="uid://cxlg8b83gj1vt" path="res://assets/box.png" id="3_tkyu3"]
+[ext_resource type="PackedScene" uid="uid://dij0s1q66u46b" path="res://scenes/stripedoor.tscn" id="3_tkhyb"]
+[ext_resource type="Texture2D" uid="uid://cvyiiftk8jb3m" path="res://assets/fightdoorbutton.png" id="4_5ymxt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cppea"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0cf7v"]
+bg_color = Color(0, 1, 0, 1)
 
 [node name="doorfight" type="Control"]
 layout_mode = 3
@@ -26,29 +33,76 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_sogsw")
 
-[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
-position = Vector2(141, 334)
-scale = Vector2(2.32813, 1)
-texture_normal = ExtResource("3_tkyu3")
+[node name="questionlabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 253.0
+offset_top = 49.0
+offset_right = 677.0
+offset_bottom = 125.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "question"
 
-[node name="Label" type="Label" parent="TouchScreenButton"]
-offset_left = 3.0
-offset_top = 10.0
-offset_right = 67.0
-offset_bottom = 52.0
-text = "correct"
+[node name="Node2D" parent="." instance=ExtResource("3_tkhyb")]
+position = Vector2(266, 137)
 
-[node name="TouchScreenButton2" type="TouchScreenButton" parent="."]
-position = Vector2(383, 326)
-scale = Vector2(2.73438, 1)
-texture_normal = ExtResource("3_tkyu3")
+[node name="button1" type="TouchScreenButton" parent="."]
+position = Vector2(81, 576)
+texture_normal = ExtResource("4_5ymxt")
 
-[node name="Label" type="Label" parent="TouchScreenButton2"]
-offset_left = 9.87428
-offset_top = 18.0
-offset_right = 49.8743
-offset_bottom = 41.0
-text = "wrong"
+[node name="Label1" type="Label" parent="button1"]
+offset_left = 113.0
+offset_top = 36.0
+offset_right = 153.0
+offset_bottom = 59.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 60
+text = "1"
 
-[connection signal="pressed" from="TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]
-[connection signal="pressed" from="TouchScreenButton2" to="." method="_on_touch_screen_button_2_pressed"]
+[node name="button2" type="TouchScreenButton" parent="."]
+position = Vector2(384, 576)
+texture_normal = ExtResource("4_5ymxt")
+
+[node name="Label2" type="Label" parent="button2"]
+offset_left = 58.0
+offset_top = 40.0
+offset_right = 202.0
+offset_bottom = 137.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 60
+text = "2"
+
+[node name="chancelabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 216.0
+offset_top = 487.0
+offset_right = 457.0
+offset_bottom = 545.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "chance = 3/3"
+
+[node name="doorprogressbar" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_left = 235.0
+offset_top = 418.0
+offset_right = 439.0
+offset_bottom = 453.0
+theme_override_styles/background = SubResource("StyleBoxFlat_cppea")
+theme_override_styles/fill = SubResource("StyleBoxFlat_0cf7v")
+max_value = 2.0
+value = 2.0
+show_percentage = false
+
+[node name="playerprogressbar" type="ProgressBar" parent="."]
+offset_left = 150.0
+offset_top = 885.0
+offset_right = 550.0
+offset_bottom = 921.0
+theme_override_styles/background = SubResource("StyleBoxFlat_cppea")
+theme_override_styles/fill = SubResource("StyleBoxFlat_0cf7v")
+value = 100.0
+show_percentage = false
+
+[connection signal="pressed" from="button1" to="." method="_on_button_1_pressed"]
+[connection signal="pressed" from="button2" to="." method="_on_button_2_pressed"]

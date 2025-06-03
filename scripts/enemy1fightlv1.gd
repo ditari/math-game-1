@@ -17,11 +17,11 @@ func _on_touch_screen_button_pressed():
 	Global.isenemyexist[n] = 0
 	
 	#dapat gold atau dapat redkey
-	get_tree().change_scene_to_file("res://scenes/level.tscn") 
+	get_tree().change_scene_to_file("res://scenes/level1.tscn") 
 
 
 
 #jika lose
 func _on_touch_screen_button_2_pressed():
 	#minus hp
-	get_tree().change_scene_to_file("res://scenes/level.tscn") 
+	get_tree().change_scene_to_file("res://scenes/level1.tscn") 
