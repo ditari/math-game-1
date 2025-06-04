@@ -1,8 +1,35 @@
-[gd_scene load_steps=4 format=3 uid="uid://dv1ejyp3beg81"]
+[gd_scene load_steps=21 format=3 uid="uid://dv1ejyp3beg81"]
 
 [ext_resource type="Script" path="res://scripts/enemy1fightlv1.gd" id="1_ae76m"]
 [ext_resource type="Texture2D" uid="uid://bvpce48rytcm2" path="res://assets/bg.png" id="2_1udob"]
-[ext_resource type="Texture2D" uid="uid://cxlg8b83gj1vt" path="res://assets/box.png" id="3_4l7px"]
+[ext_resource type="Texture2D" uid="uid://c51wruap86pcu" path="res://assets/button1.png" id="4_0a2yj"]
+[ext_resource type="Texture2D" uid="uid://ccndmdluck7ud" path="res://assets/enemy1.png" id="4_hfhts"]
+[ext_resource type="Texture2D" uid="uid://vsk2c4drbb5w" path="res://assets/button2.png" id="5_tjhr8"]
+[ext_resource type="Texture2D" uid="uid://drosr1q2rg2k0" path="res://assets/button3.png" id="6_oy1uv"]
+[ext_resource type="Texture2D" uid="uid://b2hbfrygpdqk5" path="res://assets/button4.png" id="7_a016w"]
+[ext_resource type="Texture2D" uid="uid://bwdpwsfhb2yw1" path="res://assets/button5.png" id="8_uy52w"]
+[ext_resource type="Texture2D" uid="uid://clojh8ulkbqk6" path="res://assets/button6.png" id="9_63j0x"]
+[ext_resource type="Texture2D" uid="uid://1lx4vq5nk5ap" path="res://assets/button7.png" id="10_et7wy"]
+[ext_resource type="Texture2D" uid="uid://cwr5c0w2nu3hw" path="res://assets/button8.png" id="11_lchyj"]
+[ext_resource type="Texture2D" uid="uid://b5v7d5qgkpotv" path="res://assets/button9.png" id="12_33yjv"]
+[ext_resource type="Texture2D" uid="uid://dax4g4na18r2j" path="res://assets/buttonerase.png" id="13_hjd2a"]
+[ext_resource type="Texture2D" uid="uid://cc1jr45t8la7f" path="res://assets/button0.png" id="14_3pj6d"]
+[ext_resource type="Texture2D" uid="uid://cowvf03ye42df" path="res://assets/buttonequal.png" id="15_5v8qt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ircx0"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0dn4y"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0kb6y"]
+bg_color = Color(0, 1, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uhv3h"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eetr1"]
+bg_color = Color(0, 0, 1, 1)
 
 [node name="enemy1fight" type="Control"]
 layout_mode = 3
@@ -26,39 +53,175 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_1udob")
 
-[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
-position = Vector2(141, 334)
-scale = Vector2(2.32813, 1)
-texture_normal = ExtResource("3_4l7px")
+[node name="Enemy1" type="Sprite2D" parent="."]
+position = Vector2(350, 288)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("4_hfhts")
 
-[node name="Label" type="Label" parent="TouchScreenButton"]
-offset_left = 3.0
-offset_top = 10.0
-offset_right = 67.0
-offset_bottom = 52.0
-text = "correct"
-
-[node name="TouchScreenButton2" type="TouchScreenButton" parent="."]
-position = Vector2(383, 326)
-scale = Vector2(2.73438, 1)
-texture_normal = ExtResource("3_4l7px")
-
-[node name="Label" type="Label" parent="TouchScreenButton2"]
-offset_left = 9.87428
-offset_top = 18.0
-offset_right = 49.8743
-offset_bottom = 41.0
-text = "wrong"
-
-[node name="Label" type="Label" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
-offset_left = 330.0
-offset_top = 117.0
-offset_right = 394.0
-offset_bottom = 143.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 30
-text = "enemy 1 fight"
+offset_left = 1.0
+offset_top = 679.0
+offset_right = 720.0
+offset_bottom = 1159.0
+theme_override_constants/separation = 16
 
-[connection signal="pressed" from="TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]
-[connection signal="pressed" from="TouchScreenButton2" to="." method="_on_touch_screen_button_2_pressed"]
+[node name="HBoxContainer1" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="Button1" type="Button" parent="VBoxContainer/HBoxContainer1"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_ircx0")
+icon = ExtResource("4_0a2yj")
+
+[node name="Button2" type="Button" parent="VBoxContainer/HBoxContainer1"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_ircx0")
+icon = ExtResource("5_tjhr8")
+
+[node name="Button3" type="Button" parent="VBoxContainer/HBoxContainer1"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_ircx0")
+icon = ExtResource("6_oy1uv")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="Button4" type="Button" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_ircx0")
+icon = ExtResource("7_a016w")
+
+[node name="Button5" type="Button" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_ircx0")
+icon = ExtResource("8_uy52w")
+
+[node name="Button6" type="Button" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_ircx0")
+icon = ExtResource("9_63j0x")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="Button7" type="Button" parent="VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_ircx0")
+icon = ExtResource("10_et7wy")
+
+[node name="Button8" type="Button" parent="VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_ircx0")
+icon = ExtResource("11_lchyj")
+
+[node name="Button9" type="Button" parent="VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_ircx0")
+icon = ExtResource("12_33yjv")
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="Buttonerase" type="Button" parent="VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_ircx0")
+icon = ExtResource("13_hjd2a")
+
+[node name="Button0" type="Button" parent="VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_ircx0")
+icon = ExtResource("14_3pj6d")
+
+[node name="Buttonequal" type="Button" parent="VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_ircx0")
+icon = ExtResource("15_5v8qt")
+
+[node name="enemyprogressbar" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_left = 101.0
+offset_top = 117.0
+offset_right = 598.0
+offset_bottom = 160.0
+theme_override_styles/background = SubResource("StyleBoxFlat_0dn4y")
+theme_override_styles/fill = SubResource("StyleBoxFlat_0kb6y")
+max_value = 3.0
+value = 3.0
+show_percentage = false
+
+[node name="playerprogressbar" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_left = 108.0
+offset_top = 1182.0
+offset_right = 605.0
+offset_bottom = 1225.0
+theme_override_styles/background = SubResource("StyleBoxFlat_0dn4y")
+theme_override_styles/fill = SubResource("StyleBoxFlat_0kb6y")
+value = 100.0
+show_percentage = false
+
+[node name="timerprogressbar" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 61.0
+offset_right = 595.0
+offset_bottom = 103.0
+theme_override_styles/background = SubResource("StyleBoxFlat_uhv3h")
+theme_override_styles/fill = SubResource("StyleBoxFlat_eetr1")
+max_value = 10.0
+value = 10.0
+show_percentage = false
+
+[node name="questionlabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 89.0
+offset_top = 437.0
+offset_right = 418.0
+offset_bottom = 536.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 70
+text = "question"
+
+[node name="chancelabel" type="Label" parent="."]
+offset_left = 140.0
+offset_top = 553.0
+offset_right = 654.0
+offset_bottom = 633.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "chance = 3/3"
+
+[node name="answerlabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 433.0
+offset_top = 430.0
+offset_right = 679.0
+offset_bottom = 529.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 70
+text = "answer"
+
+[node name="timer" type="Timer" parent="."]
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer1/Button1" to="." method="_on_button_1_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer1/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer1/Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/Button4" to="." method="_on_button_4_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/Button5" to="." method="_on_button_5_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/Button6" to="." method="_on_button_6_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer3/Button7" to="." method="_on_button_7_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer3/Button8" to="." method="_on_button_8_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer3/Button9" to="." method="_on_button_9_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer4/Buttonerase" to="." method="_on_buttonerase_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer4/Button0" to="." method="_on_button_0_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer4/Buttonequal" to="." method="_on_buttonequal_pressed"]
+[connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]

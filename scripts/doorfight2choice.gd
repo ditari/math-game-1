@@ -9,6 +9,7 @@ var wronganswer = 0
 
 var chance = 3
 var doorhp = 2
+var minusplayer = 5
 
 var rng = RandomNumberGenerator.new()	
 
@@ -85,7 +86,7 @@ func _on_button_1_pressed():
 	if correctchoice == 1:
 		doorhp = doorhp - 1
 	else:
-		Global.playerhp = Global.playerhp - 5
+		Global.playerhp = Global.playerhp - minusplayer
 		chance = chance - 1
 	
 	generatenext = 1
@@ -95,7 +96,7 @@ func _on_button_2_pressed():
 	if correctchoice == 2:
 		doorhp = doorhp - 1
 	else:
-		Global.playerhp = Global.playerhp - 5
+		Global.playerhp = Global.playerhp - minusplayer
 		chance = chance - 1
 				
 	generatenext = 1
