@@ -38,10 +38,10 @@ texture = ExtResource("2_vvfab")
 
 [node name="playerprogressbar" type="ProgressBar" parent="."]
 layout_mode = 0
-offset_left = 135.0
-offset_top = 1095.0
-offset_right = 570.0
-offset_bottom = 1125.0
+offset_left = 136.0
+offset_top = 1155.0
+offset_right = 571.0
+offset_bottom = 1185.0
 theme_override_styles/background = SubResource("StyleBoxFlat_5ohby")
 theme_override_styles/fill = SubResource("StyleBoxFlat_o0eeb")
 value = 100.0

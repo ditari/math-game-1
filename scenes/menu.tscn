@@ -27,7 +27,7 @@ grow_vertical = 2
 texture = ExtResource("2_p1cjg")
 
 [node name="TouchScreenButton" type="TouchScreenButton" parent="."]
-position = Vector2(305, 315)
+position = Vector2(256, 127)
 scale = Vector2(2.65625, 1)
 texture_normal = ExtResource("3_rgr6g")
 
@@ -36,5 +36,22 @@ offset_right = 40.0
 offset_bottom = 23.0
 text = "play
 "
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+icon = ExtResource("3_rgr6g")
+
+[node name="Button2" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+icon = ExtResource("3_rgr6g")
+
+[node name="Button3" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+icon = ExtResource("3_rgr6g")
 
 [connection signal="pressed" from="TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]

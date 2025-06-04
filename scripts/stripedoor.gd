@@ -6,5 +6,7 @@ var number
 signal button_pressed(number)
 
 
-func _on_touch_screen_button_pressed():
+
+func _on_button_pressed():
 	emit_signal("button_pressed", number)
+

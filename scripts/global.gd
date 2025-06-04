@@ -1,5 +1,6 @@
 extends Node
 
+var currentlevel = 1
 var playerhp = 100
 
 #-------doors-----------
@@ -27,11 +28,11 @@ var isenemyexist = [0,0,0,0]
 #kalau ada dua enemy berarti di kanan kiri [0,1,0,1]
 #kalau ada tiga enemy semua [0,1,1,1]
 #enemy 1 tipe 1
-#enemy 2 tipe 2 misal [0,1,2,1] berarti ada tiga enemy
+#enemy 2 tipe 2 misal [0,1,2,3] berarti ada tiga enemy, masing2 beda tipe
 
 #ini position ya kalau 1 berarti di door kiri
 var currentenemy = 0
 var currentenemytype = 0
 
-#ini belum dihapus, nanti kayaknya berdasarkan jumlah enemy atau apa
+#----ini belum dihapus, nanti kayaknya berdasarkan jumlah enemy atau apa
 var hasredkey = 1

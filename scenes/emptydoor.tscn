@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cfjxa4uinto0r"]
+[gd_scene load_steps=5 format=3 uid="uid://cfjxa4uinto0r"]
 
 [ext_resource type="Texture2D" uid="uid://bpx84r6jhh4x7" path="res://assets/emptydoor.png" id="1_anopc"]
 [ext_resource type="Script" path="res://scripts/emptydoor.gd" id="1_bdmqs"]
 [ext_resource type="Texture2D" uid="uid://omshdcf8q1ew" path="res://assets/emptydooropen.png" id="3_5lsqo"]
-[ext_resource type="Texture2D" uid="uid://dti68rs4l3ogj" path="res://assets/buttondoor.png" id="4_1wsxk"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_50ann"]
 animations = [{
@@ -27,12 +26,13 @@ animations = [{
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_bdmqs")
 
+[node name="Button" type="Button" parent="."]
+offset_right = 126.0
+offset_bottom = 253.0
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(64, 126)
 sprite_frames = SubResource("SpriteFrames_50ann")
 animation = &"close"
 
-[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
-texture_normal = ExtResource("4_1wsxk")
-
-[connection signal="pressed" from="TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

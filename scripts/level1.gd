@@ -6,7 +6,7 @@ var reddoorscene: PackedScene = load("res://scenes/reddoor.tscn")
 
 var enemy1: PackedScene = load("res://scenes/enemy1.tscn")
 var enemy2: PackedScene = load("res://scenes/enemy2.tscn")
-var enemy3: PackedScene = load("res://scenes/enemy3.tscn")
+#var enemy3: PackedScene = load("res://scenes/enemy3.tscn") untuk level 1 hanya 2 enemy
 
 var door
 var enemy
@@ -102,7 +102,7 @@ func _stripedoor_on_button_pressed(number):
 		#doorclose	
 		else :
 			Global.currentdoor = number
-			get_tree().change_scene_to_file("res://scenes/doorfightlv1.tscn") 
+			get_tree().change_scene_to_file("res://scenes/doorfight2choice.tscn") 
 	else :
 		print("enemy block the door")	
 	
@@ -145,11 +145,9 @@ func generateenemy():
 func enemytype(xpos,ypos,number,type) :
 	if type == 1:
 		enemy = enemy1.instantiate()
-	elif type == 2:
+	else:
 		enemy = enemy2.instantiate()
-	else :
-		enemy = enemy3.instantiate()
-		
+	
 	enemy.connect("button_pressed", _enemy_on_button_pressed)
 	
 	enemy.position = Vector2(xpos,ypos)
@@ -162,10 +160,8 @@ func _enemy_on_button_pressed(number,type):
 	Global.currentenemytype = type
 	if type == 1:
 		get_tree().change_scene_to_file("res://scenes/enemy1fightlv1.tscn") 
-	elif type == 2:
+	else:
 		get_tree().change_scene_to_file("res://scenes/enemy2fightlv1.tscn") 
-	else :
-		get_tree().change_scene_to_file("res://scenes/enemy3fightlv1.tscn") 
 	
 #---------------generate buat level berikutnya-----------
 func generatedoortype():
@@ -220,9 +216,10 @@ func generatenumberofdoors():
 
 func generateenemyarray(numberofdoors):
 	var rng = RandomNumberGenerator.new()	
-	var enemy1type = rng.randi_range(1, 3)
-	var enemy2type = rng.randi_range(1, 3)
-	var enemy3type = rng.randi_range(1, 3)
+	#hanya ada 2 tipe enemy jadi randi_range(1,2)
+	var enemy1type = rng.randi_range(1, 2)
+	var enemy2type = rng.randi_range(1, 2)
+	var enemy3type = rng.randi_range(1, 2)
 
 	#jumlah enemy	
 	#var n = generatenumberofenemy()
