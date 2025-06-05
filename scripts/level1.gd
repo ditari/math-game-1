@@ -158,10 +158,10 @@ func enemytype(xpos,ypos,number,type) :
 func _enemy_on_button_pressed(number,type):
 	Global.currentenemy = number
 	Global.currentenemytype = type
-	if type == 1:
-		get_tree().change_scene_to_file("res://scenes/enemy1fightlv1.tscn") 
-	else:
-		get_tree().change_scene_to_file("res://scenes/enemy2fightlv1.tscn") 
+	#if type == 1:
+	get_tree().change_scene_to_file("res://scenes/enemyfight.tscn") 
+	#else:
+	#	get_tree().change_scene_to_file("res://scenes/enemy2fightlv1.tscn") 
 	
 #---------------generate buat level berikutnya-----------
 func generatedoortype():

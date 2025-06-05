@@ -32,6 +32,6 @@ var isenemyexist = [0,0,0,0]
 
 #ini position ya kalau 1 berarti di door kiri
 var currentenemy = 0
-var currentenemytype = 0
+var currentenemytype = 2
 
 var enemydefeated = 0 #jumlah enemy defeated
