@@ -132,6 +132,8 @@ func win():
 	var n = Global.currentenemy
 	Global.isenemyexist[n] = 0
 	
+	Global.enemydefeated = Global.enemydefeated + 1
+	
 	print("you win")
 	#dapat gold atau dapat redkey
 	get_tree().change_scene_to_file("res://scenes/level1.tscn") 

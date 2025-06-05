@@ -192,6 +192,7 @@ theme_override_font_sizes/font_size = 70
 text = "question"
 
 [node name="chancelabel" type="Label" parent="."]
+layout_mode = 0
 offset_left = 140.0
 offset_top = 553.0
 offset_right = 654.0

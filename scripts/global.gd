@@ -34,5 +34,4 @@ var isenemyexist = [0,0,0,0]
 var currentenemy = 0
 var currentenemytype = 0
 
-#----ini belum dihapus, nanti kayaknya berdasarkan jumlah enemy atau apa
-var hasredkey = 1
+var enemydefeated = 0 #jumlah enemy defeated

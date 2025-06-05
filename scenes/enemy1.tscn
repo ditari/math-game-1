@@ -1,12 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://cjvrhlo8gwtje"]
+[gd_scene load_steps=5 format=3 uid="uid://cjvrhlo8gwtje"]
 
 [ext_resource type="Texture2D" uid="uid://ccndmdluck7ud" path="res://assets/enemy1.png" id="1_0mvor"]
 [ext_resource type="Script" path="res://scripts/enemy1.gd" id="1_q1qcy"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_obxap"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_scfm5"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_q1qcy")
 
-[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
-texture_normal = ExtResource("1_0mvor")
+[node name="Button" type="Button" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_obxap")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_scfm5")
+icon = ExtResource("1_0mvor")
 
-[connection signal="pressed" from="TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

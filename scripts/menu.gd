@@ -16,7 +16,7 @@ func generatedoortype():
 	var rng = RandomNumberGenerator.new()	
 	var r
 	#jika tidak ada red key hanya akan digenerate 2 pintu 
-	if Global.hasredkey == 0 :
+	if Global.enemydefeated < 3 :
 		r = rng.randi_range(0, 2)
 		if r <= 1 :
 			type = 1
