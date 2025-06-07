@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://blmrdb4q84ttc"]
+[gd_scene load_steps=3 format=3 uid="uid://blmrdb4q84ttc"]
 
 [ext_resource type="Script" path="res://scripts/doorunlocklv1.gd" id="1_ti3ky"]
 [ext_resource type="Texture2D" uid="uid://bvpce48rytcm2" path="res://assets/bg.png" id="2_yacfo"]
-[ext_resource type="Texture2D" uid="uid://cxlg8b83gj1vt" path="res://assets/box.png" id="3_qrf7b"]
 
 [node name="doorunlock" type="Control"]
 layout_mode = 3
@@ -26,30 +25,6 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_yacfo")
 
-[node name="TouchScreenButton" type="TouchScreenButton" parent="."]
-position = Vector2(141, 334)
-scale = Vector2(2.32813, 1)
-texture_normal = ExtResource("3_qrf7b")
-
-[node name="Label" type="Label" parent="TouchScreenButton"]
-offset_left = 3.0
-offset_top = 10.0
-offset_right = 67.0
-offset_bottom = 52.0
-text = "success"
-
-[node name="TouchScreenButton2" type="TouchScreenButton" parent="."]
-position = Vector2(383, 326)
-scale = Vector2(2.73438, 1)
-texture_normal = ExtResource("3_qrf7b")
-
-[node name="Label" type="Label" parent="TouchScreenButton2"]
-offset_left = 9.87428
-offset_top = 18.0
-offset_right = 49.8743
-offset_bottom = 41.0
-text = "fail"
-
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
 offset_left = 330.0
@@ -58,7 +33,25 @@ offset_right = 394.0
 offset_bottom = 143.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
-text = "door unlock"
+text = "unlock red door"
 
-[connection signal="pressed" from="TouchScreenButton" to="." method="_on_touch_screen_button_pressed"]
-[connection signal="pressed" from="TouchScreenButton2" to="." method="_on_touch_screen_button_2_pressed"]
+[node name="unlock" type="Button" parent="."]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 297.0
+offset_right = 88.0
+offset_bottom = 328.0
+theme_override_font_sizes/font_size = 60
+text = "unlock"
+
+[node name="goback" type="Button" parent="."]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 427.0
+offset_right = 100.0
+offset_bottom = 458.0
+theme_override_font_sizes/font_size = 60
+text = "go back"
+
+[connection signal="pressed" from="unlock" to="." method="_on_unlock_pressed"]
+[connection signal="pressed" from="goback" to="." method="_on_goback_pressed"]

@@ -15,22 +15,12 @@ func generatedoortype():
 	var type
 	var rng = RandomNumberGenerator.new()	
 	var r
-	#jika tidak ada red key hanya akan digenerate 2 pintu 
-	if Global.enemydefeated < 3 :
-		r = rng.randi_range(0, 2)
-		if r <= 1 :
-			type = 1
-		else :
-			type = 2
-	else:
-		r = rng.randi_range(0, 5)
-		if r <= 2 :
-			type = 1
-		elif r <= 4:
-			type = 2
-		else :
-			type = 3
-	#print(type)	
+	#hanya bisa generate dua type pintu kalau dari awal
+	r = rng.randi_range(0, 2)
+	if r <= 1 :
+		type = 1
+	else :
+		type = 2
 		
 	return type
 	

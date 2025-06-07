@@ -22,43 +22,37 @@ var enemytype = Global.currentenemytype
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	if enemytype == 1 :
-		enemy = enemy1.instantiate()
-	elif enemytype == 2 :	
-		enemy = enemy2.instantiate()
-
-	enemy.position = Vector2(275,200)
-	enemy.scale = Vector2(1.5,1.5)
-	add_child(enemy)
+	pass
 	
-	generatequestion(enemytype)
+	#generatequestion(enemytype)
 	
-	$enemyprogressbar.value = enemyhp
-	$playerprogressbar.value = Global.playerhp
+	#$enemyprogressbar.value = enemyhp
+	#$playerprogressbar.value = Global.playerhp
 	
-	$timer.wait_time = 15
-	$timer.start() 
+	#$timer.wait_time = 15
+	#$timer.start() 
 	
 
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if $timer.time_left > 0 and chance > 0:
-		$timerprogressbar.value = $timer.time_left
+	pass
+	#if $timer.time_left > 0 and chance > 0:
+	#	$timerprogressbar.value = $timer.time_left
 	
-	$answerlabel.text = inputanswer
-	$chancelabel.text = "chance = " + str(chance) + "/3"
+	#$answerlabel.text = inputanswer
+	#$chancelabel.text = "chance = " + str(chance) + "/3"
 	
-	$enemyprogressbar.value = enemyhp
-	$playerprogressbar.value = Global.playerhp
+	#$enemyprogressbar.value = enemyhp
+	#$playerprogressbar.value = Global.playerhp
 	
 	#checkifchance==0 or enemyhp == 0
 	#win or lose
-	if chance == 0 :
-		lose()
-	elif enemyhp == 0:
-		win()
+	#if chance == 0 :
+	#	lose()
+	#elif enemyhp == 0:
+	#	win()
 	
 func generatequestion(type):
 	if type == 1:

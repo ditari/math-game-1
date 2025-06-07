@@ -1,19 +1,20 @@
-[gd_scene load_steps=20 format=3 uid="uid://tt6etmx0je27"]
+[gd_scene load_steps=21 format=3 uid="uid://bw3l045d4fh4j"]
 
-[ext_resource type="Script" path="res://scripts/enemyfight.gd" id="1_x4d4t"]
-[ext_resource type="Texture2D" uid="uid://bvpce48rytcm2" path="res://assets/bg.png" id="2_rtpty"]
-[ext_resource type="Texture2D" uid="uid://g2unsy62kybf" path="res://assets/button1.png" id="3_xfg24"]
-[ext_resource type="Texture2D" uid="uid://n6l4w2f5m0wo" path="res://assets/button2.png" id="4_3j04u"]
-[ext_resource type="Texture2D" uid="uid://c3lg68fuoleq" path="res://assets/button3.png" id="5_b0ehp"]
-[ext_resource type="Texture2D" uid="uid://dws3yr7fao6k3" path="res://assets/button4.png" id="6_qsop8"]
-[ext_resource type="Texture2D" uid="uid://bdxaf1r2d8jg8" path="res://assets/button5.png" id="7_vq5sl"]
-[ext_resource type="Texture2D" uid="uid://crarjfcjmd0an" path="res://assets/button6.png" id="8_4esu6"]
-[ext_resource type="Texture2D" uid="uid://b08xibxf51dn4" path="res://assets/button7.png" id="9_k8p1t"]
-[ext_resource type="Texture2D" uid="uid://d1sg2u1ty22hr" path="res://assets/button8.png" id="10_istq7"]
-[ext_resource type="Texture2D" uid="uid://b3ij4lsmquqdb" path="res://assets/button9.png" id="11_wcb0x"]
-[ext_resource type="Texture2D" uid="uid://cp0bb721qtesq" path="res://assets/buttonerase.png" id="12_qao2c"]
-[ext_resource type="Texture2D" uid="uid://cf0w6xhl2dqci" path="res://assets/button0.png" id="13_hg3ir"]
-[ext_resource type="Texture2D" uid="uid://c1kem7lslqedp" path="res://assets/buttonequal.png" id="14_8l7ne"]
+[ext_resource type="Script" path="res://scripts/bossfightlv1.gd" id="1_moy5y"]
+[ext_resource type="Texture2D" uid="uid://bvpce48rytcm2" path="res://assets/bg.png" id="2_fpu5n"]
+[ext_resource type="Texture2D" uid="uid://g2unsy62kybf" path="res://assets/button1.png" id="3_fmdgf"]
+[ext_resource type="Texture2D" uid="uid://n6l4w2f5m0wo" path="res://assets/button2.png" id="4_1n1d4"]
+[ext_resource type="Texture2D" uid="uid://c3lg68fuoleq" path="res://assets/button3.png" id="5_xv2lu"]
+[ext_resource type="Texture2D" uid="uid://dws3yr7fao6k3" path="res://assets/button4.png" id="6_kj0o6"]
+[ext_resource type="Texture2D" uid="uid://bdxaf1r2d8jg8" path="res://assets/button5.png" id="7_k07tb"]
+[ext_resource type="Texture2D" uid="uid://crarjfcjmd0an" path="res://assets/button6.png" id="8_wgoxj"]
+[ext_resource type="Texture2D" uid="uid://b08xibxf51dn4" path="res://assets/button7.png" id="9_es8t8"]
+[ext_resource type="Texture2D" uid="uid://d1sg2u1ty22hr" path="res://assets/button8.png" id="10_gfxgb"]
+[ext_resource type="Texture2D" uid="uid://b3ij4lsmquqdb" path="res://assets/button9.png" id="11_0bdgk"]
+[ext_resource type="Texture2D" uid="uid://cp0bb721qtesq" path="res://assets/buttonerase.png" id="12_4ksla"]
+[ext_resource type="Texture2D" uid="uid://cf0w6xhl2dqci" path="res://assets/button0.png" id="13_mcmmx"]
+[ext_resource type="Texture2D" uid="uid://c1kem7lslqedp" path="res://assets/buttonequal.png" id="14_q5qy4"]
+[ext_resource type="PackedScene" uid="uid://cfjxa4uinto0r" path="res://scenes/emptydoor.tscn" id="14_wv38k"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ircx0"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -30,7 +31,7 @@ bg_color = Color(0, 0, 0, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eetr1"]
 bg_color = Color(0, 0, 1, 1)
 
-[node name="enemy1fight" type="Control"]
+[node name="bossfight" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -39,7 +40,7 @@ offset_right = -720.0
 offset_bottom = -1280.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_x4d4t")
+script = ExtResource("1_moy5y")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -50,14 +51,14 @@ offset_right = 720.0
 offset_bottom = 1280.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_rtpty")
+texture = ExtResource("2_fpu5n")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
 offset_left = 1.0
-offset_top = 610.0
+offset_top = 644.0
 offset_right = 720.0
-offset_bottom = 1168.0
+offset_bottom = 1180.0
 theme_override_constants/separation = 8
 
 [node name="HBoxContainer1" type="HBoxContainer" parent="VBoxContainer"]
@@ -68,17 +69,17 @@ alignment = 1
 [node name="Button1" type="Button" parent="VBoxContainer/HBoxContainer1"]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_ircx0")
-icon = ExtResource("3_xfg24")
+icon = ExtResource("3_fmdgf")
 
 [node name="Button2" type="Button" parent="VBoxContainer/HBoxContainer1"]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_ircx0")
-icon = ExtResource("4_3j04u")
+icon = ExtResource("4_1n1d4")
 
 [node name="Button3" type="Button" parent="VBoxContainer/HBoxContainer1"]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_ircx0")
-icon = ExtResource("5_b0ehp")
+icon = ExtResource("5_xv2lu")
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -88,17 +89,17 @@ alignment = 1
 [node name="Button4" type="Button" parent="VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_ircx0")
-icon = ExtResource("6_qsop8")
+icon = ExtResource("6_kj0o6")
 
 [node name="Button5" type="Button" parent="VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_ircx0")
-icon = ExtResource("7_vq5sl")
+icon = ExtResource("7_k07tb")
 
 [node name="Button6" type="Button" parent="VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_ircx0")
-icon = ExtResource("8_4esu6")
+icon = ExtResource("8_wgoxj")
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -108,17 +109,17 @@ alignment = 1
 [node name="Button7" type="Button" parent="VBoxContainer/HBoxContainer3"]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_ircx0")
-icon = ExtResource("9_k8p1t")
+icon = ExtResource("9_es8t8")
 
 [node name="Button8" type="Button" parent="VBoxContainer/HBoxContainer3"]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_ircx0")
-icon = ExtResource("10_istq7")
+icon = ExtResource("10_gfxgb")
 
 [node name="Button9" type="Button" parent="VBoxContainer/HBoxContainer3"]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_ircx0")
-icon = ExtResource("11_wcb0x")
+icon = ExtResource("11_0bdgk")
 
 [node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -128,24 +129,24 @@ alignment = 1
 [node name="Buttonerase" type="Button" parent="VBoxContainer/HBoxContainer4"]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_ircx0")
-icon = ExtResource("12_qao2c")
+icon = ExtResource("12_4ksla")
 
 [node name="Button0" type="Button" parent="VBoxContainer/HBoxContainer4"]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_ircx0")
-icon = ExtResource("13_hg3ir")
+icon = ExtResource("13_mcmmx")
 
 [node name="Buttonequal" type="Button" parent="VBoxContainer/HBoxContainer4"]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_ircx0")
-icon = ExtResource("14_8l7ne")
+icon = ExtResource("14_q5qy4")
 
 [node name="enemyprogressbar" type="ProgressBar" parent="."]
 layout_mode = 0
-offset_left = 106.0
-offset_top = 104.0
-offset_right = 603.0
-offset_bottom = 147.0
+offset_left = 103.0
+offset_top = 89.0
+offset_right = 600.0
+offset_bottom = 132.0
 theme_override_styles/background = SubResource("StyleBoxFlat_0dn4y")
 theme_override_styles/fill = SubResource("StyleBoxFlat_0kb6y")
 max_value = 3.0
@@ -155,9 +156,9 @@ show_percentage = false
 [node name="playerprogressbar" type="ProgressBar" parent="."]
 layout_mode = 0
 offset_left = 108.0
-offset_top = 1182.0
+offset_top = 1197.0
 offset_right = 605.0
-offset_bottom = 1225.0
+offset_bottom = 1240.0
 theme_override_styles/background = SubResource("StyleBoxFlat_0dn4y")
 theme_override_styles/fill = SubResource("StyleBoxFlat_0kb6y")
 value = 100.0
@@ -166,9 +167,9 @@ show_percentage = false
 [node name="timerprogressbar" type="ProgressBar" parent="."]
 layout_mode = 0
 offset_left = 104.0
-offset_top = 48.0
+offset_top = 41.0
 offset_right = 595.0
-offset_bottom = 90.0
+offset_bottom = 83.0
 theme_override_styles/background = SubResource("StyleBoxFlat_uhv3h")
 theme_override_styles/fill = SubResource("StyleBoxFlat_eetr1")
 max_value = 15.0
@@ -177,35 +178,29 @@ show_percentage = false
 
 [node name="questionlabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 69.0
-offset_top = 415.0
-offset_right = 398.0
-offset_bottom = 514.0
+offset_left = 58.0
+offset_top = 529.0
+offset_right = 387.0
+offset_bottom = 628.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 70
 text = "question"
 
-[node name="chancelabel" type="Label" parent="."]
-layout_mode = 0
-offset_left = 169.0
-offset_top = 519.0
-offset_right = 683.0
-offset_bottom = 599.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 50
-text = "chance = 3/3"
-
 [node name="answerlabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 435.0
-offset_top = 415.0
-offset_right = 681.0
-offset_bottom = 514.0
+offset_left = 445.0
+offset_top = 526.0
+offset_right = 691.0
+offset_bottom = 625.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 70
 text = "answer"
 
 [node name="timer" type="Timer" parent="."]
+
+[node name="Node2D" parent="." instance=ExtResource("14_wv38k")]
+position = Vector2(281, 155)
+scale = Vector2(1.4, 1.4)
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer1/Button1" to="." method="_on_button_1_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer1/Button2" to="." method="_on_button_2_pressed"]

@@ -22,7 +22,6 @@ func _ready():
 	$playerprogressbar.value = Global.playerhp
 
 
-
 func update_sprite_position():
 	var screen_size = get_viewport_rect().size
 	
@@ -47,13 +46,14 @@ func update_sprite_position():
 	generateenemy()
 
 	#treasure ga pakai pc
-	$pc.position.y = 7*ygaps
+	$pc.position.y = 6*ygaps
 	$pc.position.x = (screen_size.x - 128)/2
 
-	#treasure
-	#$pc2.position.y = 6*ygaps
-	#$pc2.position.x = (screen_size.x - 128)/2
-
+	#tampilkan item ke layar
+	print("key item 1= "+ str(Global.items[1]))
+	print("key item 2= "+ str(Global.items[2]))
+	print ("score = " + str(Global.score))
+	
 func createdoor(doorposition, type):
 	#var type = generatedoortype()
 	
@@ -102,17 +102,17 @@ func _stripedoor_on_button_pressed(number):
 		#doorclose	
 		else :
 			Global.currentdoor = number
-			get_tree().change_scene_to_file("res://scenes/doorfight2choice.tscn") 
+			get_tree().change_scene_to_file("res://scenes/doorfightlv1.tscn") 
 	else :
 		print("enemy block the door")	
 	
 func _reddoor_on_button_pressed(number):
 	#jika tidak ada enemy
 	if Global.isenemyexist[number]==0:	
-		#kalau door open
+		#kalau door open ke boss
 		if Global.arraydooropen [number] == 1 :
-			loadnextlevel(3)
-		#doorclose	
+			get_tree().change_scene_to_file("res://scenes/bossfightlv1.tscn")
+		#kalau doorclose	
 		else :
 			Global.currentdoor = number
 			get_tree().change_scene_to_file("res://scenes/doorunlocklv1.tscn") 
@@ -159,7 +159,7 @@ func _enemy_on_button_pressed(number,type):
 	Global.currentenemy = number
 	Global.currentenemytype = type
 	#if type == 1:
-	get_tree().change_scene_to_file("res://scenes/enemyfight.tscn") 
+	get_tree().change_scene_to_file("res://scenes/enemyfightlv1.tscn") 
 	#else:
 	#	get_tree().change_scene_to_file("res://scenes/enemy2fightlv1.tscn") 
 	
@@ -168,21 +168,28 @@ func generatedoortype():
 	var type
 	var rng = RandomNumberGenerator.new()	
 	var r
-	#jika belum mengalahkan 3 enemy tidak akan digenerate red door
-	if Global.enemydefeated < 3 :
-		r = rng.randi_range(0, 2)
-		if r <= 1 :
-			type = 1
-		else :
-			type = 2
-	else:
+	#Global.enemydefeated > 1 and
+	if Global.numberofdoors > 1 and Global.reddoorexist == 0:
 		r = rng.randi_range(0, 5)
 		if r <= 2 :
 			type = 1
 		elif r <= 4:
 			type = 2
 		else :
+			#generate type = red door
 			type = 3
+			Global.reddoorexist = 1
+			var key1 = rng.randi_range(1,3)
+			var key2 = rng.randi_range(1,3)
+			Global.reddoorkey = [0,key1,key2,0,0,0,0,0]
+			
+	else:
+		r = rng.randi_range(0, 2)
+		if r <= 1 :
+			type = 1
+		else :
+			type = 2
+
 	#print(type)	
 		
 	return type
@@ -201,18 +208,7 @@ func generatenumberofdoors():
 		Global.numberofdoors = 1
 		return 1
 
-#func generatenumberofenemy():
-#	var rng = RandomNumberGenerator.new()	
-	
-#	var r = rng.randi_range(0, 6)
-#	if r == 0 :
-#		return 0
-#	elif r < 4 :
-#		return 1
-#	elif r < 6 :
-#		return 2
-#	else :
-#		return 3	
+
 
 func generateenemyarray(numberofdoors):
 	var rng = RandomNumberGenerator.new()	
@@ -227,7 +223,6 @@ func generateenemyarray(numberofdoors):
 	#	n = numberofdoors 
 	# masalahnya kalau ga kayak gini bisa enemy ada 2 pintu ada 1
 	var n = rng.randi_range(0,numberofdoors)
-	#print (n)
 
 	
 	if numberofdoors == 1:
@@ -258,14 +253,18 @@ func generateenemyarray(numberofdoors):
 	
 		
 func loadnextlevel(doortype):	
-	var d = generatenumberofdoors()
+	Global.arraydooropen = [0,0,0,0]
+	Global.currentdoor = 0
 	
+	Global.reddoorexist = 0
+	#lobal.reddoorkey = [0,0,0, 0,0,0, 0,0]
+
+	var d = generatenumberofdoors()
+		
 	Global.door1type = generatedoortype()
 	Global.door2type = generatedoortype()
 	Global.door3type = generatedoortype()
 
-	Global.arraydooropen = [0,0,0,0]
-	Global.currentdoor = 0
 	
 	#utk generate apakah empty, treasure, atau neraca
 	Global.previousdoortype = doortype

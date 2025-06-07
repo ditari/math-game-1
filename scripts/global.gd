@@ -2,6 +2,9 @@ extends Node
 
 var currentlevel = 1
 var playerhp = 100
+var score = 0
+
+var items = [0,0,0, 0,0,0, 0,0]
 
 #-------doors-----------
 
@@ -21,6 +24,11 @@ var arraydooropen = [0,0,0,0]
 
 var currentdoor = 0
 var previousdoortype = 0 #untuk generate chance apakah ada treasure enemy atau apa
+
+var reddoorexist = 0 #check jika reddoor ada
+var reddoorkey = [0,0,0, 0,0,0, 0,0]
+#reddoor [0,3,2,1,0,0,0,0] artinya butuh 3 kunci tipe1, 2 kunci tipe 2, 1 tkunci tipe 3
+#ada 7 enemy berarti ada 7 tipe kunci yg didapat
 
 #-------enemy---------
 var isenemyexist = [0,0,0,0]
