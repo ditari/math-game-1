@@ -71,16 +71,16 @@ func generatequestion(type):
 			generatequestionminus()				
 
 func generatequestionplus():
-	a = rng.randi_range(0, 10)
-	b = rng.randi_range(0, 10)
+	a = rng.randi_range(0, 5)
+	b = rng.randi_range(0, 5)
 	answer = a+b
 	question = str(a) + " + " + str(b) + " = "
 	
 	$questionlabel.text = question
 	
 func generatequestionminus():
-	answer = rng.randi_range(0, 10)
-	b = rng.randi_range(0, 10)
+	answer = rng.randi_range(0, 5)
+	b = rng.randi_range(0, 5)
 	a = answer+b
 	question = str(a) + " - " + str(b) + " = "
 	
