@@ -23,7 +23,7 @@ var arraydooropen = [0,0,0,0]
 #arraydooropen [1] berarti door1open 
 
 var currentdoor = 0
-var previousdoortype = 0 #untuk generate chance apakah ada treasure enemy atau apa
+#var previousdoortype = 0 #untuk generate chance apakah ada treasure enemy atau apa
 
 var reddoorexist = 0 #check jika reddoor ada
 var reddoorkey = [0,0,0, 0,0,0, 0,0]
@@ -43,3 +43,10 @@ var currentenemy = 0
 var currentenemytype = 2
 
 var enemydefeated = 0 #jumlah enemy defeated
+
+#-------
+var whatexist = 0 
+#0 = nothing
+#1 = treasure
+#2 = scale
+var treasurescore = 0

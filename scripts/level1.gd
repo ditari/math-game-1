@@ -8,18 +8,26 @@ var enemy1: PackedScene = load("res://scenes/enemy1.tscn")
 var enemy2: PackedScene = load("res://scenes/enemy2.tscn")
 #var enemy3: PackedScene = load("res://scenes/enemy3.tscn") untuk level 1 hanya 2 enemy
 
+var treasurescene: PackedScene = load("res://scenes/treasure.tscn")
+var scalescene: PackedScene = load("res://scenes/scale.tscn")
+
 var door
 var enemy
+var content
+
 var xgaps
 var ygaps
 
 var numberofdoors
+var rng = RandomNumberGenerator.new()	
 
 func _ready():
 	update_sprite_position()
 	self.resized.connect(update_sprite_position)  # Godot 4 syntax
 	
 	$playerprogressbar.value = Global.playerhp
+	
+	print("score:"+ str (Global.score))
 
 
 func update_sprite_position():
@@ -45,14 +53,17 @@ func update_sprite_position():
 	
 	generateenemy()
 
-	#treasure ga pakai pc
-	$pc.position.y = 6*ygaps
-	$pc.position.x = (screen_size.x - 128)/2
+	
+	var cy = (6*ygaps) + 64
+	var cx = (screen_size.x - 128)/2
 
+	generatecontent(cx,cy)
+
+	print ("load:" + str(Global.whatexist))
 	#tampilkan item ke layar
-	print("key item 1= "+ str(Global.items[1]))
-	print("key item 2= "+ str(Global.items[2]))
-	print ("score = " + str(Global.score))
+	#print("key item 1= "+ str(Global.items[1]))
+	#print("key item 2= "+ str(Global.items[2]))
+	#print ("score = " + str(Global.score))
 	
 func createdoor(doorposition, type):
 	#var type = generatedoortype()
@@ -163,10 +174,35 @@ func _enemy_on_button_pressed(number,type):
 	#else:
 	#	get_tree().change_scene_to_file("res://scenes/enemy2fightlv1.tscn") 
 	
+func generatecontent(cx,cy):
+	if Global.whatexist == 1:
+		content = treasurescene.instantiate()		
+		content.connect("button", _treasure_on_button_pressed)	
+
+	elif Global.whatexist == 2:
+		content = scalescene.instantiate()
+		content.connect("button", _scale_on_button_pressed)	
+		
+	else:
+		return
+		
+	content.position = Vector2(cx,cy)
+
+	$array.add_child(content)	
+
+func _treasure_on_button_pressed():
+	Global.whatexist = 0
+	get_tree().change_scene_to_file("res://scenes/treasureget.tscn") 
+
+
+func _scale_on_button_pressed():
+	Global.whatexist = 0
+	get_tree().change_scene_to_file("res://scenes/puzzle.tscn") 
+
 #---------------generate buat level berikutnya-----------
 func generatedoortype():
 	var type
-	var rng = RandomNumberGenerator.new()	
+	#var rng = RandomNumberGenerator.new()	
 	var r
 	#Global.enemydefeated > 1 and
 	if Global.numberofdoors > 1 and Global.reddoorexist == 0:
@@ -195,7 +231,7 @@ func generatedoortype():
 	return type
 		
 func generatenumberofdoors():
-	var rng = RandomNumberGenerator.new()	
+	#var rng = RandomNumberGenerator.new()	
 	
 	var r = rng.randi_range(0, 6)
 	if r < 3 :
@@ -211,7 +247,7 @@ func generatenumberofdoors():
 
 
 func generateenemyarray(numberofdoors):
-	var rng = RandomNumberGenerator.new()	
+	#var rng = RandomNumberGenerator.new()	
 	#hanya ada 2 tipe enemy jadi randi_range(1,2)
 	var enemy1type = rng.randi_range(1, 2)
 	var enemy2type = rng.randi_range(1, 2)
@@ -251,7 +287,29 @@ func generateenemyarray(numberofdoors):
 		else :
 			Global.isenemyexist = [0,enemy1type,enemy2type,enemy3type]	
 	
-		
+
+func generatewhatnext(doortype):
+	if doortype == 1 :
+		var n = rng.randi_range(1,4)
+		#ada 1/4 kemungkinan ada treasure
+		if n == 1 :
+			Global.whatexist = 1
+			#generate score treasure
+			Global.treasurescore = randi_range(10,50)
+		else :	
+			Global.whatexist = 0
+
+	elif doortype == 2:
+		var n = rng.randi_range(1,6)
+		#3/6 kemungkinan empty 2/6 kemungkinan treasure 1/6 kemungkinan scale
+		if n < 3:
+			Global.whatexist = 1
+			Global.treasurescore = randi_range(50,100)
+		elif n == 3 :
+			Global.whatexist = 2	
+		else :	
+			Global.whatexist = 0
+	
 func loadnextlevel(doortype):	
 	Global.arraydooropen = [0,0,0,0]
 	Global.currentdoor = 0
@@ -264,12 +322,15 @@ func loadnextlevel(doortype):
 	Global.door1type = generatedoortype()
 	Global.door2type = generatedoortype()
 	Global.door3type = generatedoortype()
-
-	
-	#utk generate apakah empty, treasure, atau neraca
-	Global.previousdoortype = doortype
-	
+		
 	generateenemyarray(d)
+
+	#utk generate apakah empty, treasure, atau neraca
+	#Global.previousdoortype = doortype
+	print("doortype" + str(doortype))
+	generatewhatnext(doortype)	
+	print ("generate:" + str(Global.whatexist))
+
 	
 	get_tree().change_scene_to_file("res://scenes/level1.tscn") 
 
