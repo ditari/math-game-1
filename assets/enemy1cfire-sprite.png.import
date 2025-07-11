@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bpc1ffxxmrbvx"
-path="res://.godot/imported/bluedoor.png-1ea9948987b68036063d5a542a707467.ctex"
+uid="uid://dbdu0ddr632c0"
+path="res://.godot/imported/enemy1cfire-sprite.png-614deaed8b0934b9aacc96397cd56507.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/bluedoor.png"
-dest_files=["res://.godot/imported/bluedoor.png-1ea9948987b68036063d5a542a707467.ctex"]
+source_file="res://assets/enemy1cfire-sprite.png"
+dest_files=["res://.godot/imported/enemy1cfire-sprite.png-614deaed8b0934b9aacc96397cd56507.ctex"]
 
 [params]
 

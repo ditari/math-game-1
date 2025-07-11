@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cxlv7q4u4nkfo"
-path="res://.godot/imported/reddooropen.png-30a7cb6b132a3bba0679d86cfaee55af.ctex"
+uid="uid://ffbeqp4fld71"
+path="res://.godot/imported/emptydoor0.png-9089996842ebeb7e18c2322d88bbed1f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/reddooropen.png"
-dest_files=["res://.godot/imported/reddooropen.png-30a7cb6b132a3bba0679d86cfaee55af.ctex"]
+source_file="res://assets/trash/emptydoor0.png"
+dest_files=["res://.godot/imported/emptydoor0.png-9089996842ebeb7e18c2322d88bbed1f.ctex"]
 
 [params]
 

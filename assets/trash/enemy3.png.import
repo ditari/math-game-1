@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bpx84r6jhh4x7"
-path="res://.godot/imported/emptydoor.png-ea27af1978cd0800a093dd7778373acc.ctex"
+uid="uid://dsr4uebpbuvjx"
+path="res://.godot/imported/enemy3.png-5ec175ffae06b8d7b79d5ea17dcbd3e1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/emptydoor.png"
-dest_files=["res://.godot/imported/emptydoor.png-ea27af1978cd0800a093dd7778373acc.ctex"]
+source_file="res://assets/trash/enemy3.png"
+dest_files=["res://.godot/imported/enemy3.png-5ec175ffae06b8d7b79d5ea17dcbd3e1.ctex"]
 
 [params]
 

@@ -182,7 +182,13 @@ func enemytype(xpos,ypos,number,type) :
 	enemy.position = Vector2(xpos,ypos)
 	enemy.number = number
 	enemy.type = type
+
+	#animation
+	enemy.get_node("AnimatedSprite2D").play("idle")	
+
 	$array.add_child(enemy)	
+	
+
 			
 func _enemy_on_button_pressed(number,type):
 	Global.currentenemy = number
