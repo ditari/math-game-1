@@ -4,7 +4,7 @@ var currentlevel = 1
 var playerhp = 100
 var score = 0
 
-var items = [0,0,0, 0,0,0, 0,0]
+var items = [0,0,0,0]
 
 #-------doors-----------
 

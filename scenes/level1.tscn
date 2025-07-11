@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cd1qtsgeqr40b"]
+[gd_scene load_steps=7 format=3 uid="uid://cd1qtsgeqr40b"]
 
 [ext_resource type="Script" path="res://scripts/level1.gd" id="1_61p4g"]
 [ext_resource type="Texture2D" uid="uid://bvpce48rytcm2" path="res://assets/bg.png" id="2_vvfab"]
+[ext_resource type="PackedScene" uid="uid://rhqkm0svrpgy" path="res://scenes/key1.tscn" id="3_03nje"]
+[ext_resource type="PackedScene" uid="uid://heu06hmafnge" path="res://scenes/key2.tscn" id="4_wplx4"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ohby"]
 bg_color = Color(0, 0, 0, 1)
@@ -35,11 +37,65 @@ texture = ExtResource("2_vvfab")
 
 [node name="playerprogressbar" type="ProgressBar" parent="."]
 layout_mode = 0
-offset_left = 136.0
-offset_top = 1155.0
-offset_right = 571.0
-offset_bottom = 1185.0
+offset_left = 182.0
+offset_top = 1106.0
+offset_right = 659.0
+offset_bottom = 1136.0
 theme_override_styles/background = SubResource("StyleBoxFlat_5ohby")
 theme_override_styles/fill = SubResource("StyleBoxFlat_o0eeb")
 value = 100.0
 show_percentage = false
+
+[node name="scorelabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 6.0
+offset_right = 143.0
+offset_bottom = 64.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "SCORE :"
+
+[node name="label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 42.0
+offset_top = 1092.0
+offset_right = 169.0
+offset_bottom = 1150.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "HP :"
+
+[node name="label3" type="Label" parent="."]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 1167.0
+offset_right = 165.0
+offset_bottom = 1225.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "ITEM :"
+
+[node name="key1" parent="." instance=ExtResource("3_03nje")]
+position = Vector2(252, 1161)
+
+[node name="key2" parent="." instance=ExtResource("4_wplx4")]
+position = Vector2(459, 1162)
+
+[node name="key1label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 328.0
+offset_top = 1158.0
+offset_right = 374.0
+offset_bottom = 1230.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+
+[node name="key2label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 533.0
+offset_top = 1158.0
+offset_right = 579.0
+offset_bottom = 1230.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50

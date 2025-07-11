@@ -1,14 +1,38 @@
-[gd_scene load_steps=5 format=3 uid="uid://cfjxa4uinto0r"]
+[gd_scene load_steps=11 format=3 uid="uid://cfjxa4uinto0r"]
 
 [ext_resource type="Script" path="res://scripts/emptydoor.gd" id="1_bdmqs"]
-[ext_resource type="Texture2D" uid="uid://bpx84r6jhh4x7" path="res://assets/emptydoor.png" id="2_66ew1"]
-[ext_resource type="Texture2D" uid="uid://omshdcf8q1ew" path="res://assets/emptydooropen.png" id="3_5lsqo"]
+[ext_resource type="Texture2D" uid="uid://50h7d8ov7kyf" path="res://assets/opendoor.png" id="2_6eiy1"]
+[ext_resource type="Texture2D" uid="uid://b8vax5rauxwht" path="res://assets/opendoor-sprite.png" id="3_cw30w"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s4dac"]
+atlas = ExtResource("3_cw30w")
+region = Rect2(0, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x7bar"]
+atlas = ExtResource("3_cw30w")
+region = Rect2(128, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_joitn"]
+atlas = ExtResource("3_cw30w")
+region = Rect2(256, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jh7xd"]
+atlas = ExtResource("3_cw30w")
+region = Rect2(384, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gd8c6"]
+atlas = ExtResource("3_cw30w")
+region = Rect2(512, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a4r6x"]
+atlas = ExtResource("3_cw30w")
+region = Rect2(640, 0, 128, 256)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_50ann"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_66ew1")
+"texture": ExtResource("2_6eiy1")
 }],
 "loop": true,
 "name": &"close",
@@ -16,10 +40,33 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_5lsqo")
+"texture": ExtResource("2_6eiy1")
 }],
 "loop": true,
 "name": &"open",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s4dac")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x7bar")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_joitn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jh7xd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gd8c6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a4r6x")
+}],
+"loop": false,
+"name": &"opening",
 "speed": 5.0
 }]
 
@@ -33,6 +80,6 @@ offset_bottom = 253.0
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(64, 126)
 sprite_frames = SubResource("SpriteFrames_50ann")
-animation = &"close"
+animation = &"opening"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

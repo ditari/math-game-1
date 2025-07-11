@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://rhqkm0svrpgy"]
+
+[ext_resource type="Texture2D" uid="uid://1e6eetfw4710" path="res://assets/key1gray.png" id="1_luvi1"]
+[ext_resource type="Texture2D" uid="uid://vywt7c42ry5c" path="res://assets/key1.png" id="2_dndt3"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jbf2t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_luvi1")
+}],
+"loop": true,
+"name": &"off",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_dndt3")
+}],
+"loop": true,
+"name": &"on",
+"speed": 5.0
+}]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(32, 32)
+sprite_frames = SubResource("SpriteFrames_jbf2t")
+animation = &"off"

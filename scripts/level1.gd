@@ -4,12 +4,16 @@ var emptydoorscene: PackedScene = load("res://scenes/emptydoor.tscn")
 var stripedoorscene: PackedScene = load("res://scenes/stripedoor.tscn")
 var reddoorscene: PackedScene = load("res://scenes/reddoor.tscn")
 
+var bgwallscene: PackedScene = load("res://scenes/bgwall.tscn")
+
 var enemy1: PackedScene = load("res://scenes/enemy1.tscn")
 var enemy2: PackedScene = load("res://scenes/enemy2.tscn")
 #var enemy3: PackedScene = load("res://scenes/enemy3.tscn") untuk level 1 hanya 2 enemy
 
 var treasurescene: PackedScene = load("res://scenes/treasure.tscn")
 var scalescene: PackedScene = load("res://scenes/scale.tscn")
+
+var bgwall
 
 var door
 var enemy
@@ -27,16 +31,27 @@ func _ready():
 	
 	$playerprogressbar.value = Global.playerhp
 	
-	print("score:"+ str (Global.score))
+	$scorelabel.text = "Score: " +str (Global.score)
+	
+	if Global.items[1] > 0:
+		$key1.get_node("AnimatedSprite2D").play("on")
+		$key1label.text = str(Global.items[1])
+	if Global.items[2] > 0:
+		$key2.get_node("AnimatedSprite2D").play("on")
+		$key2label.text = str(Global.items[2])	
 
 
 func update_sprite_position():
 	var screen_size = get_viewport_rect().size
+	#ygaps = (screen_size.y-512)/7
 	
+	#buat bg
+	bgwall = bgwallscene.instantiate()
+	bgwall.position = Vector2(0,128)
+	$array.add_child(bgwall)
+		
 	numberofdoors = Global.numberofdoors
-	#print (numberofdoors)
 	
-	ygaps = (screen_size.y-512)/7
 	if numberofdoors == 3:
 		xgaps = (screen_size.x - 384)/4	
 	elif numberofdoors == 2:
@@ -53,11 +68,10 @@ func update_sprite_position():
 	
 	generateenemy()
 
-	
-	var cy = (6*ygaps) + 64
+	#var cy = (6*ygaps) + 64
 	var cx = (screen_size.x - 128)/2
 
-	generatecontent(cx,cy)
+	generatecontent(cx,822)
 
 	print ("load:" + str(Global.whatexist))
 	#tampilkan item ke layar
@@ -73,20 +87,20 @@ func createdoor(doorposition, type):
 		door.connect("button_pressed", self._emptydoor_on_button_pressed)
 	elif type == 2:
 		door = stripedoorscene.instantiate()
-		door.connect("button_pressed", _stripedoor_on_button_pressed)
+		door.connect("button_pressed", self._stripedoor_on_button_pressed)
 	else :
 		door = reddoorscene.instantiate()
-		door.connect("button_pressed", _reddoor_on_button_pressed)
+		door.connect("button_pressed", self._reddoor_on_button_pressed)
 	
 	var n = 0
 	if  doorposition == 1 :
-		door.position = Vector2(xgaps,2*ygaps-64)#Vector2(xgaps, ygaps) #
+		door.position = Vector2(xgaps,256)#Vector2(xgaps, ygaps) #
 		n = 1
 	elif doorposition == 2 :
-		door.position = Vector2((2*xgaps)+128,2*ygaps-64)
+		door.position = Vector2((2*xgaps)+128,256)
 		n = 2
 	else :
-		door.position = Vector2((3*xgaps)+256,2*ygaps-64)
+		door.position = Vector2((3*xgaps)+256,256)
 		n = 3 
 
 	door.number = n		
@@ -98,17 +112,19 @@ func createdoor(doorposition, type):
 func _emptydoor_on_button_pressed(sender, number):
 	#jika tidak ada enemy
 	if Global.isenemyexist[number]==0:	
-		sender.get_node("AnimatedSprite2D").play("open")
+		sender.get_node("AnimatedSprite2D").play("opening")
 		await get_tree().create_timer(0.7).timeout
 		loadnextlevel(1)
 	else :
 		print("enemy block the door")	
 
-func _stripedoor_on_button_pressed(number):
+func _stripedoor_on_button_pressed(sender,number):
 	#jika tidak ada enemy
 	if Global.isenemyexist[number]==0:	
 		#kalau door open
 		if Global.arraydooropen [number] == 1 :
+			sender.get_node("AnimatedSprite2D").play("opening")
+			await get_tree().create_timer(0.7).timeout		
 			loadnextlevel(2)
 		#doorclose	
 		else :
@@ -117,11 +133,13 @@ func _stripedoor_on_button_pressed(number):
 	else :
 		print("enemy block the door")	
 	
-func _reddoor_on_button_pressed(number):
+func _reddoor_on_button_pressed(sender, number):
 	#jika tidak ada enemy
 	if Global.isenemyexist[number]==0:	
 		#kalau door open ke boss
 		if Global.arraydooropen [number] == 1 :
+			sender.get_node("AnimatedSprite2D").play("opening")
+			await get_tree().create_timer(0.7).timeout				
 			get_tree().change_scene_to_file("res://scenes/bossfightlv1.tscn")
 		#kalau doorclose	
 		else :
@@ -141,17 +159,17 @@ func generateenemy():
 	#enemy di door paling kiri
 	e = Global.isenemyexist[1]
 	if e != 0 :
-		enemytype(xgaps,(3*ygaps) + 128,1,e)
+		enemytype(xgaps,544,1,e)
 	
 	#enemy di door tengah
 	e = Global.isenemyexist[2]
 	if e != 0 :
-		enemytype((2*xgaps)+128,(3*ygaps) + 128,2,e)
+		enemytype((2*xgaps)+128,544,2,e)
 
 	#enemy di door kanan
 	e = Global.isenemyexist[3]
 	if e != 0 :
-		enemytype((3*xgaps)+256,(3*ygaps) + 128,3,e)
+		enemytype((3*xgaps)+256,544,3,e)
 			
 func enemytype(xpos,ypos,number,type) :
 	if type == 1:
@@ -192,7 +210,7 @@ func generatecontent(cx,cy):
 
 func _treasure_on_button_pressed():
 	Global.whatexist = 0
-	get_tree().change_scene_to_file("res://scenes/treasureget.tscn") 
+	get_tree().change_scene_to_file("res://scenes/transitionchest.tscn") 
 
 
 func _scale_on_button_pressed():
