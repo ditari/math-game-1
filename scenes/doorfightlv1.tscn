@@ -1,15 +1,92 @@
-[gd_scene load_steps=7 format=3 uid="uid://1c0ige5curdk"]
+[gd_scene load_steps=21 format=3 uid="uid://1c0ige5curdk"]
 
 [ext_resource type="Script" path="res://scripts/doorfightlv1.gd" id="1_2x5l7"]
 [ext_resource type="Texture2D" uid="uid://bvpce48rytcm2" path="res://assets/bg.png" id="2_yoj06"]
 [ext_resource type="PackedScene" uid="uid://dij0s1q66u46b" path="res://scenes/stripedoor.tscn" id="3_5sihm"]
-[ext_resource type="Texture2D" uid="uid://cvyiiftk8jb3m" path="res://assets/fightdoorbutton.png" id="4_5al0s"]
+[ext_resource type="Texture2D" uid="uid://gdg74pno3apk" path="res://assets/buttondoor.png" id="4_gnbwd"]
+[ext_resource type="Texture2D" uid="uid://by1hmb6xwk7o6" path="res://assets/flash-sprite.png" id="5_nl7pm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cppea"]
 bg_color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0cf7v"]
 bg_color = Color(0, 1, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nns6r"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gt76y"]
+bg_color = Color(0, 1, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c8dre"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dv8xe"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f8myp"]
+atlas = ExtResource("5_nl7pm")
+region = Rect2(0, 0, 720, 1280)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_syqet"]
+atlas = ExtResource("5_nl7pm")
+region = Rect2(720, 0, 720, 1280)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tan40"]
+atlas = ExtResource("5_nl7pm")
+region = Rect2(1440, 0, 720, 1280)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1djl5"]
+atlas = ExtResource("5_nl7pm")
+region = Rect2(2160, 0, 720, 1280)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ckor"]
+atlas = ExtResource("5_nl7pm")
+region = Rect2(2880, 0, 720, 1280)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fsrqh"]
+atlas = ExtResource("5_nl7pm")
+region = Rect2(3600, 0, 720, 1280)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oo51d"]
+atlas = ExtResource("5_nl7pm")
+region = Rect2(4320, 0, 720, 1280)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4cv7u"]
+atlas = ExtResource("5_nl7pm")
+region = Rect2(5040, 0, 720, 1280)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8qcqi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f8myp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_syqet")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tan40")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1djl5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ckor")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fsrqh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oo51d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4cv7u")
+}],
+"loop": false,
+"name": &"flash",
+"speed": 8.0
+}]
 
 [node name="doorfight" type="Control"]
 layout_mode = 3
@@ -35,33 +112,26 @@ texture = ExtResource("2_yoj06")
 
 [node name="questionlabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 219.0
-offset_top = 376.0
-offset_right = 643.0
-offset_bottom = 452.0
+offset_left = 111.0
+offset_top = 569.0
+offset_right = 619.0
+offset_bottom = 722.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 50
-text = "question"
+theme_override_font_sizes/font_size = 100
+text = "Question"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="Node2D" parent="." instance=ExtResource("3_5sihm")]
-position = Vector2(271, 106)
-
-[node name="chancelabel" type="Label" parent="."]
-layout_mode = 0
-offset_left = 216.0
-offset_top = 487.0
-offset_right = 457.0
-offset_bottom = 545.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 40
-text = "chance = 3/3"
+[node name="door" parent="." instance=ExtResource("3_5sihm")]
+position = Vector2(250, 120)
+scale = Vector2(1.5, 1.5)
 
 [node name="doorprogressbar" type="ProgressBar" parent="."]
 layout_mode = 0
-offset_left = 251.0
-offset_top = 40.0
-offset_right = 455.0
-offset_bottom = 75.0
+offset_left = 224.0
+offset_top = 48.0
+offset_right = 480.0
+offset_bottom = 78.0
 theme_override_styles/background = SubResource("StyleBoxFlat_cppea")
 theme_override_styles/fill = SubResource("StyleBoxFlat_0cf7v")
 max_value = 2.0
@@ -70,50 +140,79 @@ show_percentage = false
 
 [node name="playerprogressbar" type="ProgressBar" parent="."]
 layout_mode = 0
-offset_left = 150.0
-offset_top = 885.0
-offset_right = 550.0
-offset_bottom = 921.0
-theme_override_styles/background = SubResource("StyleBoxFlat_cppea")
-theme_override_styles/fill = SubResource("StyleBoxFlat_0cf7v")
+offset_left = 180.0
+offset_top = 1100.0
+offset_right = 655.0
+offset_bottom = 1130.0
+theme_override_styles/background = SubResource("StyleBoxFlat_nns6r")
+theme_override_styles/fill = SubResource("StyleBoxFlat_gt76y")
 value = 100.0
 show_percentage = false
 
+[node name="label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 1082.0
+offset_right = 168.0
+offset_bottom = 1140.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "HP :"
+
+[node name="button1sprite" type="Sprite2D" parent="."]
+position = Vector2(200, 900)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("4_gnbwd")
+
 [node name="Button1" type="Button" parent="."]
 layout_mode = 0
-offset_left = 60.0
-offset_top = 573.0
-offset_right = 324.0
-offset_bottom = 837.0
-icon = ExtResource("4_5al0s")
+offset_left = 114.0
+offset_top = 814.0
+offset_right = 287.0
+offset_bottom = 986.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_c8dre")
 
 [node name="Label1" type="Label" parent="Button1"]
 layout_mode = 0
-offset_left = 113.0
-offset_top = 84.0
-offset_right = 153.0
-offset_bottom = 156.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 70
+offset_left = -7.0
+offset_top = -5.0
+offset_right = 174.0
+offset_bottom = 178.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 90
 text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Buttondoor" type="Sprite2D" parent="."]
+position = Vector2(525, 898)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("4_gnbwd")
 
 [node name="Button2" type="Button" parent="."]
 layout_mode = 0
-offset_left = 358.0
-offset_top = 575.0
-offset_right = 622.0
-offset_bottom = 839.0
-icon = ExtResource("4_5al0s")
+offset_left = 430.0
+offset_top = 803.0
+offset_right = 621.0
+offset_bottom = 992.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_dv8xe")
 
 [node name="Label2" type="Label" parent="Button2"]
 layout_mode = 0
-offset_left = 112.0
-offset_top = 63.0
-offset_right = 152.0
-offset_bottom = 162.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 70
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 185.0
+offset_bottom = 189.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 90
 text = "2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(362, 642)
+sprite_frames = SubResource("SpriteFrames_8qcqi")
+animation = &"flash"
 
 [connection signal="pressed" from="Button1" to="." method="_on_button_1_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]

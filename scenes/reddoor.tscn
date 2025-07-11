@@ -68,7 +68,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"opening",
-"speed": 5.0
+"speed": 6.0
 }]
 
 [node name="Node2D" type="Node2D"]

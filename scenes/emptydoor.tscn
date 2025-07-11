@@ -67,7 +67,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"opening",
-"speed": 5.0
+"speed": 6.0
 }]
 
 [node name="Node2D" type="Node2D"]
@@ -80,6 +80,6 @@ offset_bottom = 253.0
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(64, 126)
 sprite_frames = SubResource("SpriteFrames_50ann")
-animation = &"opening"
+animation = &"close"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

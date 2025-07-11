@@ -15,6 +15,8 @@ var rng = RandomNumberGenerator.new()
 
 var generatenext = 0
 
+#var door = get_node("door")
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	generatequestion()
@@ -26,7 +28,7 @@ func _process(delta):
 	#update bar
 	$doorprogressbar.value = doorhp
 	$playerprogressbar.value = Global.playerhp
-	$chancelabel.text = "chance : " + str(chance) + "/3"
+	#$chancelabel.text = "chance : " + str(chance) + "/3"
 
 	if chance == 0 :
 		_lose()
@@ -56,7 +58,7 @@ func generatequestion():
 		a = answer + b		
 		question = str(a) + " - " + str(b)
 	
-	$questionlabel.text = question
+	$questionlabel.text = question + " = ?"
 	
 func generatechoice():
 	correctchoice = rng.randi_range(1, 2)	
@@ -85,9 +87,15 @@ func generatewronganswer ()	:
 func _on_button_1_pressed():
 	if correctchoice == 1:
 		doorhp = doorhp - 1
+		$door.get_node("AnimatedSprite2D").play("hurt")
 	else:
 		Global.playerhp = Global.playerhp - minusplayer
 		chance = chance - 1
+		$AnimatedSprite2D.play("flash")
+		
+	#wait dulu
+	await get_tree().create_timer(0.7).timeout
+	$door.get_node("AnimatedSprite2D").play("close")
 	
 	generatenext = 1
 		
@@ -95,10 +103,16 @@ func _on_button_1_pressed():
 func _on_button_2_pressed():
 	if correctchoice == 2:
 		doorhp = doorhp - 1
+		$door.get_node("AnimatedSprite2D").play("hurt")
 	else:
 		Global.playerhp = Global.playerhp - minusplayer
 		chance = chance - 1
-				
+		$AnimatedSprite2D.play("flash")
+
+	#wait dulu
+	await get_tree().create_timer(0.7).timeout				
+	$door.get_node("AnimatedSprite2D").play("close")
+
 	generatenext = 1
 
 
@@ -108,15 +122,15 @@ func _win():
 	var n = Global.currentdoor
 	Global.arraydooropen[n] = 1
 	
-	print("door open")
-	
-	get_tree().change_scene_to_file("res://scenes/level1.tscn") 
+	#print("door open")
+	await get_tree().create_timer(0.7).timeout		
+	get_tree().change_scene_to_file("res://scenes/transitionwindoor.tscn") 
 
 
 
 #jika lose
 func _lose():
 	
-	print ("door is still locked")
-
-	get_tree().change_scene_to_file("res://scenes/level1.tscn") 
+	#print ("door is still locked")
+	await get_tree().create_timer(0.7).timeout	
+	get_tree().change_scene_to_file("res://scenes/transitionlosedoor.tscn") 

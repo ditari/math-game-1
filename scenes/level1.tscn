@@ -37,10 +37,10 @@ texture = ExtResource("2_vvfab")
 
 [node name="playerprogressbar" type="ProgressBar" parent="."]
 layout_mode = 0
-offset_left = 182.0
-offset_top = 1106.0
-offset_right = 659.0
-offset_bottom = 1136.0
+offset_left = 180.0
+offset_top = 1100.0
+offset_right = 655.0
+offset_bottom = 1130.0
 theme_override_styles/background = SubResource("StyleBoxFlat_5ohby")
 theme_override_styles/fill = SubResource("StyleBoxFlat_o0eeb")
 value = 100.0
@@ -58,10 +58,10 @@ text = "SCORE :"
 
 [node name="label2" type="Label" parent="."]
 layout_mode = 0
-offset_left = 42.0
-offset_top = 1092.0
-offset_right = 169.0
-offset_bottom = 1150.0
+offset_left = 41.0
+offset_top = 1082.0
+offset_right = 168.0
+offset_bottom = 1140.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 40
 text = "HP :"

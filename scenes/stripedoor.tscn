@@ -1,9 +1,42 @@
-[gd_scene load_steps=12 format=3 uid="uid://dij0s1q66u46b"]
+[gd_scene load_steps=21 format=3 uid="uid://dij0s1q66u46b"]
 
 [ext_resource type="Script" path="res://scripts/stripedoor.gd" id="1_g188w"]
 [ext_resource type="Texture2D" uid="uid://bmcl55nsm5kdk" path="res://assets/closedoor.png" id="2_yvkeo"]
+[ext_resource type="Texture2D" uid="uid://cb3yhqogxhqdg" path="res://assets/door2hurt-sprite.png" id="3_2m4x1"]
 [ext_resource type="Texture2D" uid="uid://50h7d8ov7kyf" path="res://assets/opendoor.png" id="3_bey6f"]
 [ext_resource type="Texture2D" uid="uid://b8vax5rauxwht" path="res://assets/opendoor-sprite.png" id="4_e823c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ddm4"]
+atlas = ExtResource("3_2m4x1")
+region = Rect2(0, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rc0ym"]
+atlas = ExtResource("3_2m4x1")
+region = Rect2(128, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n637y"]
+atlas = ExtResource("3_2m4x1")
+region = Rect2(256, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hiwjs"]
+atlas = ExtResource("3_2m4x1")
+region = Rect2(384, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_46m4x"]
+atlas = ExtResource("3_2m4x1")
+region = Rect2(512, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ebuu6"]
+atlas = ExtResource("3_2m4x1")
+region = Rect2(640, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ek4qn"]
+atlas = ExtResource("3_2m4x1")
+region = Rect2(768, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dd5es"]
+atlas = ExtResource("3_2m4x1")
+region = Rect2(896, 0, 128, 256)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ib7uo"]
 atlas = ExtResource("4_e823c")
@@ -41,6 +74,35 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_1ddm4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rc0ym")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n637y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hiwjs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_46m4x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ebuu6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ek4qn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dd5es")
+}],
+"loop": false,
+"name": &"hurt",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("3_bey6f")
 }],
 "loop": false,
@@ -68,7 +130,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"opening",
-"speed": 5.0
+"speed": 6.0
 }]
 
 [node name="Node2D" type="Node2D"]

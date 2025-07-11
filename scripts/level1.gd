@@ -44,7 +44,8 @@ func _ready():
 func update_sprite_position():
 	var screen_size = get_viewport_rect().size
 	#ygaps = (screen_size.y-512)/7
-	
+	print(screen_size.x)
+	print(screen_size.y)
 	#buat bg
 	bgwall = bgwallscene.instantiate()
 	bgwall.position = Vector2(0,128)
