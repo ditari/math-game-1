@@ -11,7 +11,8 @@ var enemy2: PackedScene = load("res://scenes/enemy2.tscn")
 #var enemy3: PackedScene = load("res://scenes/enemy3.tscn") untuk level 1 hanya 2 enemy
 
 var treasurescene: PackedScene = load("res://scenes/treasure.tscn")
-var scalescene: PackedScene = load("res://scenes/scale.tscn")
+var pcdiamondscene: PackedScene = load("res://scenes/pcdiamond.tscn")
+var pcdiamondgrayscene: PackedScene = load("res://scenes/pcdiamondgray.tscn")
 
 var bgwall
 
@@ -19,8 +20,9 @@ var door
 var enemy
 var content
 
+var screen_size_x
 var xgaps
-var ygaps
+#var ygaps
 
 var numberofdoors
 var rng = RandomNumberGenerator.new()	
@@ -44,8 +46,8 @@ func _ready():
 func update_sprite_position():
 	var screen_size = get_viewport_rect().size
 	#ygaps = (screen_size.y-512)/7
-	print(screen_size.x)
-	print(screen_size.y)
+	screen_size_x = screen_size.x
+	
 	#buat bg
 	bgwall = bgwallscene.instantiate()
 	bgwall.position = Vector2(0,128)
@@ -70,11 +72,11 @@ func update_sprite_position():
 	generateenemy()
 
 	#var cy = (6*ygaps) + 64
-	var cx = (screen_size.x - 128)/2
+	#var cx = (screen_size.x - 128)/2
 
-	generatecontent(cx,822)
+	generatecontent()
 
-	print ("load:" + str(Global.whatexist))
+	#print ("load:" + str(Global.whatexist))
 	#tampilkan item ke layar
 	#print("key item 1= "+ str(Global.items[1]))
 	#print("key item 2= "+ str(Global.items[2]))
@@ -199,19 +201,21 @@ func _enemy_on_button_pressed(number,type):
 	#else:
 	#	get_tree().change_scene_to_file("res://scenes/enemy2fightlv1.tscn") 
 	
-func generatecontent(cx,cy):
+func generatecontent():
 	if Global.whatexist == 1:
 		content = treasurescene.instantiate()		
 		content.connect("button", _treasure_on_button_pressed)	
-
+		content.position = Vector2((screen_size_x - 128)/2,822)
 	elif Global.whatexist == 2:
-		content = scalescene.instantiate()
+		content = pcdiamondscene.instantiate()
 		content.connect("button", _scale_on_button_pressed)	
-		
+		content.position = Vector2((screen_size_x - 128)/2,758)
+	elif Global.whatexist == 3:
+		content = pcdiamondgrayscene.instantiate()
+		content.position = Vector2((screen_size_x - 128)/2,758)
+					
 	else:
 		return
-		
-	content.position = Vector2(cx,cy)
 
 	$array.add_child(content)	
 
@@ -221,7 +225,8 @@ func _treasure_on_button_pressed():
 
 
 func _scale_on_button_pressed():
-	Global.whatexist = 0
+	Global.whatexist = 3
+	#jadiabu2
 	get_tree().change_scene_to_file("res://scenes/puzzle.tscn") 
 
 #---------------generate buat level berikutnya-----------

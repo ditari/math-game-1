@@ -92,6 +92,7 @@ func _on_button_1_pressed():
 		Global.playerhp = Global.playerhp - minusplayer
 		chance = chance - 1
 		$AnimatedSprite2D.play("flash")
+		$electric.play("on")
 		
 	#wait dulu
 	await get_tree().create_timer(0.5).timeout
@@ -108,6 +109,7 @@ func _on_button_2_pressed():
 		Global.playerhp = Global.playerhp - minusplayer
 		chance = chance - 1
 		$AnimatedSprite2D.play("flash")
+		$electric.play("on")
 
 	#wait dulu
 	await get_tree().create_timer(0.5).timeout				

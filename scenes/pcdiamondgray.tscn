@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bsq4s2gepc2j8"]
+
+[ext_resource type="Texture2D" uid="uid://b8xsbsjdq1q07" path="res://assets/diamondpc2.png" id="2_hd20o"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(65, 129)
+texture = ExtResource("2_hd20o")

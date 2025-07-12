@@ -48,7 +48,7 @@ func _process(delta):
 		$timerprogressbar.value = $timer.time_left
 	
 	$answerlabel.text = inputanswer
-	$chancelabel.text = "chance = " + str(chance) + "/3"
+	#$chancelabel.text = "chance = " + str(chance) + "/3"
 	
 	$enemyprogressbar.value = enemyhp
 	$playerprogressbar.value = Global.playerhp

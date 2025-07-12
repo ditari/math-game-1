@@ -130,7 +130,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"fire",
-"speed": 8.0
+"speed": 16.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -157,9 +157,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_h0xm1")
 }],
-"loop": true,
+"loop": false,
 "name": &"hurt",
-"speed": 8.0
+"speed": 16.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -203,7 +203,7 @@ script = ExtResource("1_lpf3n")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(63, 65)
 sprite_frames = SubResource("SpriteFrames_s6ruh")
-animation = &"idle"
+animation = &"fire"
 
 [node name="Button" type="Button" parent="."]
 offset_right = 127.0

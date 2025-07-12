@@ -128,9 +128,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_a573e")
 }],
-"loop": true,
+"loop": false,
 "name": &"fire",
-"speed": 8.0
+"speed": 16.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -157,9 +157,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_6q32u")
 }],
-"loop": true,
+"loop": false,
 "name": &"hurt",
-"speed": 8.0
+"speed": 16.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -188,7 +188,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 5.0
+"speed": 8.0
 }]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_of6do"]
@@ -203,7 +203,7 @@ script = ExtResource("1_q1qcy")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(63, 65)
 sprite_frames = SubResource("SpriteFrames_s6ruh")
-animation = &"idle"
+animation = &"fire"
 
 [node name="Button" type="Button" parent="."]
 offset_right = 127.0

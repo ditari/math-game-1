@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://b7gxe50t1aaxm"]
+[gd_scene load_steps=5 format=3 uid="uid://c515btpw5xw2"]
 
-[ext_resource type="Script" path="res://scripts/transitionchest.gd" id="1_myawh"]
-[ext_resource type="Texture2D" uid="uid://bvpce48rytcm2" path="res://assets/bg.png" id="1_setfn"]
-[ext_resource type="Texture2D" uid="uid://854wqvbu52qp" path="res://assets/messagebox.png" id="2_4em44"]
-[ext_resource type="Texture2D" uid="uid://dplkc6cc5hkrt" path="res://assets/gold.png" id="3_6a1e2"]
+[ext_resource type="Script" path="res://scripts/transitionenemyloselv1.gd" id="1_52lko"]
+[ext_resource type="Texture2D" uid="uid://bvpce48rytcm2" path="res://assets/bg.png" id="2_3728r"]
+[ext_resource type="Texture2D" uid="uid://854wqvbu52qp" path="res://assets/messagebox.png" id="3_txpv6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r26cr"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -17,7 +16,7 @@ offset_right = -720.0
 offset_bottom = -1280.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_myawh")
+script = ExtResource("1_52lko")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -28,7 +27,7 @@ offset_right = 720.0
 offset_bottom = 1280.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_setfn")
+texture = ExtResource("2_3728r")
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
@@ -38,31 +37,28 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_r26cr")
 
 [node name="Messagebox" type="Sprite2D" parent="."]
 position = Vector2(358, 569)
-texture = ExtResource("2_4em44")
+texture = ExtResource("3_txpv6")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 230.0
+offset_left = -1.0
 offset_top = 383.0
-offset_right = 485.0
+offset_right = 717.0
 offset_bottom = 469.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 60
-text = "YOU GET"
-
-[node name="Gold" type="Sprite2D" parent="."]
-position = Vector2(350, 550)
-texture = ExtResource("3_6a1e2")
+text = "WRONG ANSWERS..."
+horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="."]
 layout_mode = 0
-offset_left = 226.0
-offset_top = 653.0
-offset_right = 481.0
-offset_bottom = 739.0
+offset_left = 3.0
+offset_top = 666.0
+offset_right = 718.0
+offset_bottom = 752.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 60
-text = "GOLD"
+text = "ENEMY WINS"
 horizontal_alignment = 1
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

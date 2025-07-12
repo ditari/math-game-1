@@ -24,11 +24,14 @@ var enemytype = Global.currentenemytype
 func _ready():
 	if enemytype == 1 :
 		enemy = enemy1.instantiate()
-	elif enemytype == 2 :	
+	#elif enemytype == 2 :
+	else :	
 		enemy = enemy2.instantiate()
 
-	enemy.position = Vector2(275,200)
+	enemy.position = Vector2(275,150)
 	enemy.scale = Vector2(1.5,1.5)
+	enemy.get_node("AnimatedSprite2D").play("idle")	
+	
 	add_child(enemy)
 	
 	generatequestion(enemytype)
@@ -48,7 +51,7 @@ func _process(delta):
 		$timerprogressbar.value = $timer.time_left
 	
 	$answerlabel.text = inputanswer
-	$chancelabel.text = "chance = " + str(chance) + "/3"
+	#$chancelabel.text = "chance = " + str(chance) + "/3"
 	
 	$enemyprogressbar.value = enemyhp
 	$playerprogressbar.value = Global.playerhp
@@ -74,7 +77,7 @@ func generatequestionplus():
 	a = rng.randi_range(0, 5)
 	b = rng.randi_range(0, 5)
 	answer = a+b
-	question = str(a) + " + " + str(b) + " = "
+	question = str(a) + " + " + str(b) + " = ?"
 	
 	$questionlabel.text = question
 	
@@ -136,14 +139,19 @@ func _on_buttonequal_pressed():
 	if input == answer:
 		enemyhp = enemyhp -1
 		#play animation
+		enemy.get_node("AnimatedSprite2D").play("hurt")
 	else :
 		Global.playerhp = Global.playerhp - minusplayer
 		chance = chance - 1
 		#play animation
+		enemy.get_node("AnimatedSprite2D").play("fire")
+		#flash screen here
+		$AnimatedSprite2D.play("flash")
 		
-	#clearinput
+	await get_tree().create_timer(0.5).timeout	
+	enemy.get_node("AnimatedSprite2D").play("idle")
+
 	inputanswer = ""
-	
 	if chance > 0 and enemyhp > 0:
 		generatequestion(enemytype)
 		$timer.start()	
@@ -153,8 +161,16 @@ func _on_timer_timeout():
 	if chance > 0 :
 		chance = chance-1
 		Global.playerhp = Global.playerhp - minusplayer
+		
 		#play animation
+		enemy.get_node("AnimatedSprite2D").play("fire")
+		#flash screen
+		$AnimatedSprite2D.play("flash")
+		
+		await get_tree().create_timer(0.5).timeout
+		enemy.get_node("AnimatedSprite2D").play("idle")
 
+		inputanswer = ""
 		generatequestion(enemytype)
 		$timer.start()
 		
@@ -162,27 +178,24 @@ func _on_timer_timeout():
 		
 #jika win
 func win():
-	var n = Global.currentenemy
-	Global.isenemyexist[n] = 0
 	
-	Global.enemydefeated = Global.enemydefeated + 1
 	
-	print("you win")
+	#print("you win")
 	#dapat gold
-	var reward = rng.randi_range(1,50)
-	Global.score = Global.score+reward
-	print ("you got reward " + str (reward))
+	#var reward = rng.randi_range(1,50)
+	#Global.score = Global.score+reward
+	#print ("you got reward " + str (reward))
 	
-	Global.items[enemytype] = Global.items[enemytype] + 1
-	print ("you got key item " + str (enemytype))
+
+	#print ("you got key item " + str (enemytype))
 		
-	get_tree().change_scene_to_file("res://scenes/level1.tscn") 
+	get_tree().change_scene_to_file("res://scenes/transitionenemywinlv1.tscn") 
 
 
 
 #jika lose
 func lose():
-	print ("you lose")
-	get_tree().change_scene_to_file("res://scenes/level1.tscn") 
+	#print ("you lose")
+	get_tree().change_scene_to_file("res://scenes/transitionenemyloselv1.tscn") 
 
 
