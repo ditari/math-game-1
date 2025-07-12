@@ -85,7 +85,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"flash",
-"speed": 8.0
+"speed": 16.0
 }]
 
 [node name="doorfight" type="Control"]

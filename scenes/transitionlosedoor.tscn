@@ -30,12 +30,6 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_3sxk8")
 
-[node name="Button" type="Button" parent="."]
-layout_mode = 0
-offset_right = 724.0
-offset_bottom = 1281.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_r26cr")
-
 [node name="Messagebox" type="Sprite2D" parent="."]
 position = Vector2(358, 579)
 scale = Vector2(1, 1.28125)
@@ -65,5 +59,11 @@ horizontal_alignment = 1
 
 [node name="Node2D" parent="." instance=ExtResource("4_hi05m")]
 position = Vector2(300, 450)
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_right = 724.0
+offset_bottom = 1281.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_r26cr")
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -114,10 +114,10 @@ func _emptydoor_on_button_pressed(sender, number):
 	#jika tidak ada enemy
 	if Global.isenemyexist[number]==0:	
 		sender.get_node("AnimatedSprite2D").play("opening")
-		await get_tree().create_timer(0.7).timeout
+		await get_tree().create_timer(0.5).timeout
 		loadnextlevel(1)
 	else :
-		print("enemy block the door")	
+		get_tree().change_scene_to_file("res://scenes/transitionenemyblocked.tscn")	
 
 func _stripedoor_on_button_pressed(sender,number):
 	#jika tidak ada enemy
@@ -125,14 +125,14 @@ func _stripedoor_on_button_pressed(sender,number):
 		#kalau door open
 		if Global.arraydooropen [number] == 1 :
 			sender.get_node("AnimatedSprite2D").play("opening")
-			await get_tree().create_timer(0.7).timeout		
+			await get_tree().create_timer(0.5).timeout		
 			loadnextlevel(2)
 		#doorclose	
 		else :
 			Global.currentdoor = number
 			get_tree().change_scene_to_file("res://scenes/doorfightlv1.tscn") 
 	else :
-		print("enemy block the door")	
+		get_tree().change_scene_to_file("res://scenes/transitionenemyblocked.tscn")
 	
 func _reddoor_on_button_pressed(sender, number):
 	#jika tidak ada enemy
@@ -140,7 +140,7 @@ func _reddoor_on_button_pressed(sender, number):
 		#kalau door open ke boss
 		if Global.arraydooropen [number] == 1 :
 			sender.get_node("AnimatedSprite2D").play("opening")
-			await get_tree().create_timer(0.7).timeout				
+			await get_tree().create_timer(0.5).timeout				
 			get_tree().change_scene_to_file("res://scenes/bossfightlv1.tscn")
 		#kalau doorclose	
 		else :
@@ -356,6 +356,5 @@ func loadnextlevel(doortype):
 	generatewhatnext(doortype)	
 	print ("generate:" + str(Global.whatexist))
 
-	
-	get_tree().change_scene_to_file("res://scenes/level1.tscn") 
-
+	#get_tree().change_scene_to_file("res://scenes/level1.tscn") 
+	get_tree().change_scene_to_file("res://scenes/level"+ str(Global.currentlevel)+ ".tscn")

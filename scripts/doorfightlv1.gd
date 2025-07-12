@@ -94,7 +94,7 @@ func _on_button_1_pressed():
 		$AnimatedSprite2D.play("flash")
 		
 	#wait dulu
-	await get_tree().create_timer(0.7).timeout
+	await get_tree().create_timer(0.5).timeout
 	$door.get_node("AnimatedSprite2D").play("close")
 	
 	generatenext = 1
@@ -110,7 +110,7 @@ func _on_button_2_pressed():
 		$AnimatedSprite2D.play("flash")
 
 	#wait dulu
-	await get_tree().create_timer(0.7).timeout				
+	await get_tree().create_timer(0.5).timeout				
 	$door.get_node("AnimatedSprite2D").play("close")
 
 	generatenext = 1
@@ -123,7 +123,7 @@ func _win():
 	Global.arraydooropen[n] = 1
 	
 	#print("door open")
-	await get_tree().create_timer(0.7).timeout		
+	await get_tree().create_timer(0.5).timeout		
 	get_tree().change_scene_to_file("res://scenes/transitionwindoor.tscn") 
 
 
@@ -132,5 +132,5 @@ func _win():
 func _lose():
 	
 	#print ("door is still locked")
-	await get_tree().create_timer(0.7).timeout	
+	await get_tree().create_timer(0.5).timeout	
 	get_tree().change_scene_to_file("res://scenes/transitionlosedoor.tscn") 

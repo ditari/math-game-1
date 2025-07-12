@@ -175,14 +175,15 @@ func win():
 	
 	Global.items[enemytype] = Global.items[enemytype] + 1
 	print ("you got key item " + str (enemytype))
-		
-	get_tree().change_scene_to_file("res://scenes/level1.tscn") 
+	
+	get_tree().change_scene_to_file("res://scenes/level"+ str(Global.currentlevel)+ ".tscn")	
+	#get_tree().change_scene_to_file("res://scenes/level1.tscn") 
 
 
 
 #jika lose
 func lose():
 	print ("you lose")
-	get_tree().change_scene_to_file("res://scenes/level1.tscn") 
-
+	#get_tree().change_scene_to_file("res://scenes/level1.tscn") 
+	get_tree().change_scene_to_file("res://scenes/level"+ str(Global.currentlevel)+ ".tscn")
 
