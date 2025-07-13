@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bvpce48rytcm2" path="res://assets/bg.png" id="2_yoj06"]
 [ext_resource type="PackedScene" uid="uid://dij0s1q66u46b" path="res://scenes/stripedoor.tscn" id="3_5sihm"]
 [ext_resource type="Texture2D" uid="uid://gdg74pno3apk" path="res://assets/buttondoor.png" id="4_gnbwd"]
-[ext_resource type="Texture2D" uid="uid://ctlyf2lc7n08q" path="res://assets/doorelectric-sprite.png" id="5_ft8b2"]
+[ext_resource type="Texture2D" uid="uid://bd5r7ismounpo" path="res://assets/doorshock-sprite.png" id="5_2uncd"]
 [ext_resource type="Texture2D" uid="uid://by1hmb6xwk7o6" path="res://assets/flash-sprite.png" id="5_nl7pm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cppea"]
@@ -24,70 +24,6 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dv8xe"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5q6pa"]
-atlas = ExtResource("5_ft8b2")
-region = Rect2(0, 0, 140, 265)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_cdjo5"]
-atlas = ExtResource("5_ft8b2")
-region = Rect2(140, 0, 140, 265)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_svchw"]
-atlas = ExtResource("5_ft8b2")
-region = Rect2(280, 0, 140, 265)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6adur"]
-atlas = ExtResource("5_ft8b2")
-region = Rect2(420, 0, 140, 265)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jfxkb"]
-atlas = ExtResource("5_ft8b2")
-region = Rect2(560, 0, 140, 265)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6fbqn"]
-atlas = ExtResource("5_ft8b2")
-region = Rect2(700, 0, 140, 265)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wmly1"]
-atlas = ExtResource("5_ft8b2")
-region = Rect2(840, 0, 140, 265)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2ef4v"]
-atlas = ExtResource("5_ft8b2")
-region = Rect2(980, 0, 140, 265)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_f55t3"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5q6pa")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_cdjo5")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_svchw")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6adur")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jfxkb")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6fbqn")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wmly1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2ef4v")
-}],
-"loop": false,
-"name": &"on",
-"speed": 16.0
-}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f8myp"]
 atlas = ExtResource("5_nl7pm")
@@ -150,6 +86,70 @@ animations = [{
 }],
 "loop": false,
 "name": &"flash",
+"speed": 16.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sbw0q"]
+atlas = ExtResource("5_2uncd")
+region = Rect2(0, 0, 160, 275)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_13nfp"]
+atlas = ExtResource("5_2uncd")
+region = Rect2(160, 0, 160, 275)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m7oyo"]
+atlas = ExtResource("5_2uncd")
+region = Rect2(320, 0, 160, 275)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0dxpu"]
+atlas = ExtResource("5_2uncd")
+region = Rect2(480, 0, 160, 275)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_drrrx"]
+atlas = ExtResource("5_2uncd")
+region = Rect2(640, 0, 160, 275)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_byini"]
+atlas = ExtResource("5_2uncd")
+region = Rect2(800, 0, 160, 275)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_flmtb"]
+atlas = ExtResource("5_2uncd")
+region = Rect2(960, 0, 160, 275)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_batc5"]
+atlas = ExtResource("5_2uncd")
+region = Rect2(1120, 0, 160, 275)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f55t3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sbw0q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_13nfp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m7oyo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0dxpu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_drrrx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_byini")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_flmtb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_batc5")
+}],
+"loop": false,
+"name": &"on",
 "speed": 16.0
 }]
 
@@ -274,18 +274,16 @@ text = "2"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="electric" type="AnimatedSprite2D" parent="."]
-position = Vector2(346, 302)
-scale = Vector2(1.5, 1.5)
-sprite_frames = SubResource("SpriteFrames_f55t3")
-animation = &"on"
-frame = 7
-frame_progress = 1.0
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(362, 642)
 sprite_frames = SubResource("SpriteFrames_8qcqi")
 animation = &"flash"
+
+[node name="electric" type="AnimatedSprite2D" parent="."]
+position = Vector2(347, 296)
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_f55t3")
+animation = &"on"
 
 [connection signal="pressed" from="Button1" to="." method="_on_button_1_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
