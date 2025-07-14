@@ -227,7 +227,7 @@ func _treasure_on_button_pressed():
 func _scale_on_button_pressed():
 	Global.whatexist = 3
 	#jadiabu2
-	get_tree().change_scene_to_file("res://scenes/puzzle.tscn") 
+	get_tree().change_scene_to_file("res://scenes/puzzlelv1.tscn") 
 
 #---------------generate buat level berikutnya-----------
 func generatedoortype():

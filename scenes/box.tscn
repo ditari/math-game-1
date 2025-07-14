@@ -1,13 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://d0nevfymmieg0"]
+[gd_scene load_steps=4 format=3 uid="uid://cfputnd550qet"]
 
-[ext_resource type="Texture2D" uid="uid://cb7yvsgj2nryt" path="res://assets/circle.png" id="1_8igw0"]
-[ext_resource type="Script" path="res://scripts/circle.gd" id="1_ubo5n"]
+[ext_resource type="Script" path="res://scripts/box.gd" id="1_er5m6"]
+[ext_resource type="Texture2D" uid="uid://cxlg8b83gj1vt" path="res://assets/box.png" id="2_wygrg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mtvu4"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[node name="circle" type="Node2D"]
-script = ExtResource("1_ubo5n")
+[node name="box" type="Node2D"]
+script = ExtResource("1_er5m6")
 
 [node name="Button" type="Button" parent="."]
 offset_right = 151.0
@@ -15,17 +15,19 @@ offset_bottom = 155.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_mtvu4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(75, 77)
+position = Vector2(80, 80)
 scale = Vector2(1.25, 1.25)
-texture = ExtResource("1_8igw0")
+texture = ExtResource("2_wygrg")
 
 [node name="label" type="Label" parent="."]
-offset_left = 32.0
-offset_top = 29.0
-offset_right = 117.0
-offset_bottom = 130.0
+offset_left = 11.0
+offset_top = 9.0
+offset_right = 151.0
+offset_bottom = 150.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 60
+theme_override_font_sizes/font_size = 70
 text = "???"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
