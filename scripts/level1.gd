@@ -6,8 +6,8 @@ var reddoorscene: PackedScene = load("res://scenes/reddoor.tscn")
 
 var bgwallscene: PackedScene = load("res://scenes/bgwall.tscn")
 
-var enemy1: PackedScene = load("res://scenes/enemy1.tscn")
-var enemy2: PackedScene = load("res://scenes/enemy2.tscn")
+var enemy1scene: PackedScene = load("res://scenes/enemy1.tscn")
+var enemy2scene: PackedScene = load("res://scenes/enemy2.tscn")
 #var enemy3: PackedScene = load("res://scenes/enemy3.tscn") untuk level 1 hanya 2 enemy
 
 var treasurescene: PackedScene = load("res://scenes/treasure.tscn")
@@ -119,7 +119,8 @@ func _emptydoor_on_button_pressed(sender, number):
 		await get_tree().create_timer(0.5).timeout
 		loadnextlevel(1)
 	else :
-		get_tree().change_scene_to_file("res://scenes/transitionenemyblocked.tscn")	
+		Global.currentenemy = number
+		get_tree().change_scene_to_file("res://scenes/transitionenemyblockedlv1.tscn")	
 
 func _stripedoor_on_button_pressed(sender,number):
 	#jika tidak ada enemy
@@ -134,7 +135,8 @@ func _stripedoor_on_button_pressed(sender,number):
 			Global.currentdoor = number
 			get_tree().change_scene_to_file("res://scenes/doorfightlv1.tscn") 
 	else :
-		get_tree().change_scene_to_file("res://scenes/transitionenemyblocked.tscn")
+		Global.currentenemy = number
+		get_tree().change_scene_to_file("res://scenes/transitionenemyblockedlv1.tscn")
 	
 func _reddoor_on_button_pressed(sender, number):
 	#jika tidak ada enemy
@@ -147,9 +149,10 @@ func _reddoor_on_button_pressed(sender, number):
 		#kalau doorclose	
 		else :
 			Global.currentdoor = number
-			get_tree().change_scene_to_file("res://scenes/doorunlocklv1.tscn") 
+			get_tree().change_scene_to_file("res://scenes/transitionbossdoorlv1.tscn") 
 	else :
-		print("enemy block the door")	
+		Global.currentenemy = number
+		get_tree().change_scene_to_file("res://scenes/transitionenemyblockedlv1.tscn")	
 	
 	
 	#	if Global.hasredkey == 1:	
@@ -176,9 +179,9 @@ func generateenemy():
 			
 func enemytype(xpos,ypos,number,type) :
 	if type == 1:
-		enemy = enemy1.instantiate()
+		enemy = enemy1scene.instantiate()
 	else:
-		enemy = enemy2.instantiate()
+		enemy = enemy2scene.instantiate()
 	
 	enemy.connect("button_pressed", _enemy_on_button_pressed)
 	
@@ -290,7 +293,6 @@ func generateenemyarray(numberofdoors):
 	# masalahnya kalau ga kayak gini bisa enemy ada 2 pintu ada 1
 	var n = rng.randi_range(0,numberofdoors)
 
-	
 	if numberofdoors == 1:
 		if n == 0:
 			Global.isenemyexist = [0,0,0,0]

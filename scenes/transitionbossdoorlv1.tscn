@@ -1,0 +1,160 @@
+[gd_scene load_steps=9 format=3 uid="uid://dbulxlxi4uixk"]
+
+[ext_resource type="Script" path="res://scripts/transitionbossdoorlv1.gd" id="1_4b36x"]
+[ext_resource type="Texture2D" uid="uid://bvpce48rytcm2" path="res://assets/bg.png" id="1_vrlwk"]
+[ext_resource type="Texture2D" uid="uid://854wqvbu52qp" path="res://assets/messagebox.png" id="2_itk04"]
+[ext_resource type="Texture2D" uid="uid://vywt7c42ry5c" path="res://assets/key1.png" id="3_yt2w1"]
+[ext_resource type="Texture2D" uid="uid://0c47i0nax74r" path="res://assets/key2.png" id="4_nevdd"]
+[ext_resource type="Texture2D" uid="uid://bvwm4jnejjry8" path="res://assets/buttonlong.png" id="5_gdddq"]
+[ext_resource type="Texture2D" uid="uid://dkxxbesiew7ev" path="res://assets/boxlong.png" id="6_mmkrt"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vpfna"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_gdddq")
+}],
+"loop": true,
+"name": &"off",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_mmkrt")
+}],
+"loop": true,
+"name": &"on",
+"speed": 5.0
+}]
+
+[node name="transition" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -720.0
+offset_bottom = -1280.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4b36x")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 720.0
+offset_bottom = 1280.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_vrlwk")
+
+[node name="Messagebox" type="Sprite2D" parent="."]
+position = Vector2(362, 465)
+texture = ExtResource("2_itk04")
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 565.0
+offset_right = 721.0
+offset_bottom = 651.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 60
+text = "TO UNLOCK THE DOOR"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 283.0
+offset_right = 721.0
+offset_bottom = 369.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 60
+text = "YOU NEED"
+horizontal_alignment = 1
+
+[node name="Key1" type="Sprite2D" parent="."]
+position = Vector2(170, 460)
+scale = Vector2(2, 2)
+texture = ExtResource("3_yt2w1")
+
+[node name="Key2" type="Sprite2D" parent="."]
+position = Vector2(470, 460)
+scale = Vector2(2, 2)
+texture = ExtResource("4_nevdd")
+
+[node name="key1label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 270.0
+offset_top = 397.0
+offset_right = 395.0
+offset_bottom = 524.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 90
+text = "0
+"
+
+[node name="key2label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 561.0
+offset_top = 395.0
+offset_right = 686.0
+offset_bottom = 522.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 90
+text = "0
+"
+
+[node name="unlockbutton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 713.0
+offset_right = 324.0
+offset_bottom = 847.0
+
+[node name="unlockbg" type="AnimatedSprite2D" parent="."]
+position = Vector2(180, 780)
+scale = Vector2(1.2, 1.2)
+sprite_frames = SubResource("SpriteFrames_vpfna")
+animation = &"off"
+
+[node name="unlocklabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 710.0
+offset_right = 328.0
+offset_bottom = 850.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 60
+text = "UNLOCK"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="cancelbutton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 387.0
+offset_top = 711.0
+offset_right = 674.0
+offset_bottom = 849.0
+
+[node name="cancelbg" type="Sprite2D" parent="."]
+position = Vector2(530, 780)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("6_mmkrt")
+
+[node name="cancellabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 380.0
+offset_top = 708.0
+offset_right = 678.0
+offset_bottom = 848.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 60
+text = "CANCEL"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="unlockbutton" to="." method="_on_unlockbutton_pressed"]
+[connection signal="pressed" from="cancelbutton" to="." method="_on_cancelbutton_pressed"]

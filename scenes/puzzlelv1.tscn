@@ -1,29 +1,31 @@
-[gd_scene load_steps=11 format=3 uid="uid://cdjiwmiet1jg3"]
+[gd_scene load_steps=13 format=3 uid="uid://cdjiwmiet1jg3"]
 
 [ext_resource type="Script" path="res://scripts/puzzlelv1.gd" id="1_6frya"]
 [ext_resource type="Texture2D" uid="uid://bvpce48rytcm2" path="res://assets/bg.png" id="2_2ajr3"]
 [ext_resource type="Texture2D" uid="uid://vlsktln4b5e2" path="res://assets/screen.png" id="3_bj6yd"]
 [ext_resource type="Texture2D" uid="uid://cxlg8b83gj1vt" path="res://assets/box.png" id="4_0vu4c"]
+[ext_resource type="Texture2D" uid="uid://bvwm4jnejjry8" path="res://assets/buttonlong.png" id="5_24ffy"]
 [ext_resource type="Texture2D" uid="uid://gdg74pno3apk" path="res://assets/buttondoor.png" id="5_kp1j6"]
+[ext_resource type="Texture2D" uid="uid://dkxxbesiew7ev" path="res://assets/boxlong.png" id="6_hfyk0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xxd63"]
 bg_color = Color(0, 0, 1, 0)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_lv3mh"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_pld6o"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_kp1j6")
+"texture": ExtResource("5_24ffy")
 }],
-"loop": false,
+"loop": true,
 "name": &"off",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_0vu4c")
+"texture": ExtResource("6_hfyk0")
 }],
-"loop": false,
+"loop": true,
 "name": &"on",
 "speed": 5.0
 }]
@@ -150,26 +152,25 @@ vertical_alignment = 1
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 323.0
-offset_top = 566.0
-offset_right = 596.0
-offset_bottom = 695.0
+offset_left = 105.0
+offset_top = 563.0
+offset_right = 395.0
+offset_bottom = 698.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = SubResource("StyleBoxFlat_xxd63")
 
 [node name="enterbg" type="AnimatedSprite2D" parent="."]
-position = Vector2(460, 630)
-scale = Vector2(2.34788, 1.2)
-sprite_frames = SubResource("SpriteFrames_lv3mh")
+position = Vector2(250, 630)
+scale = Vector2(1.2, 1.2)
+sprite_frames = SubResource("SpriteFrames_pld6o")
 animation = &"off"
 
 [node name="enterlabel" type="Label" parent="."]
-layout_mode = 0
-offset_left = 313.0
-offset_top = 563.0
-offset_right = 599.0
-offset_bottom = 697.0
+offset_left = 108.0
+offset_top = 562.0
+offset_right = 398.0
+offset_bottom = 696.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 80
 text = "ENTER"
@@ -178,10 +179,10 @@ vertical_alignment = 1
 
 [node name="Button2" type="Button" parent="."]
 layout_mode = 0
-offset_left = 129.0
-offset_top = 569.0
-offset_right = 268.0
-offset_bottom = 693.0
+offset_left = 469.0
+offset_top = 567.0
+offset_right = 609.0
+offset_bottom = 692.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 0, 0, 1)
@@ -191,17 +192,17 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_g8owh")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_8ohs7")
 
 [node name="reloadbg" type="AnimatedSprite2D" parent="."]
-position = Vector2(200, 631)
+position = Vector2(540, 630)
 scale = Vector2(1.2, 1.139)
 sprite_frames = SubResource("SpriteFrames_1yuh2")
 animation = &"off"
 
 [node name="reloadlabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 136.0
-offset_top = 567.0
-offset_right = 257.0
-offset_bottom = 691.0
+offset_left = 472.0
+offset_top = 565.0
+offset_right = 609.0
+offset_bottom = 690.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 90
 text = "⭮"

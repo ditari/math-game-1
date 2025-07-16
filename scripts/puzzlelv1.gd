@@ -111,6 +111,8 @@ func _on_button_2_pressed():
 
 func _on_button_pressed():
 	if clicked == 2:
+		Global.whatexist = 3
+		
 		if answerarray[indexa] + answerarray[indexb] == answer:
 			#print("correct answer")
 			#var reward = 100 #randi_range(50,100)

@@ -4,7 +4,7 @@ var currentlevel = 1
 var playerhp = 100
 var score = 0
 
-var items = [0,0,0,0]
+var items = [0,3,3,0]
 
 #-------doors-----------
 
@@ -26,26 +26,27 @@ var currentdoor = 0
 #var previousdoortype = 0 #untuk generate chance apakah ada treasure enemy atau apa
 
 var reddoorexist = 0 #check jika reddoor ada
-var reddoorkey = [0,0,0,0]
+var reddoorkey = [0,1,2,0]
 #reddoor [0,3,2,1] artinya butuh 3 kunci tipe1, 2 kunci tipe 2, 1 tkunci tipe 3
 
 
 #-------enemy---------
-var isenemyexist = [0,1,2,0]
+var isenemyexist = [0,0,0,0]
 #posisi enemy kalau satu berarti di pintu tengah [0,0,1,0]
 #kalau ada dua enemy berarti di kanan kiri [0,1,0,1]
 #kalau ada tiga enemy semua [0,1,1,1]
 #enemy 1 tipe 1
 #enemy 2 tipe 2 misal [0,1,2,3] berarti ada tiga enemy, masing2 beda tipe
 
-#ini position ya kalau 1 berarti di door kiri
+#currentenemy (number kalau di enemy scene) ini position ya kalau 1 berarti di door 1 kiri
 var currentenemy = 0
+#currentenemytype baru tipe enemy nya apa
 var currentenemytype = 0
 
 var enemydefeated = 0 #jumlah enemy defeated
 
 #-------treasure chest 
-var whatexist = 2
+var whatexist = 1
 #0 = nothing
 #1 = treasure
 #2 = pc diamnond
