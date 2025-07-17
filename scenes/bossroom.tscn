@@ -1,10 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://cd1qtsgeqr40b"]
+[gd_scene load_steps=8 format=3 uid="uid://baimheeud61qv"]
 
-[ext_resource type="Script" path="res://scripts/level1.gd" id="1_61p4g"]
-[ext_resource type="Texture2D" uid="uid://bvpce48rytcm2" path="res://assets/bg.png" id="2_vvfab"]
-[ext_resource type="PackedScene" uid="uid://rhqkm0svrpgy" path="res://scenes/key1.tscn" id="3_03nje"]
-[ext_resource type="PackedScene" uid="uid://heu06hmafnge" path="res://scenes/key2.tscn" id="4_wplx4"]
-[ext_resource type="PackedScene" uid="uid://24xygqluuq3w" path="res://scenes/calculator.tscn" id="5_yp2q7"]
+[ext_resource type="Script" path="res://scripts/bossroom.gd" id="1_vktjw"]
+[ext_resource type="Texture2D" uid="uid://bvpce48rytcm2" path="res://assets/bg.png" id="2_gh87u"]
+[ext_resource type="PackedScene" uid="uid://rhqkm0svrpgy" path="res://scenes/key1.tscn" id="3_5s1l0"]
+[ext_resource type="PackedScene" uid="uid://heu06hmafnge" path="res://scenes/key2.tscn" id="4_n2fs0"]
+[ext_resource type="Texture2D" uid="uid://beu5lmot1lsu" path="res://assets/bgwall.png" id="5_6wbbk"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ohby"]
 bg_color = Color(0, 0, 0, 1)
@@ -12,7 +12,7 @@ bg_color = Color(0, 0, 0, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o0eeb"]
 bg_color = Color(0, 1, 0, 1)
 
-[node name="level1" type="Control"]
+[node name="bossroom" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -21,7 +21,7 @@ offset_right = -720.0
 offset_bottom = -1280.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_61p4g")
+script = ExtResource("1_vktjw")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -32,15 +32,15 @@ offset_right = 720.0
 offset_bottom = 1280.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_vvfab")
+texture = ExtResource("2_gh87u")
 
 [node name="array" type="Node2D" parent="."]
 
 [node name="playerprogressbar" type="ProgressBar" parent="."]
 layout_mode = 0
-offset_left = 200.0
+offset_left = 160.0
 offset_top = 1100.0
-offset_right = 650.0
+offset_right = 660.0
 offset_bottom = 1130.0
 theme_override_styles/background = SubResource("StyleBoxFlat_5ohby")
 theme_override_styles/fill = SubResource("StyleBoxFlat_o0eeb")
@@ -75,44 +75,44 @@ offset_right = 167.0
 offset_bottom = 1225.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 40
-text = "ITEMS:"
+text = "ITEM:"
 
-[node name="key1" parent="." instance=ExtResource("3_03nje")]
-position = Vector2(200, 1160)
+[node name="key1" parent="." instance=ExtResource("3_5s1l0")]
+position = Vector2(252, 1161)
 
-[node name="key2" parent="." instance=ExtResource("4_wplx4")]
-position = Vector2(370, 1160)
+[node name="key2" parent="." instance=ExtResource("4_n2fs0")]
+position = Vector2(459, 1162)
 
 [node name="key1label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 279.0
+offset_left = 328.0
 offset_top = 1158.0
-offset_right = 339.0
+offset_right = 374.0
 offset_bottom = 1230.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 50
-text = "1"
 
 [node name="key2label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 447.0
+offset_left = 533.0
 offset_top = 1158.0
-offset_right = 508.0
+offset_right = 579.0
 offset_bottom = 1230.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 50
-text = "2"
 
-[node name="calculatorlabel" type="Label" parent="."]
+[node name="Bgwall" type="Sprite2D" parent="."]
+position = Vector2(360, 320)
+texture = ExtResource("5_6wbbk")
+
+[node name="scorelabel2" type="Label" parent="."]
 layout_mode = 0
-offset_left = 617.0
-offset_top = 1160.0
-offset_right = 668.0
-offset_bottom = 1232.0
+offset_left = 1.0
+offset_top = 129.0
+offset_right = 719.0
+offset_bottom = 502.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 50
-text = "3"
-
-[node name="calculator" parent="." instance=ExtResource("5_yp2q7")]
-position = Vector2(540, 1160)
-scale = Vector2(0.5, 0.5)
+theme_override_font_sizes/font_size = 100
+text = "B O S S"
+horizontal_alignment = 1
+vertical_alignment = 1

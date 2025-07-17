@@ -41,7 +41,14 @@ func _ready():
 	if Global.items[2] > 0:
 		$key2.get_node("AnimatedSprite2D").play("on")
 		$key2label.text = str(Global.items[2])	
-
+		
+	#calculator	
+	if Global.calculator == 0:
+		$calculator.visible = false
+		$calculatorlabel.visible = false
+	else:
+		$calculatorlabel.text = str (Global.calculator)
+		
 
 func update_sprite_position():
 	var screen_size = get_viewport_rect().size

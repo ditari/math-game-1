@@ -21,14 +21,23 @@ var enemytype = Global.currentenemytype
 
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
+func _ready():	
+	#calculator
+	if Global.calculator == 0:
+		$calculator.visible = false
+		$calculator/calculatorlabel.visible = false
+	else :
+		$calculator/calculatorlabel.text = str(Global.calculator)
+	
+	$calculator.button_pressed.connect(_on_calculator_button_pressed)	
+	
 	if enemytype == 1 :
 		enemy = enemy1.instantiate()
 	#elif enemytype == 2 :
 	else :	
 		enemy = enemy2.instantiate()
 
-	enemy.position = Vector2(275,150)
+	enemy.position = Vector2(275,140)
 	enemy.scale = Vector2(1.5,1.5)
 	enemy.get_node("AnimatedSprite2D").play("idle")	
 	
@@ -41,12 +50,17 @@ func _ready():
 	
 	$timer.wait_time = 15
 	$timer.start() 
-	
-
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	#calculator
+	if Global.calculator == 0:
+		$calculator.visible = false
+		$calculator/calculatorlabel.visible = false
+	else :
+		$calculator/calculatorlabel.text = str(Global.calculator)
+
+	
 	if $timer.time_left > 0 and chance > 0:
 		$timerprogressbar.value = $timer.time_left
 	
@@ -89,6 +103,24 @@ func generatequestionminus():
 	
 	$questionlabel.text = question
 
+#autoanswer
+func _on_calculator_button_pressed():
+	Global.calculator = Global.calculator - 1
+	inputanswer = str (answer)
+	###
+	enemyhp = enemyhp -1
+	#play animation
+	enemy.get_node("AnimatedSprite2D").play("hurt")
+	
+	await get_tree().create_timer(0.5).timeout	
+	enemy.get_node("AnimatedSprite2D").play("idle")
+
+	inputanswer = ""
+	if chance > 0 and enemyhp > 0:
+		generatequestion(enemytype)
+		$timer.start()
+	#else :
+	#	await get_tree().create_timer(0.5).timeout		
 	
 func _on_button_1_pressed():
 	if inputanswer.length() < 3 :
@@ -155,7 +187,8 @@ func _on_buttonequal_pressed():
 	if chance > 0 and enemyhp > 0:
 		generatequestion(enemytype)
 		$timer.start()	
-
+	#else :
+	#	await get_tree().create_timer(0.5).timeout	
 
 func _on_timer_timeout():
 	if chance > 0 :
@@ -188,7 +221,7 @@ func win():
 	
 
 	#print ("you got key item " + str (enemytype))
-		
+	await get_tree().create_timer(0.5).timeout	
 	get_tree().change_scene_to_file("res://scenes/transitionenemywinlv1.tscn") 
 
 
@@ -196,6 +229,7 @@ func win():
 #jika lose
 func lose():
 	#print ("you lose")
+	await get_tree().create_timer(0.5).timeout	
 	get_tree().change_scene_to_file("res://scenes/transitionenemyloselv1.tscn") 
 
 

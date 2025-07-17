@@ -19,12 +19,27 @@ var generatenext = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	#calculator
+	if Global.calculator == 0:
+		$calculator.visible = false
+		$calculator/calculatorlabel.visible = false
+	else :
+		$calculator/calculatorlabel.text = str(Global.calculator)	
+	$calculator.button_pressed.connect(_on_calculator_button_pressed)	
+	
 	generatequestion()
 	generatewronganswer()
 	generatechoice()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	#calculator
+	if Global.calculator == 0:
+		$calculator.visible = false
+		$calculator/calculatorlabel.visible = false
+	else :
+		$calculator/calculatorlabel.text = str(Global.calculator)	
+	
 	#update bar
 	$doorprogressbar.value = doorhp
 	$playerprogressbar.value = Global.playerhp
@@ -41,6 +56,22 @@ func _process(delta):
 		generatequestion()
 		generatewronganswer()
 		generatechoice()
+
+#autoanswer
+func _on_calculator_button_pressed():
+	Global.calculator = Global.calculator - 1
+
+	doorhp = doorhp - 1
+	$answerlabel.text = str (answer)
+		
+	$door.get_node("AnimatedSprite2D").play("hurt")
+	
+	#wait dulu
+	await get_tree().create_timer(0.5).timeout
+	$door.get_node("AnimatedSprite2D").play("close")
+
+	generatenext = 1
+	$answerlabel.text = ""
 
 func generatequestion():
 	var operation = rng.randi_range(0, 1)
@@ -87,27 +118,36 @@ func generatewronganswer ()	:
 func _on_button_1_pressed():
 	if correctchoice == 1:
 		doorhp = doorhp - 1
+		$answerlabel.text = str (answer)
+		
 		$door.get_node("AnimatedSprite2D").play("hurt")
+		
 	else:
 		Global.playerhp = Global.playerhp - minusplayer
 		chance = chance - 1
+		$answerlabel.text = str (wronganswer)
+		
 		$AnimatedSprite2D.play("flash")
 		$electric.play("on")
 		
 	#wait dulu
 	await get_tree().create_timer(0.5).timeout
 	$door.get_node("AnimatedSprite2D").play("close")
-	
+
 	generatenext = 1
-		
+	$answerlabel.text = ""	
 		
 func _on_button_2_pressed():
 	if correctchoice == 2:
 		doorhp = doorhp - 1
+		$answerlabel.text = str (answer)
+		
 		$door.get_node("AnimatedSprite2D").play("hurt")
 	else:
 		Global.playerhp = Global.playerhp - minusplayer
 		chance = chance - 1
+		$answerlabel.text = str (wronganswer)
+		
 		$AnimatedSprite2D.play("flash")
 		$electric.play("on")
 
@@ -116,7 +156,7 @@ func _on_button_2_pressed():
 	$door.get_node("AnimatedSprite2D").play("close")
 
 	generatenext = 1
-
+	$answerlabel.text = ""
 
 
 #jika win fight

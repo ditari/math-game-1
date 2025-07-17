@@ -4,7 +4,11 @@ var currentlevel = 1
 var playerhp = 100
 var score = 0
 
+#key items
 var items = [0,3,3,0]
+
+#jumlah kalkulator
+var calculator = 3
 
 #-------doors-----------
 
