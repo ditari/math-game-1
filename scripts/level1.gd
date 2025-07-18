@@ -20,7 +20,7 @@ var door
 var enemy
 var content
 
-var screen_size_x
+#var screen_size_x
 var xgaps
 #var ygaps
 
@@ -29,7 +29,7 @@ var rng = RandomNumberGenerator.new()
 
 func _ready():
 	update_sprite_position()
-	self.resized.connect(update_sprite_position)  # Godot 4 syntax
+	#self.resized.connect(update_sprite_position)  # Godot 4 syntax
 	
 	$playerprogressbar.value = Global.playerhp
 	
@@ -51,9 +51,10 @@ func _ready():
 		
 
 func update_sprite_position():
-	var screen_size = get_viewport_rect().size
+	#var screen_size = get_viewport_rect().size
 	#ygaps = (screen_size.y-512)/7
-	screen_size_x = screen_size.x
+	#screen_size_x = screen_size.x
+	#print(screen_size_x)
 	
 	#buat bg
 	bgwall = bgwallscene.instantiate()
@@ -63,11 +64,11 @@ func update_sprite_position():
 	numberofdoors = Global.numberofdoors
 	
 	if numberofdoors == 3:
-		xgaps = (screen_size.x - 384)/4	
+		xgaps = 84#(screen_size.x - 384)/4	
 	elif numberofdoors == 2:
-		xgaps = (screen_size.x - 256)/3
+		xgaps = 155#(screen_size.x - 256)/3
 	else : 
-		xgaps = (screen_size.x - 128)/2
+		xgaps = 296#(screen_size.x - 128)/2
 		
 	#buat pintu
 	createdoor(1, Global.door1type)
@@ -77,17 +78,7 @@ func update_sprite_position():
 		createdoor(3, Global.door3type)	
 	
 	generateenemy()
-
-	#var cy = (6*ygaps) + 64
-	#var cx = (screen_size.x - 128)/2
-
 	generatecontent()
-
-	#print ("load:" + str(Global.whatexist))
-	#tampilkan item ke layar
-	#print("key item 1= "+ str(Global.items[1]))
-	#print("key item 2= "+ str(Global.items[2]))
-	#print ("score = " + str(Global.score))
 	
 func createdoor(doorposition, type):
 	#var type = generatedoortype()
@@ -152,7 +143,7 @@ func _reddoor_on_button_pressed(sender, number):
 		if Global.arraydooropen [number] == 1 :
 			sender.get_node("AnimatedSprite2D").play("opening")
 			await get_tree().create_timer(0.5).timeout				
-			get_tree().change_scene_to_file("res://scenes/bossfightlv1.tscn")
+			get_tree().change_scene_to_file("res://scenes/bossroomlv1.tscn")
 		#kalau doorclose	
 		else :
 			Global.currentdoor = number
@@ -215,14 +206,14 @@ func generatecontent():
 	if Global.whatexist == 1:
 		content = treasurescene.instantiate()		
 		content.connect("button", _treasure_on_button_pressed)	
-		content.position = Vector2((screen_size_x - 128)/2,822)
+		content.position = Vector2(296,822)
 	elif Global.whatexist == 2:
 		content = pcdiamondscene.instantiate()
 		content.connect("button", _scale_on_button_pressed)	
-		content.position = Vector2((screen_size_x - 128)/2,758)
+		content.position = Vector2(296,758) #(screen_size_x - 128)/2,758
 	elif Global.whatexist == 3:
 		content = pcdiamondgrayscene.instantiate()
-		content.position = Vector2((screen_size_x - 128)/2,758)
+		content.position = Vector2(296,758)
 					
 	else:
 		return

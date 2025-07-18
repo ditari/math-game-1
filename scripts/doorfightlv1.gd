@@ -45,11 +45,14 @@ func _process(delta):
 	$playerprogressbar.value = Global.playerhp
 	#$chancelabel.text = "chance : " + str(chance) + "/3"
 
-	if chance == 0 :
-		_lose()
-	elif doorhp == 0:
-		_win()	
-	
+	if Global.playerhp > 0 :
+		if chance == 0 :
+			lose()
+		elif doorhp == 0:
+			win()
+	else :
+		gameover()
+			
 	#else
 	if generatenext == 1:
 		generatenext = 0
@@ -78,14 +81,14 @@ func generatequestion():
 
 	#penjumlahan
 	if operation == 1:
-		a = rng.randi_range(0, 10)
-		b = rng.randi_range(0, 10) 
+		a = rng.randi_range(0, 5)
+		b = rng.randi_range(0, 5) 
 		answer = a+b
 		question = str(a) + " + " + str(b)
 	#pengurangan
 	else : 
-		answer = rng.randi_range(0, 10)		
-		b = rng.randi_range(0, 10)
+		answer = rng.randi_range(0, 5)		
+		b = rng.randi_range(0, 5)
 		a = answer + b		
 		question = str(a) + " - " + str(b)
 	
@@ -160,7 +163,7 @@ func _on_button_2_pressed():
 
 
 #jika win fight
-func _win():
+func win():
 	var n = Global.currentdoor
 	Global.arraydooropen[n] = 1
 	
@@ -171,8 +174,12 @@ func _win():
 
 
 #jika lose
-func _lose():
-	
+func lose():	
 	#print ("door is still locked")
+	await get_tree().create_timer(0.5).timeout	
+	get_tree().change_scene_to_file("res://scenes/transitionlosedoor.tscn") 
+
+func gameover():
+	print("gameover")
 	await get_tree().create_timer(0.5).timeout	
 	get_tree().change_scene_to_file("res://scenes/transitionlosedoor.tscn") 

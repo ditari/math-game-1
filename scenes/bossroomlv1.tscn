@@ -1,0 +1,118 @@
+[gd_scene load_steps=8 format=3 uid="uid://d1ph3khka6f44"]
+
+[ext_resource type="Script" path="res://scripts/bossroomlv1.gd" id="1_wbutp"]
+[ext_resource type="Texture2D" uid="uid://bvpce48rytcm2" path="res://assets/bg.png" id="2_2vktj"]
+[ext_resource type="PackedScene" uid="uid://rhqkm0svrpgy" path="res://scenes/key1.tscn" id="3_psyr2"]
+[ext_resource type="PackedScene" uid="uid://heu06hmafnge" path="res://scenes/key2.tscn" id="4_4drko"]
+[ext_resource type="Texture2D" uid="uid://beu5lmot1lsu" path="res://assets/bgwall.png" id="5_sq8hj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ohby"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o0eeb"]
+bg_color = Color(0, 1, 0, 1)
+
+[node name="bossroom" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -720.0
+offset_bottom = -1280.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wbutp")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 720.0
+offset_bottom = 1280.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_2vktj")
+
+[node name="array" type="Node2D" parent="."]
+
+[node name="playerprogressbar" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 1100.0
+offset_right = 660.0
+offset_bottom = 1130.0
+theme_override_styles/background = SubResource("StyleBoxFlat_5ohby")
+theme_override_styles/fill = SubResource("StyleBoxFlat_o0eeb")
+value = 100.0
+show_percentage = false
+
+[node name="scorelabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 6.0
+offset_right = 143.0
+offset_bottom = 64.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "SCORE :"
+
+[node name="label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 1082.0
+offset_right = 167.0
+offset_bottom = 1140.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "HP:"
+
+[node name="label3" type="Label" parent="."]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 1167.0
+offset_right = 167.0
+offset_bottom = 1225.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 40
+text = "ITEM:"
+
+[node name="key1" parent="." instance=ExtResource("3_psyr2")]
+position = Vector2(252, 1161)
+
+[node name="key2" parent="." instance=ExtResource("4_4drko")]
+position = Vector2(459, 1162)
+
+[node name="key1label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 328.0
+offset_top = 1158.0
+offset_right = 374.0
+offset_bottom = 1230.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+
+[node name="key2label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 533.0
+offset_top = 1158.0
+offset_right = 579.0
+offset_bottom = 1230.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+
+[node name="Bgwall" type="Sprite2D" parent="."]
+position = Vector2(360, 320)
+texture = ExtResource("5_sq8hj")
+
+[node name="scorelabel2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 129.0
+offset_right = 719.0
+offset_bottom = 502.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+text = "B O S S"
+horizontal_alignment = 1
+vertical_alignment = 1

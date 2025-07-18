@@ -1,7 +1,7 @@
 extends Node
 
 var currentlevel = 1
-var playerhp = 100
+var playerhp = 5
 var score = 0
 
 #key items
@@ -45,7 +45,7 @@ var isenemyexist = [0,0,0,0]
 #currentenemy (number kalau di enemy scene) ini position ya kalau 1 berarti di door 1 kiri
 var currentenemy = 0
 #currentenemytype baru tipe enemy nya apa
-var currentenemytype = 0
+var currentenemytype = 1
 
 var enemydefeated = 0 #jumlah enemy defeated
 

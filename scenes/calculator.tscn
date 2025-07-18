@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://24xygqluuq3w"]
 
 [ext_resource type="Script" path="res://scripts/calculator.gd" id="1_reh4m"]
-[ext_resource type="Texture2D" path="res://assets/calculator.png" id="1_wx2l0"]
+[ext_resource type="Texture2D" uid="uid://dqafdy2tk7pc2" path="res://assets/calculator.png" id="1_wx2l0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bsotb"]
 bg_color = Color(0.6, 0.6, 0.6, 0)

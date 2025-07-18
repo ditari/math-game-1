@@ -300,7 +300,8 @@ sprite_frames = SubResource("SpriteFrames_f55t3")
 animation = &"on"
 
 [node name="calculator" parent="." instance=ExtResource("7_b5jlr")]
-position = Vector2(532, 21)
+position = Vector2(560, 20)
+scale = Vector2(0.8, 0.8)
 
 [node name="calculatorlabel" type="Label" parent="calculator"]
 offset_left = 126.0

@@ -11,70 +11,60 @@ var rng = RandomNumberGenerator.new()
 
 var enemyhp = 5
 #var chance = 3 
-var minusplayer = 5
+var minusplayer = 10
+var waittime = 10
+
+#var enemy1: PackedScene = load("res://scenes/enemy1.tscn")
+#var enemy2: PackedScene = load("res://scenes/enemy2.tscn")
+var enemy
+
+#var enemytype = Global.currentenemytype
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#calculator
-	if Global.calculator == 0:
-		$calculator.visible = false
-		$calculator/calculatorlabel.visible = false
-	else :
-		$calculator/calculatorlabel.text = str(Global.calculator)
-	
-	$calculator.button_pressed.connect(_on_calculator_button_pressed)	
-
 	generatequestion()
 	
 	$enemyprogressbar.value = enemyhp
 	$playerprogressbar.value = Global.playerhp
 	
-	$timer.wait_time = 15
+	$timer.wait_time = waittime
 	$timer.start() 
+	
+
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	#calculator
-	if Global.calculator == 0:
-		$calculator.visible = false
-		$calculator/calculatorlabel.visible = false
-	else :
-		$calculator/calculatorlabel.text = str(Global.calculator)
-
-	if $timer.time_left > 0:
+	if $timer.time_left > 0 and Global.playerhp > 0:
 		$timerprogressbar.value = $timer.time_left
 	
 	$answerlabel.text = inputanswer
+	#$chancelabel.text = "chance = " + str(chance) + "/3"
 	
 	$enemyprogressbar.value = enemyhp
 	$playerprogressbar.value = Global.playerhp
-
-	if Global.playerhp > 0 :
-		if enemyhp == 0:
-			win()
-	else :
-		gameover()
-
-
+	
+	#checkifchance==0 or enemyhp == 0
+	#win or lose
+	if Global.playerhp == 0 :
+		lose()
+	elif enemyhp == 0:
+		win()
+	
 func generatequestion():
-	var type = randi_range(1,2)
-	if type == 1:
+	var v = randi_range(1,2)
+	if v == 1 :
 		generatequestionplus()
-	#elif type == 2 :
-	else:
-		generatequestionminus()	
-		
+	else :
+		generatequestionminus()				
+
 func generatequestionplus():
 	a = rng.randi_range(0, 5)
-	b = rng.randi_range(0, 10)
+	b = rng.randi_range(0, 5)
 	answer = a+b
+	question = str(a) + " + " + str(b) + " = "
 	
-	var type = randi_range(1,2)
-	if type == 1:
-		question = str(a) + " + " + str(b) + " = ?"
-	else:
-		question = str(b) + " + " + str(a) + " = ?"
-			
 	$questionlabel.text = question
 	
 func generatequestionminus():
@@ -84,24 +74,8 @@ func generatequestionminus():
 	question = str(a) + " - " + str(b) + " = "
 	
 	$questionlabel.text = question
+
 	
-func _on_calculator_button_pressed():
-	Global.calculator = Global.calculator - 1
-	inputanswer = str (answer)
-
-	enemyhp = enemyhp -1
-	#play animation
-	$boss.get_node("AnimatedSprite2D").play("hurt")
-		
-	await get_tree().create_timer(0.5).timeout	
-	$boss.get_node("AnimatedSprite2D").play("idle")
-
-	inputanswer = ""
-	
-	if enemyhp > 0:
-		generatequestion()
-		$timer.start()		
-
 func _on_button_1_pressed():
 	if inputanswer.length() < 3 :
 		inputanswer = inputanswer + "1"
@@ -151,44 +125,51 @@ func _on_buttonequal_pressed():
 	if input == answer:
 		enemyhp = enemyhp -1
 		#play animation
-		$boss.get_node("AnimatedSprite2D").play("hurt")
 	else :
 		Global.playerhp = Global.playerhp - minusplayer
-		#chance = chance - 1
 		#play animation
-		$boss.get_node("AnimatedSprite2D").play("fire")
-		#flash screen here
-		$AnimatedSprite2D.play("flash")
 		
-	await get_tree().create_timer(0.5).timeout	
-	$boss.get_node("AnimatedSprite2D").play("idle")
-
+	#clearinput
 	inputanswer = ""
 	
-	if enemyhp > 0:
+	if Global.playerhp > 0 and enemyhp > 0:
 		generatequestion()
 		$timer.start()	
 
+
 func _on_timer_timeout():
-	Global.playerhp = Global.playerhp - minusplayer
-		#chance = chance - 1
-	#play animation
-	$boss.get_node("AnimatedSprite2D").play("fire")
-		#flash screen here
-	$AnimatedSprite2D.play("flash")
-	
-	await get_tree().create_timer(0.5).timeout	
-	$boss.get_node("AnimatedSprite2D").play("idle")
+	if Global.playerhp > 0 :
+		Global.playerhp = Global.playerhp - minusplayer
+		#play animation
 
-	inputanswer = ""
-
-	if enemyhp > 0:
 		generatequestion()
 		$timer.start()
+		
 
-
+		
+#jika win
 func win():
-	pass
+	#var n = Global.currentenemy
+	#Global.isenemyexist[n] = 0
+	
+	#Global.enemydefeated = Global.enemydefeated + 1
+	
+	print("you win")
+	#dapat gold
+	#var reward = rng.randi_range(1,50)
+	#Global.score = Global.score+reward
+	#print ("you got reward " + str (reward))
+	
+	#Global.items[enemytype] = Global.items[enemytype] + 1
+	#print ("you got key item " + str (enemytype))
+		
+	get_tree().change_scene_to_file("res://scenes/level1.tscn") 
 
-func gameover():
-	print ("gameover")
+
+
+#jika lose
+func lose():
+	print ("you lose")
+	get_tree().change_scene_to_file("res://scenes/level1.tscn") 
+
+

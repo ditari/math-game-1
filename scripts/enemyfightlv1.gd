@@ -1,3 +1,7 @@
+#note harusnya dicek juga playerhpnya nol atau ga 
+#sebelum update bar atau timer
+#tapi ga kelihatan ya sudahlah
+
 extends Control
 
 var a =0
@@ -72,20 +76,23 @@ func _process(delta):
 	
 	#checkifchance==0 or enemyhp == 0
 	#win or lose
-	if chance == 0 :
-		lose()
-	elif enemyhp == 0:
-		win()
+	if Global.playerhp > 0 :
+		if chance == 0 :
+			lose()
+		elif enemyhp == 0:
+			win()
+	else :
+		gameover()
 	
 func generatequestion(type):
 	if type == 1:
 		generatequestionplus()
 	elif type == 2 :
-		var v = randi_range(1,2)
-		if v == 1 :
-			generatequestionplus()
-		else :
-			generatequestionminus()				
+		#var v = randi_range(1,2)
+		#if v == 1 :
+		#	generatequestionplus()
+		#else :
+		generatequestionminus()				
 
 func generatequestionplus():
 	a = rng.randi_range(0, 5)
@@ -116,6 +123,7 @@ func _on_calculator_button_pressed():
 	enemy.get_node("AnimatedSprite2D").play("idle")
 
 	inputanswer = ""
+	
 	if chance > 0 and enemyhp > 0:
 		generatequestion(enemytype)
 		$timer.start()
@@ -184,6 +192,9 @@ func _on_buttonequal_pressed():
 	enemy.get_node("AnimatedSprite2D").play("idle")
 
 	inputanswer = ""
+	
+	#jika enemyhp masih ada, generatequestion. dengan syarat masih ada chance
+	#kalau cuma ada chance tapi enemyhp sudah habis jgn generate question 
 	if chance > 0 and enemyhp > 0:
 		generatequestion(enemytype)
 		$timer.start()	
@@ -191,6 +202,7 @@ func _on_buttonequal_pressed():
 	#	await get_tree().create_timer(0.5).timeout	
 
 func _on_timer_timeout():
+	#timeout hanya kalau enemyhp masih ada
 	if chance > 0 :
 		chance = chance-1
 		Global.playerhp = Global.playerhp - minusplayer
@@ -210,17 +222,8 @@ func _on_timer_timeout():
 
 		
 #jika win
-func win():
-	
-	
-	#print("you win")
-	#dapat gold
-	#var reward = rng.randi_range(1,50)
-	#Global.score = Global.score+reward
-	#print ("you got reward " + str (reward))
-	
-
-	#print ("you got key item " + str (enemytype))
+func win():	
+	#cuma dapat key
 	await get_tree().create_timer(0.5).timeout	
 	get_tree().change_scene_to_file("res://scenes/transitionenemywinlv1.tscn") 
 
@@ -228,8 +231,11 @@ func win():
 
 #jika lose
 func lose():
-	#print ("you lose")
 	await get_tree().create_timer(0.5).timeout	
 	get_tree().change_scene_to_file("res://scenes/transitionenemyloselv1.tscn") 
 
 
+func gameover():
+	#print("gameover")
+	await get_tree().create_timer(0.5).timeout	
+	get_tree().change_scene_to_file("res://scenes/transitionenemyloselv1.tscn") 

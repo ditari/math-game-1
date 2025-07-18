@@ -167,6 +167,7 @@ sprite_frames = SubResource("SpriteFrames_pld6o")
 animation = &"off"
 
 [node name="enterlabel" type="Label" parent="."]
+layout_mode = 0
 offset_left = 108.0
 offset_top = 562.0
 offset_right = 398.0

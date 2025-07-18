@@ -1,21 +1,20 @@
-[gd_scene load_steps=31 format=3 uid="uid://cg6lrvhupcfcp"]
+[gd_scene load_steps=21 format=3 uid="uid://bw3l045d4fh4j"]
 
-[ext_resource type="Script" path="res://scripts/enemyfightlv1.gd" id="1_bsqm0"]
-[ext_resource type="Texture2D" uid="uid://bvpce48rytcm2" path="res://assets/bg.png" id="2_aiqcs"]
-[ext_resource type="Texture2D" uid="uid://g2unsy62kybf" path="res://assets/button1.png" id="3_lknd4"]
-[ext_resource type="Texture2D" uid="uid://n6l4w2f5m0wo" path="res://assets/button2.png" id="4_6aib5"]
-[ext_resource type="Texture2D" uid="uid://c3lg68fuoleq" path="res://assets/button3.png" id="5_e55tm"]
-[ext_resource type="Texture2D" uid="uid://dws3yr7fao6k3" path="res://assets/button4.png" id="6_s3w4d"]
-[ext_resource type="Texture2D" uid="uid://bdxaf1r2d8jg8" path="res://assets/button5.png" id="7_2bten"]
-[ext_resource type="Texture2D" uid="uid://crarjfcjmd0an" path="res://assets/button6.png" id="8_q8cjs"]
-[ext_resource type="Texture2D" uid="uid://b08xibxf51dn4" path="res://assets/button7.png" id="9_f3mae"]
-[ext_resource type="Texture2D" uid="uid://d1sg2u1ty22hr" path="res://assets/button8.png" id="10_5ulwb"]
-[ext_resource type="Texture2D" uid="uid://b3ij4lsmquqdb" path="res://assets/button9.png" id="11_ro6s7"]
-[ext_resource type="Texture2D" uid="uid://cp0bb721qtesq" path="res://assets/buttonerase.png" id="12_drk08"]
-[ext_resource type="Texture2D" uid="uid://cf0w6xhl2dqci" path="res://assets/button0.png" id="13_gtbao"]
-[ext_resource type="Texture2D" uid="uid://c1kem7lslqedp" path="res://assets/buttonequal.png" id="14_grebm"]
-[ext_resource type="PackedScene" uid="uid://24xygqluuq3w" path="res://scenes/calculator.tscn" id="15_ge110"]
-[ext_resource type="Texture2D" uid="uid://by1hmb6xwk7o6" path="res://assets/flash-sprite.png" id="15_tpjpp"]
+[ext_resource type="Script" path="res://scripts/bossfightlv1.gd" id="1_moy5y"]
+[ext_resource type="Texture2D" uid="uid://bvpce48rytcm2" path="res://assets/bg.png" id="2_fpu5n"]
+[ext_resource type="Texture2D" uid="uid://g2unsy62kybf" path="res://assets/button1.png" id="3_fmdgf"]
+[ext_resource type="Texture2D" uid="uid://n6l4w2f5m0wo" path="res://assets/button2.png" id="4_1n1d4"]
+[ext_resource type="Texture2D" uid="uid://c3lg68fuoleq" path="res://assets/button3.png" id="5_xv2lu"]
+[ext_resource type="Texture2D" uid="uid://dws3yr7fao6k3" path="res://assets/button4.png" id="6_kj0o6"]
+[ext_resource type="Texture2D" uid="uid://bdxaf1r2d8jg8" path="res://assets/button5.png" id="7_k07tb"]
+[ext_resource type="Texture2D" uid="uid://crarjfcjmd0an" path="res://assets/button6.png" id="8_wgoxj"]
+[ext_resource type="Texture2D" uid="uid://b08xibxf51dn4" path="res://assets/button7.png" id="9_es8t8"]
+[ext_resource type="Texture2D" uid="uid://d1sg2u1ty22hr" path="res://assets/button8.png" id="10_gfxgb"]
+[ext_resource type="Texture2D" uid="uid://b3ij4lsmquqdb" path="res://assets/button9.png" id="11_0bdgk"]
+[ext_resource type="Texture2D" uid="uid://cp0bb721qtesq" path="res://assets/buttonerase.png" id="12_4ksla"]
+[ext_resource type="Texture2D" uid="uid://cf0w6xhl2dqci" path="res://assets/button0.png" id="13_mcmmx"]
+[ext_resource type="Texture2D" uid="uid://c1kem7lslqedp" path="res://assets/buttonequal.png" id="14_q5qy4"]
+[ext_resource type="PackedScene" uid="uid://cfjxa4uinto0r" path="res://scenes/emptydoor.tscn" id="14_wv38k"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ircx0"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -32,71 +31,7 @@ bg_color = Color(0, 0, 0, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eetr1"]
 bg_color = Color(0, 0, 1, 1)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_o7r8m"]
-atlas = ExtResource("15_tpjpp")
-region = Rect2(0, 0, 720, 1280)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dcoge"]
-atlas = ExtResource("15_tpjpp")
-region = Rect2(720, 0, 720, 1280)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_n00ly"]
-atlas = ExtResource("15_tpjpp")
-region = Rect2(1440, 0, 720, 1280)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_t22lx"]
-atlas = ExtResource("15_tpjpp")
-region = Rect2(2160, 0, 720, 1280)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dsjqh"]
-atlas = ExtResource("15_tpjpp")
-region = Rect2(2880, 0, 720, 1280)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gbkiu"]
-atlas = ExtResource("15_tpjpp")
-region = Rect2(3600, 0, 720, 1280)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0locq"]
-atlas = ExtResource("15_tpjpp")
-region = Rect2(4320, 0, 720, 1280)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gkvg6"]
-atlas = ExtResource("15_tpjpp")
-region = Rect2(5040, 0, 720, 1280)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_mx4xu"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_o7r8m")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dcoge")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_n00ly")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_t22lx")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dsjqh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gbkiu")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0locq")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gkvg6")
-}],
-"loop": false,
-"name": &"flash",
-"speed": 16.0
-}]
-
-[node name="enemyfight" type="Control"]
+[node name="bossfight" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -105,7 +40,7 @@ offset_right = -720.0
 offset_bottom = -1280.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_bsqm0")
+script = ExtResource("1_moy5y")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -116,14 +51,14 @@ offset_right = 720.0
 offset_bottom = 1280.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_aiqcs")
+texture = ExtResource("2_fpu5n")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
 offset_left = 1.0
-offset_top = 597.0
+offset_top = 644.0
 offset_right = 720.0
-offset_bottom = 1133.0
+offset_bottom = 1180.0
 theme_override_constants/separation = 8
 
 [node name="HBoxContainer1" type="HBoxContainer" parent="VBoxContainer"]
@@ -134,17 +69,17 @@ alignment = 1
 [node name="Button1" type="Button" parent="VBoxContainer/HBoxContainer1"]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_ircx0")
-icon = ExtResource("3_lknd4")
+icon = ExtResource("3_fmdgf")
 
 [node name="Button2" type="Button" parent="VBoxContainer/HBoxContainer1"]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_ircx0")
-icon = ExtResource("4_6aib5")
+icon = ExtResource("4_1n1d4")
 
 [node name="Button3" type="Button" parent="VBoxContainer/HBoxContainer1"]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_ircx0")
-icon = ExtResource("5_e55tm")
+icon = ExtResource("5_xv2lu")
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -154,17 +89,17 @@ alignment = 1
 [node name="Button4" type="Button" parent="VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_ircx0")
-icon = ExtResource("6_s3w4d")
+icon = ExtResource("6_kj0o6")
 
 [node name="Button5" type="Button" parent="VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_ircx0")
-icon = ExtResource("7_2bten")
+icon = ExtResource("7_k07tb")
 
 [node name="Button6" type="Button" parent="VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_ircx0")
-icon = ExtResource("8_q8cjs")
+icon = ExtResource("8_wgoxj")
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -174,17 +109,17 @@ alignment = 1
 [node name="Button7" type="Button" parent="VBoxContainer/HBoxContainer3"]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_ircx0")
-icon = ExtResource("9_f3mae")
+icon = ExtResource("9_es8t8")
 
 [node name="Button8" type="Button" parent="VBoxContainer/HBoxContainer3"]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_ircx0")
-icon = ExtResource("10_5ulwb")
+icon = ExtResource("10_gfxgb")
 
 [node name="Button9" type="Button" parent="VBoxContainer/HBoxContainer3"]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_ircx0")
-icon = ExtResource("11_ro6s7")
+icon = ExtResource("11_0bdgk")
 
 [node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
@@ -194,36 +129,36 @@ alignment = 1
 [node name="Buttonerase" type="Button" parent="VBoxContainer/HBoxContainer4"]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_ircx0")
-icon = ExtResource("12_drk08")
+icon = ExtResource("12_4ksla")
 
 [node name="Button0" type="Button" parent="VBoxContainer/HBoxContainer4"]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_ircx0")
-icon = ExtResource("13_gtbao")
+icon = ExtResource("13_mcmmx")
 
 [node name="Buttonequal" type="Button" parent="VBoxContainer/HBoxContainer4"]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_ircx0")
-icon = ExtResource("14_grebm")
+icon = ExtResource("14_q5qy4")
 
 [node name="enemyprogressbar" type="ProgressBar" parent="."]
 layout_mode = 0
-offset_left = 210.0
-offset_top = 70.0
-offset_right = 510.0
-offset_bottom = 100.0
+offset_left = 103.0
+offset_top = 89.0
+offset_right = 600.0
+offset_bottom = 132.0
 theme_override_styles/background = SubResource("StyleBoxFlat_0dn4y")
 theme_override_styles/fill = SubResource("StyleBoxFlat_0kb6y")
-max_value = 3.0
-value = 3.0
+max_value = 5.0
+value = 5.0
 show_percentage = false
 
 [node name="playerprogressbar" type="ProgressBar" parent="."]
 layout_mode = 0
-offset_left = 160.0
-offset_top = 1170.0
-offset_right = 660.0
-offset_bottom = 1200.0
+offset_left = 108.0
+offset_top = 1197.0
+offset_right = 605.0
+offset_bottom = 1240.0
 theme_override_styles/background = SubResource("StyleBoxFlat_0dn4y")
 theme_override_styles/fill = SubResource("StyleBoxFlat_0kb6y")
 value = 100.0
@@ -231,10 +166,10 @@ show_percentage = false
 
 [node name="timerprogressbar" type="ProgressBar" parent="."]
 layout_mode = 0
-offset_left = 210.0
-offset_top = 30.0
-offset_right = 510.0
-offset_bottom = 60.0
+offset_left = 104.0
+offset_top = 41.0
+offset_right = 595.0
+offset_bottom = 83.0
 theme_override_styles/background = SubResource("StyleBoxFlat_uhv3h")
 theme_override_styles/fill = SubResource("StyleBoxFlat_eetr1")
 max_value = 15.0
@@ -243,56 +178,29 @@ show_percentage = false
 
 [node name="questionlabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 3.0
-offset_top = 340.0
-offset_right = 718.0
-offset_bottom = 467.0
+offset_left = 58.0
+offset_top = 529.0
+offset_right = 387.0
+offset_bottom = 628.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 90
+theme_override_font_sizes/font_size = 70
 text = "question"
-horizontal_alignment = 1
 
 [node name="answerlabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 6.0
-offset_top = 450.0
-offset_right = 722.0
-offset_bottom = 577.0
+offset_left = 445.0
+offset_top = 526.0
+offset_right = 691.0
+offset_bottom = 625.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 90
+theme_override_font_sizes/font_size = 70
 text = "answer"
-horizontal_alignment = 1
 
 [node name="timer" type="Timer" parent="."]
 
-[node name="label2" type="Label" parent="."]
-layout_mode = 0
-offset_left = 40.0
-offset_top = 1150.0
-offset_right = 167.0
-offset_bottom = 1208.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 40
-text = "HP:"
-
-[node name="calculator" parent="." instance=ExtResource("15_ge110")]
-position = Vector2(560, 20)
-scale = Vector2(0.8, 0.8)
-
-[node name="calculatorlabel" type="Label" parent="calculator"]
-offset_left = 126.0
-offset_top = 80.0
-offset_right = 194.0
-offset_bottom = 152.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 50
-text = "99"
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-visible = false
-position = Vector2(362, 637)
-sprite_frames = SubResource("SpriteFrames_mx4xu")
-animation = &"flash"
+[node name="Node2D" parent="." instance=ExtResource("14_wv38k")]
+position = Vector2(281, 155)
+scale = Vector2(1.4, 1.4)
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer1/Button1" to="." method="_on_button_1_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer1/Button2" to="." method="_on_button_2_pressed"]
