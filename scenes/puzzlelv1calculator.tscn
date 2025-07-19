@@ -1,0 +1,228 @@
+[gd_scene load_steps=14 format=3 uid="uid://cp5boapndjq0p"]
+
+[ext_resource type="Script" path="res://scripts/puzzlelv1calculator.gd" id="1_p4vuh"]
+[ext_resource type="Texture2D" uid="uid://bvpce48rytcm2" path="res://assets/bg.png" id="2_n0j4f"]
+[ext_resource type="Texture2D" uid="uid://vlsktln4b5e2" path="res://assets/screen.png" id="3_e2qdd"]
+[ext_resource type="Texture2D" uid="uid://cxlg8b83gj1vt" path="res://assets/box.png" id="4_stnpd"]
+[ext_resource type="Texture2D" uid="uid://bvwm4jnejjry8" path="res://assets/buttonlong.png" id="5_wej1x"]
+[ext_resource type="Texture2D" uid="uid://dkxxbesiew7ev" path="res://assets/boxlong.png" id="6_y58jx"]
+[ext_resource type="Texture2D" uid="uid://gdg74pno3apk" path="res://assets/buttondoor.png" id="7_bjin1"]
+[ext_resource type="PackedScene" uid="uid://24xygqluuq3w" path="res://scenes/calculator.tscn" id="8_f3qdl"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xxd63"]
+bg_color = Color(0, 0, 1, 0)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pld6o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_wej1x")
+}],
+"loop": true,
+"name": &"off",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_y58jx")
+}],
+"loop": true,
+"name": &"on",
+"speed": 5.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g8owh"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ohs7"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1yuh2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_bjin1")
+}],
+"loop": false,
+"name": &"off",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_stnpd")
+}],
+"loop": false,
+"name": &"on",
+"speed": 5.0
+}]
+
+[node name="puzzle" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -720.0
+offset_bottom = -1280.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_p4vuh")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 720.0
+offset_bottom = 1280.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_n0j4f")
+
+[node name="screen" type="Sprite2D" parent="."]
+position = Vector2(360, 350)
+texture = ExtResource("3_e2qdd")
+
+[node name="box3" type="Sprite2D" parent="screen"]
+position = Vector2(255, -27)
+texture = ExtResource("4_stnpd")
+
+[node name="label3" type="Label" parent="screen/box3"]
+offset_left = -58.0
+offset_top = -60.0
+offset_right = 59.0
+offset_bottom = 59.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 80
+text = "??"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="box1" type="Sprite2D" parent="screen"]
+position = Vector2(-255, -27)
+texture = ExtResource("4_stnpd")
+
+[node name="label1" type="Label" parent="screen/box1"]
+offset_left = -59.0
+offset_top = -60.0
+offset_right = 58.0
+offset_bottom = 60.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 80
+text = "??"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="box2" type="Sprite2D" parent="screen"]
+position = Vector2(-5, -27)
+texture = ExtResource("4_stnpd")
+
+[node name="label2" type="Label" parent="screen/box2"]
+offset_left = -59.0
+offset_top = -59.0
+offset_right = 59.0
+offset_bottom = 59.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 80
+text = "??"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="label4" type="Label" parent="screen"]
+offset_left = -198.0
+offset_top = -88.0
+offset_right = -65.0
+offset_bottom = 39.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 90
+text = "+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="label5" type="Label" parent="screen"]
+offset_left = 59.0
+offset_top = -84.0
+offset_right = 197.0
+offset_bottom = 43.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 90
+text = "="
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="array" type="Node2D" parent="."]
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 105.0
+offset_top = 620.0
+offset_right = 395.0
+offset_bottom = 762.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_xxd63")
+
+[node name="enterbg" type="AnimatedSprite2D" parent="."]
+position = Vector2(250, 690)
+scale = Vector2(1.2, 1.2)
+sprite_frames = SubResource("SpriteFrames_pld6o")
+animation = &"off"
+
+[node name="enterlabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 106.0
+offset_top = 620.0
+offset_right = 396.0
+offset_bottom = 754.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 80
+text = "ENTER"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button2" type="Button" parent="."]
+layout_mode = 0
+offset_left = 469.0
+offset_top = 622.0
+offset_right = 609.0
+offset_bottom = 756.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_xxd63")
+theme_override_styles/hover = SubResource("StyleBoxFlat_g8owh")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8ohs7")
+
+[node name="reloadbg" type="AnimatedSprite2D" parent="."]
+position = Vector2(540, 690)
+scale = Vector2(1.2, 1.139)
+sprite_frames = SubResource("SpriteFrames_1yuh2")
+animation = &"off"
+
+[node name="reloadlabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 472.0
+offset_top = 624.0
+offset_right = 609.0
+offset_bottom = 754.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 90
+text = "⭮"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="calculator" parent="." instance=ExtResource("8_f3qdl")]
+position = Vector2(575, 20)
+scale = Vector2(0.8, 0.8)
+
+[node name="calculatorlabel" type="Label" parent="calculator"]
+offset_left = 126.0
+offset_top = 80.0
+offset_right = 194.0
+offset_bottom = 152.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50
+text = "99"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]

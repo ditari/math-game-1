@@ -276,7 +276,7 @@ theme_override_font_sizes/font_size = 40
 text = "HP:"
 
 [node name="calculator" parent="." instance=ExtResource("15_ge110")]
-position = Vector2(560, 20)
+position = Vector2(575, 20)
 scale = Vector2(0.8, 0.8)
 
 [node name="calculatorlabel" type="Label" parent="calculator"]
