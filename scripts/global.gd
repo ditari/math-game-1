@@ -1,14 +1,14 @@
 extends Node
 
 var currentlevel = 1
-var playerhp = 5
+var playerhp = 100
 var score = 0
 
 #key items
-var items = [0,3,3,0]
+var items = [0,0,0,0]
 
 #jumlah kalkulator
-var calculator = 3
+var calculator = 0
 
 #-------doors-----------
 
@@ -35,7 +35,7 @@ var reddoorkey = [0,1,2,0]
 
 
 #-------enemy---------
-var isenemyexist = [0,0,0,0]
+var isenemyexist = [0,1,2,0]
 #posisi enemy kalau satu berarti di pintu tengah [0,0,1,0]
 #kalau ada dua enemy berarti di kanan kiri [0,1,0,1]
 #kalau ada tiga enemy semua [0,1,1,1]
@@ -50,7 +50,7 @@ var currentenemytype = 1
 var enemydefeated = 0 #jumlah enemy defeated
 
 #-------treasure chest 
-var whatexist = 1
+var whatexist = 2
 #0 = nothing
 #1 = treasure
 #2 = pc diamnond

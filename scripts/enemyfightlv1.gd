@@ -106,7 +106,7 @@ func generatequestionminus():
 	answer = rng.randi_range(0, 5)
 	b = rng.randi_range(0, 5)
 	a = answer+b
-	question = str(a) + " - " + str(b) + " = "
+	question = str(a) + " - " + str(b) + " = ?"
 	
 	$questionlabel.text = question
 
@@ -223,7 +223,8 @@ func _on_timer_timeout():
 		
 #jika win
 func win():	
-	#cuma dapat key
+	
+	#ganti global di transition
 	await get_tree().create_timer(0.5).timeout	
 	get_tree().change_scene_to_file("res://scenes/transitionenemywinlv1.tscn") 
 
@@ -238,4 +239,4 @@ func lose():
 func gameover():
 	#print("gameover")
 	await get_tree().create_timer(0.5).timeout	
-	get_tree().change_scene_to_file("res://scenes/transitionenemyloselv1.tscn") 
+	get_tree().change_scene_to_file("res://scenes/gameover.tscn") 

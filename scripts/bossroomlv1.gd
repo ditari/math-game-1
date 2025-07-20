@@ -11,15 +11,35 @@ func _ready():
 	#bgwall.position = Vector2(0,128)
 	#$array.add_child(bgwall)
 	
-	var screen_size = get_viewport_rect().size
-	var xgaps = (screen_size.x - 192)/2
+	$playerprogressbar.value = Global.playerhp	
+	$scorelabel.text = "Score: " +str (Global.score)
+
+	if Global.items[1] > 0:
+		$key1.get_node("AnimatedSprite2D").play("on")	
+	if Global.items[2] > 0:
+		$key2.get_node("AnimatedSprite2D").play("on")
 	
+	$key1label.text = str(Global.items[1])
+	$key2label.text = str(Global.items[2])	
+		
+	#calculator	
+	if Global.calculator == 0:
+		$calculator.visible = false
+		$calculatorlabel.visible = false
+	else:
+		$calculatorlabel.text = str (Global.calculator)
+
+	#boss
 	boss = bossscene.instantiate()
-	boss.position = Vector2(xgaps,600)
+	boss.position = Vector2(264,600)
 	boss.scale = Vector2(1.5,1.5)
+	
+	boss.connect("button_pressed", _on_button_pressed)
 	
 	$array.add_child(boss)
 
+func _on_button_pressed():
+	get_tree().change_scene_to_file("res://scenes/bossfightlv1.tscn") 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

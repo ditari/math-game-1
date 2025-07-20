@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://d1ph3khka6f44"]
+[gd_scene load_steps=9 format=3 uid="uid://d1ph3khka6f44"]
 
 [ext_resource type="Script" path="res://scripts/bossroomlv1.gd" id="1_wbutp"]
 [ext_resource type="Texture2D" uid="uid://bvpce48rytcm2" path="res://assets/bg.png" id="2_2vktj"]
 [ext_resource type="PackedScene" uid="uid://rhqkm0svrpgy" path="res://scenes/key1.tscn" id="3_psyr2"]
 [ext_resource type="PackedScene" uid="uid://heu06hmafnge" path="res://scenes/key2.tscn" id="4_4drko"]
 [ext_resource type="Texture2D" uid="uid://beu5lmot1lsu" path="res://assets/bgwall.png" id="5_sq8hj"]
+[ext_resource type="PackedScene" uid="uid://24xygqluuq3w" path="res://scenes/calculator.tscn" id="6_kl7wm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ohby"]
 bg_color = Color(0, 0, 0, 1)
@@ -38,9 +39,9 @@ texture = ExtResource("2_2vktj")
 
 [node name="playerprogressbar" type="ProgressBar" parent="."]
 layout_mode = 0
-offset_left = 160.0
+offset_left = 200.0
 offset_top = 1100.0
-offset_right = 660.0
+offset_right = 650.0
 offset_bottom = 1130.0
 theme_override_styles/background = SubResource("StyleBoxFlat_5ohby")
 theme_override_styles/fill = SubResource("StyleBoxFlat_o0eeb")
@@ -75,28 +76,28 @@ offset_right = 167.0
 offset_bottom = 1225.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 40
-text = "ITEM:"
+text = "ITEMS:"
 
 [node name="key1" parent="." instance=ExtResource("3_psyr2")]
-position = Vector2(252, 1161)
+position = Vector2(200, 1160)
 
 [node name="key2" parent="." instance=ExtResource("4_4drko")]
-position = Vector2(459, 1162)
+position = Vector2(370, 1160)
 
 [node name="key1label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 328.0
+offset_left = 278.0
 offset_top = 1158.0
-offset_right = 374.0
+offset_right = 338.0
 offset_bottom = 1230.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 50
 
 [node name="key2label" type="Label" parent="."]
 layout_mode = 0
-offset_left = 533.0
+offset_left = 450.0
 offset_top = 1158.0
-offset_right = 579.0
+offset_right = 510.0
 offset_bottom = 1230.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 50
@@ -105,7 +106,7 @@ theme_override_font_sizes/font_size = 50
 position = Vector2(360, 320)
 texture = ExtResource("5_sq8hj")
 
-[node name="scorelabel2" type="Label" parent="."]
+[node name="bosslabel" type="Label" parent="."]
 layout_mode = 0
 offset_left = 1.0
 offset_top = 129.0
@@ -116,3 +117,16 @@ theme_override_font_sizes/font_size = 100
 text = "B O S S"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="calculator" parent="." instance=ExtResource("6_kl7wm")]
+position = Vector2(540, 1160)
+scale = Vector2(0.5, 0.5)
+
+[node name="calculatorlabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 617.0
+offset_top = 1160.0
+offset_right = 668.0
+offset_bottom = 1232.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 50

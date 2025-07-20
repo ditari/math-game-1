@@ -289,7 +289,6 @@ theme_override_font_sizes/font_size = 50
 text = "99"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-visible = false
 position = Vector2(362, 637)
 sprite_frames = SubResource("SpriteFrames_mx4xu")
 animation = &"flash"

@@ -1,44 +1,42 @@
 extends Control
 
-func generatenumberofdoors():
-	var rng = RandomNumberGenerator.new()	
-	
-	var r = rng.randi_range(0, 6)
-	if r < 3 :
-		Global.numberofdoors = 3
-	elif r < 5 :
-		Global.numberofdoors = 2
-	else:
-		Global.numberofdoors = 1
 
-func generatedoortype():
-	var type
-	var rng = RandomNumberGenerator.new()	
-	var r
-	#hanya bisa generate dua type pintu kalau dari awal
-	r = rng.randi_range(0, 2)
-	if r <= 1 :
-		type = 1
-	else :
-		type = 2
-		
-	return type
+func _on_button_1_pressed():
+	#ini play mulai dari level 1
+	#item tidak direset kalau next level
+	Global.items = [0,0,0,0]
+	Global.calculator = 0
+
+	#pintu pertama selalu open door no enemy
+	Global.numberofdoors = 1
+	Global.door1type = 1
 	
-func loadnextlevel():	
-	generatenumberofdoors()
-	
-	Global.door1type = generatedoortype()
-	Global.door2type = generatedoortype()
-	Global.door3type = generatedoortype()
+	#sisanya pastikan mulai dari nol
+
+	Global.currentlevel = 1
+	Global.playerhp = 100
+	Global.score = 0
 
 	Global.arraydooropen = [0,0,0,0]
 	Global.currentdoor = 0
+	Global.reddoorexist = 0 
 	
-	#yg awal ga ada enemy ya
-	#previous doortype juga ga ada?
+	Global.isenemyexist = [0,0,0,0]
+	Global.currentenemy = 0
+	Global.currentenemytype = 0
+	Global.enemydefeated = 0 
+	
+	Global.whatexist = 0
+	Global.treasurescore = 0
+
 	get_tree().change_scene_to_file("res://scenes/level1.tscn") 
 
 
 
-func _on_touch_screen_button_pressed():
-	loadnextlevel()
+
+func _on_button_2_pressed():
+	print("go to choose level")
+
+
+func _on_button_3_pressed():
+	get_tree().quit()

@@ -22,6 +22,15 @@ var rng = RandomNumberGenerator.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	#calculator
+	if Global.calculator == 0:
+		$calculator.visible = false
+		$calculator/calculatorlabel.visible = false
+	else :
+		$calculator/calculatorlabel.text = str(Global.calculator)
+	
+	$calculator.button_pressed.connect(_on_calculator_button_pressed)
+	
 	generatequestion()
 	
 	generatebox(1,answerarray[1])
@@ -31,12 +40,47 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	#calculator
+	if Global.calculator == 0:
+		$calculator.visible = false
+		$calculator/calculatorlabel.visible = false
+	else :
+		$calculator/calculatorlabel.text = str(Global.calculator)
+	
+	
 	if clicked == 2:
 		$reloadbg.play("on")
 		$enterbg.play("on")
 	else :
 		$reloadbg.play("off")
 		$enterbg.play("off")
+		
+#autoanswer		
+func _on_calculator_button_pressed():
+	#delete semua button dulu
+	for child in $array.get_children():
+		child.queue_free()
+
+	#generate hanya button wrong answer
+	for i in range(1, 5) :
+		if i != index1 and i !=index2:
+			generatebox(i,answerarray[i])
+
+	Global.calculator = Global.calculator - 1 
+	
+	$screen/box1/label1.text = str (answerarray[index1])
+	$screen/box2/label2.text = str (answerarray[index2])
+	
+	indexa = index1
+	indexb = index2
+	clicked = 2
+		
+#func _delete_box_with_index(target_index):
+#	for child in $array.get_children():
+#		if child.index == target_index:
+#			child.queue_free()
+#			break
+			
 		
 func generatequestion():
 	#location of the correct index
@@ -61,16 +105,16 @@ func generatebox(indexpos,value):
 	box = boxscene.instantiate()
 	
 	if indexpos == 1:
-		box.position = Vector2(150,780) #Vector2(170,800)
+		box.position = Vector2(150,800) #Vector2(170,800)
 		box.index = 1 
 	elif indexpos == 2:
-		box.position = Vector2(400,780)#Vector2(380,800)
+		box.position = Vector2(400,800)#Vector2(380,800)
 		box.index = 2
 	elif indexpos == 3:
-		box.position = Vector2(150,1020)#Vector2(170,1000)
+		box.position = Vector2(150,1040)#Vector2(170,1000)
 		box.index = 3 
 	else:
-		box.position = Vector2(400,1020) #Vector2(380,1000)
+		box.position = Vector2(400,1040) #Vector2(380,1000)
 		box.index = 4 
 	
 	box.scale=Vector2(1.2,1.2)
@@ -98,10 +142,9 @@ func _on_button_2_pressed():
 	for child in $array.get_children():
 		child.queue_free()
 
-	generatebox(1,answerarray[1])
-	generatebox(2,answerarray[2])
-	generatebox(3,answerarray[3])
-	generatebox(4,answerarray[4])
+	for i in range(1, 5) :
+		generatebox (i, answerarray[i])
+	#generatebox(1,answerarray[1])
 	
 	$screen/box1/label1.text = "??"
 	$screen/box2/label2.text = "??"

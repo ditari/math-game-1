@@ -32,15 +32,15 @@ func _ready():
 	#self.resized.connect(update_sprite_position)  # Godot 4 syntax
 	
 	$playerprogressbar.value = Global.playerhp
-	
 	$scorelabel.text = "Score: " +str (Global.score)
 	
 	if Global.items[1] > 0:
-		$key1.get_node("AnimatedSprite2D").play("on")
-		$key1label.text = str(Global.items[1])
+		$key1.get_node("AnimatedSprite2D").play("on")	
 	if Global.items[2] > 0:
 		$key2.get_node("AnimatedSprite2D").play("on")
-		$key2label.text = str(Global.items[2])	
+	
+	$key1label.text = str(Global.items[1])
+	$key2label.text = str(Global.items[2])	
 		
 	#calculator	
 	if Global.calculator == 0:
@@ -236,7 +236,7 @@ func generatedoortype():
 	#var rng = RandomNumberGenerator.new()	
 	var r
 	#Global.enemydefeated > 1 and
-	if Global.numberofdoors > 1 and Global.reddoorexist == 0:
+	if Global.numberofdoors > 1 and Global.reddoorexist == 0 and Global.enemydefeated > 3 :
 		r = rng.randi_range(0, 5)
 		if r <= 2 :
 			type = 1
@@ -345,7 +345,7 @@ func loadnextlevel(doortype):
 	Global.currentdoor = 0
 	
 	Global.reddoorexist = 0
-	#lobal.reddoorkey = [0,0,0, 0,0,0, 0,0]
+	
 
 	var d = generatenumberofdoors()
 		
@@ -356,10 +356,7 @@ func loadnextlevel(doortype):
 	generateenemyarray(d)
 
 	#utk generate apakah empty, treasure, atau neraca
-	#Global.previousdoortype = doortype
-	print("doortype" + str(doortype))
 	generatewhatnext(doortype)	
-	print ("generate:" + str(Global.whatexist))
 
-	#get_tree().change_scene_to_file("res://scenes/level1.tscn") 
-	get_tree().change_scene_to_file("res://scenes/level"+ str(Global.currentlevel)+ ".tscn")
+	get_tree().change_scene_to_file("res://scenes/level1.tscn") 
+	#get_tree().change_scene_to_file("res://scenes/level"+ str(Global.currentlevel)+ ".tscn")

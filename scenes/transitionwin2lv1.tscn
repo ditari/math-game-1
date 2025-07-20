@@ -1,19 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://cnspfl0pdm0kt"]
+[gd_scene load_steps=6 format=3 uid="uid://drqw1r8qw7ykm"]
 
-[ext_resource type="Script" path="res://scripts/menu.gd" id="1_xa34u"]
-[ext_resource type="Texture2D" uid="uid://bvpce48rytcm2" path="res://assets/bg.png" id="2_p1cjg"]
-[ext_resource type="Texture2D" uid="uid://dkxxbesiew7ev" path="res://assets/boxlong.png" id="3_5uil5"]
+[ext_resource type="Texture2D" uid="uid://bvpce48rytcm2" path="res://assets/bg.png" id="1_1b7a5"]
+[ext_resource type="Script" path="res://scripts/transitionwin2lv1.gd" id="1_rnvtd"]
+[ext_resource type="Texture2D" uid="uid://854wqvbu52qp" path="res://assets/messagebox.png" id="2_ytlkn"]
+[ext_resource type="Texture2D" uid="uid://dkxxbesiew7ev" path="res://assets/boxlong.png" id="3_o2vbk"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k4qsn"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r26cr"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rixt2"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6643q"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[node name="menu" type="Control"]
+[node name="transition" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -22,7 +17,7 @@ offset_right = -720.0
 offset_bottom = -1280.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_xa34u")
+script = ExtResource("1_rnvtd")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -33,31 +28,36 @@ offset_right = 720.0
 offset_bottom = 1280.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_p1cjg")
+texture = ExtResource("1_1b7a5")
+
+[node name="Messagebox" type="Sprite2D" parent="."]
+position = Vector2(360, 310.75)
+scale = Vector2(1, 0.808594)
+texture = ExtResource("2_ytlkn")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
-offset_left = -2.0
-offset_top = 75.0
-offset_right = 718.0
-offset_bottom = 375.0
+offset_left = 2.0
+offset_top = 161.0
+offset_right = 722.0
+offset_bottom = 461.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 80
-text = "MATH GAME"
+theme_override_font_sizes/font_size = 60
+text = "LEVEL 1 COMPLETED"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="bg1" type="Sprite2D" parent="."]
 position = Vector2(360, 600)
-texture = ExtResource("3_5uil5")
+texture = ExtResource("3_o2vbk")
 
 [node name="bg2" type="Sprite2D" parent="."]
 position = Vector2(360, 790)
-texture = ExtResource("3_5uil5")
+texture = ExtResource("3_o2vbk")
 
 [node name="bg3" type="Sprite2D" parent="."]
 position = Vector2(360, 980)
-texture = ExtResource("3_5uil5")
+texture = ExtResource("3_o2vbk")
 
 [node name="label1" type="Label" parent="."]
 layout_mode = 0
@@ -67,7 +67,7 @@ offset_right = 483.0
 offset_bottom = 659.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 60
-text = "PLAY"
+text = "NEXT"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -79,7 +79,7 @@ offset_right = 485.0
 offset_bottom = 846.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 60
-text = "LEVEL"
+text = "RETRY"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -91,7 +91,7 @@ offset_right = 485.0
 offset_bottom = 1038.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 60
-text = "QUIT"
+text = "MENU"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -101,7 +101,7 @@ offset_left = 239.0
 offset_top = 538.0
 offset_right = 487.0
 offset_bottom = 655.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_k4qsn")
+theme_override_styles/normal = SubResource("StyleBoxFlat_r26cr")
 
 [node name="Button2" type="Button" parent="."]
 layout_mode = 0
@@ -109,7 +109,7 @@ offset_left = 238.0
 offset_top = 731.0
 offset_right = 486.0
 offset_bottom = 848.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_rixt2")
+theme_override_styles/normal = SubResource("StyleBoxFlat_r26cr")
 
 [node name="Button3" type="Button" parent="."]
 layout_mode = 0
@@ -117,7 +117,7 @@ offset_left = 239.0
 offset_top = 918.0
 offset_right = 487.0
 offset_bottom = 1035.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_6643q")
+theme_override_styles/normal = SubResource("StyleBoxFlat_r26cr")
 
 [connection signal="pressed" from="Button1" to="." method="_on_button_1_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]

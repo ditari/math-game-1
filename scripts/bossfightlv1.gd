@@ -11,7 +11,7 @@ var rng = RandomNumberGenerator.new()
 
 var enemyhp = 5
 #var chance = 3 
-var minusplayer = 5
+var minusplayer = 10
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -81,7 +81,7 @@ func generatequestionminus():
 	answer = rng.randi_range(0, 5)
 	b = rng.randi_range(0, 5)
 	a = answer+b
-	question = str(a) + " - " + str(b) + " = "
+	question = str(a) + " - " + str(b) + " = ?"
 	
 	$questionlabel.text = question
 	
@@ -188,7 +188,10 @@ func _on_timer_timeout():
 
 
 func win():
-	pass
+	await get_tree().create_timer(0.5).timeout
+	get_tree().change_scene_to_file("res://scenes/transitionwin1lv1.tscn") 
+
 
 func gameover():
-	print ("gameover")
+	await get_tree().create_timer(0.5).timeout
+	get_tree().change_scene_to_file("res://scenes/gameover.tscn") 
