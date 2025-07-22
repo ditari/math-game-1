@@ -20,19 +20,21 @@ var door
 var enemy
 var content
 
-#var screen_size_x
+var screen_size_x
+var screen_size_y
 var xgaps
-#var ygaps
+var ygaps
 
 var numberofdoors
 var rng = RandomNumberGenerator.new()	
 
 func _ready():
-	update_sprite_position()
+	sprite_position()
 	#self.resized.connect(update_sprite_position)  # Godot 4 syntax
+	sprite_position_2()
 	
 	$playerprogressbar.value = Global.playerhp
-	$scorelabel.text = "Score: " +str (Global.score)
+	$scorelabel.text = "SCORE: " +str (Global.score)
 	
 	if Global.items[1] > 0:
 		$key1.get_node("AnimatedSprite2D").play("on")	
@@ -50,25 +52,27 @@ func _ready():
 		$calculatorlabel.text = str (Global.calculator)
 		
 
-func update_sprite_position():
-	#var screen_size = get_viewport_rect().size
-	#ygaps = (screen_size.y-512)/7
-	#screen_size_x = screen_size.x
-	#print(screen_size_x)
-	
+func sprite_position():
+	var screen_size = get_viewport_rect().size
+	screen_size_x = screen_size.x
+	screen_size_y = screen_size.y
+
+	ygaps = screen_size_y/10
+	#print(ygaps)
+		
 	#buat bg
 	bgwall = bgwallscene.instantiate()
-	bgwall.position = Vector2(0,128)
+	bgwall.position = Vector2(0,ygaps)
 	$array.add_child(bgwall)
 		
 	numberofdoors = Global.numberofdoors
 	
 	if numberofdoors == 3:
-		xgaps = 84#(screen_size.x - 384)/4	
+		xgaps = (screen_size_x - 384)/4	
 	elif numberofdoors == 2:
-		xgaps = 155#(screen_size.x - 256)/3
+		xgaps = (screen_size_x - 256)/3
 	else : 
-		xgaps = 296#(screen_size.x - 128)/2
+		xgaps = (screen_size_x - 128)/2
 		
 	#buat pintu
 	createdoor(1, Global.door1type)
@@ -80,6 +84,37 @@ func update_sprite_position():
 	generateenemy()
 	generatecontent()
 	
+func sprite_position_2():
+	#$scorelabel.position.x = (screen_size_x - 150)/2 
+	$scorelabel.position.y = 0.3 * ygaps	
+	
+	$hplabel.position.x = 32
+	$hplabel.position.y = 8*ygaps + 60
+	
+	$playerprogressbar.position.x = 192
+	$playerprogressbar.position.y = 8*ygaps + 72
+	
+	$itemlabel.position.x = 32
+	$itemlabel.position.y = 9*ygaps + 16
+	
+	$key1.position.x = 192
+	$key1.position.y = 9*ygaps
+
+	$key1label.position.x =256
+	$key1label.position.y =9*ygaps
+	
+	$key2.position.x = 368 #384
+	$key2.position.y = 9*ygaps	
+	
+	$key2label.position.x =432 #448
+	$key2label.position.y =9*ygaps
+	
+	$calculator.position.x = 544
+	$calculator.position.y = 9*ygaps
+	
+	$calculatorlabel.position.x = 608
+	$calculatorlabel.position.y = 9*ygaps
+		
 func createdoor(doorposition, type):
 	#var type = generatedoortype()
 	
@@ -95,13 +130,13 @@ func createdoor(doorposition, type):
 	
 	var n = 0
 	if  doorposition == 1 :
-		door.position = Vector2(xgaps,256)#Vector2(xgaps, ygaps) #
+		door.position = Vector2(xgaps,ygaps+128)#Vector2(xgaps, ygaps) #
 		n = 1
 	elif doorposition == 2 :
-		door.position = Vector2((2*xgaps)+128,256)
+		door.position = Vector2((2*xgaps)+128,ygaps+128)
 		n = 2
 	else :
-		door.position = Vector2((3*xgaps)+256,256)
+		door.position = Vector2((3*xgaps)+256,ygaps+128)
 		n = 3 
 
 	door.number = n		
@@ -163,17 +198,17 @@ func generateenemy():
 	#enemy di door paling kiri
 	e = Global.isenemyexist[1]
 	if e != 0 :
-		enemytype(xgaps,544,1,e)
+		enemytype(xgaps,4*ygaps + 32,1,e)
 	
 	#enemy di door tengah
 	e = Global.isenemyexist[2]
 	if e != 0 :
-		enemytype((2*xgaps)+128,544,2,e)
+		enemytype((2*xgaps)+128,4*ygaps+ 32,2,e)
 
 	#enemy di door kanan
 	e = Global.isenemyexist[3]
 	if e != 0 :
-		enemytype((3*xgaps)+256,544,3,e)
+		enemytype((3*xgaps)+256,4*ygaps+ 32,3,e)
 			
 func enemytype(xpos,ypos,number,type) :
 	if type == 1:
@@ -203,17 +238,19 @@ func _enemy_on_button_pressed(number,type):
 	#	get_tree().change_scene_to_file("res://scenes/enemy2fightlv1.tscn") 
 	
 func generatecontent():
+	var gaps = (screen_size_x - 128)/2
+	
 	if Global.whatexist == 1:
 		content = treasurescene.instantiate()		
 		content.connect("button", _treasure_on_button_pressed)	
-		content.position = Vector2(296,822)
+		content.position = Vector2(gaps,7*ygaps)
 	elif Global.whatexist == 2:
 		content = pcdiamondscene.instantiate()
 		content.connect("button", _scale_on_button_pressed)	
-		content.position = Vector2(296,758) #(screen_size_x - 128)/2,758
+		content.position = Vector2(gaps,6*ygaps) #(screen_size_x - 128)/2,758
 	elif Global.whatexist == 3:
 		content = pcdiamondgrayscene.instantiate()
-		content.position = Vector2(296,758)
+		content.position = Vector2(gaps,6*ygaps)
 					
 	else:
 		return

@@ -40,7 +40,7 @@ texture = ExtResource("2_vvfab")
 layout_mode = 0
 offset_left = 200.0
 offset_top = 1100.0
-offset_right = 650.0
+offset_right = 660.0
 offset_bottom = 1130.0
 theme_override_styles/background = SubResource("StyleBoxFlat_5ohby")
 theme_override_styles/fill = SubResource("StyleBoxFlat_o0eeb")
@@ -49,15 +49,16 @@ show_percentage = false
 
 [node name="scorelabel" type="Label" parent="."]
 layout_mode = 0
-offset_left = 16.0
+offset_left = 1.0
 offset_top = 6.0
-offset_right = 143.0
-offset_bottom = 64.0
+offset_right = 720.0
+offset_bottom = 66.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 40
 text = "SCORE :"
+horizontal_alignment = 1
 
-[node name="label2" type="Label" parent="."]
+[node name="hplabel" type="Label" parent="."]
 layout_mode = 0
 offset_left = 40.0
 offset_top = 1082.0
@@ -67,7 +68,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 40
 text = "HP:"
 
-[node name="label3" type="Label" parent="."]
+[node name="itemlabel" type="Label" parent="."]
 layout_mode = 0
 offset_left = 40.0
 offset_top = 1167.0
@@ -87,31 +88,34 @@ position = Vector2(370, 1160)
 layout_mode = 0
 offset_left = 279.0
 offset_top = 1158.0
-offset_right = 339.0
+offset_right = 351.0
 offset_bottom = 1230.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 50
 text = "1"
+horizontal_alignment = 1
 
 [node name="key2label" type="Label" parent="."]
 layout_mode = 0
 offset_left = 447.0
 offset_top = 1158.0
-offset_right = 508.0
+offset_right = 519.0
 offset_bottom = 1230.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 50
 text = "2"
+horizontal_alignment = 1
 
 [node name="calculatorlabel" type="Label" parent="."]
 layout_mode = 0
 offset_left = 617.0
 offset_top = 1160.0
-offset_right = 668.0
+offset_right = 689.0
 offset_bottom = 1232.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 50
 text = "3"
+horizontal_alignment = 1
 
 [node name="calculator" parent="." instance=ExtResource("5_yp2q7")]
 position = Vector2(540, 1160)

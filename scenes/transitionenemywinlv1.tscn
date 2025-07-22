@@ -1,10 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://cibif1vhnbs8t"]
+[gd_scene load_steps=7 format=3 uid="uid://cibif1vhnbs8t"]
 
 [ext_resource type="Script" path="res://scripts/transitionenemywinlv1.gd" id="1_b0obi"]
 [ext_resource type="Texture2D" uid="uid://bvpce48rytcm2" path="res://assets/bg.png" id="2_nlheu"]
 [ext_resource type="Texture2D" uid="uid://854wqvbu52qp" path="res://assets/messagebox.png" id="3_7mheh"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r26cr"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yxpie"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r3rj8"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="transition" type="Control"]
@@ -31,9 +37,11 @@ texture = ExtResource("2_nlheu")
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_right = 724.0
-offset_bottom = 1281.0
+offset_right = 840.0
+offset_bottom = 1552.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_r26cr")
+theme_override_styles/hover = SubResource("StyleBoxFlat_yxpie")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_r3rj8")
 
 [node name="Messagebox" type="Sprite2D" parent="."]
 position = Vector2(358, 569)
