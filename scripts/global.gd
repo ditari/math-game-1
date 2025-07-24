@@ -8,7 +8,7 @@ var score = 0
 var items = [0,0,0,0]
 
 #jumlah kalkulator
-var calculator = 1
+var calculator = 0
 
 #-------doors-----------
 

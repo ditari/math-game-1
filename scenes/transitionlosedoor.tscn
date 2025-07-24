@@ -1,12 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://byjbo0ptb2l82"]
+[gd_scene load_steps=8 format=3 uid="uid://byjbo0ptb2l82"]
 
 [ext_resource type="Script" path="res://scripts/transitionlosedoor.gd" id="1_vp7hx"]
 [ext_resource type="Texture2D" uid="uid://bvpce48rytcm2" path="res://assets/bg.png" id="2_3sxk8"]
 [ext_resource type="Texture2D" uid="uid://854wqvbu52qp" path="res://assets/messagebox.png" id="3_3ggth"]
 [ext_resource type="PackedScene" uid="uid://dij0s1q66u46b" path="res://scenes/stripedoor.tscn" id="4_hi05m"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r26cr"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_40wki"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ny78w"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bwnpt"]
 
 [node name="transition" type="Control"]
 layout_mode = 3
@@ -62,8 +65,10 @@ position = Vector2(300, 450)
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_right = 724.0
-offset_bottom = 1281.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_r26cr")
+offset_right = 936.0
+offset_bottom = 1597.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_40wki")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_ny78w")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_bwnpt")
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

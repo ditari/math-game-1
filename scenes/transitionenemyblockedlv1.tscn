@@ -1,11 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://dx7odldr8fl7"]
+[gd_scene load_steps=7 format=3 uid="uid://dx7odldr8fl7"]
 
 [ext_resource type="Script" path="res://scripts/transitionenemyblockedlv1.gd" id="1_a8h00"]
 [ext_resource type="Texture2D" uid="uid://bvpce48rytcm2" path="res://assets/bg.png" id="2_i2luo"]
 [ext_resource type="Texture2D" uid="uid://854wqvbu52qp" path="res://assets/messagebox.png" id="3_ti4df"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r26cr"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2ejkf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_efpj4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ohouw"]
 
 [node name="transition" type="Control"]
 layout_mode = 3
@@ -61,8 +64,10 @@ vertical_alignment = 1
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_right = 724.0
-offset_bottom = 1281.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_r26cr")
+offset_right = 874.0
+offset_bottom = 1651.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_2ejkf")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_efpj4")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ohouw")
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

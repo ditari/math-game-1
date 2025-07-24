@@ -1,12 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://bgfdkumjhiku1"]
+[gd_scene load_steps=8 format=3 uid="uid://bgfdkumjhiku1"]
 
 [ext_resource type="Texture2D" uid="uid://bvpce48rytcm2" path="res://assets/bg.png" id="1_25vw3"]
 [ext_resource type="Script" path="res://scripts/transitionpuzzlewinlv1.gd" id="1_yc8n5"]
 [ext_resource type="Texture2D" uid="uid://854wqvbu52qp" path="res://assets/messagebox.png" id="2_u8a0l"]
 [ext_resource type="Texture2D" uid="uid://b4smko7dh5ydw" path="res://assets/diamond.png" id="3_8gt6d"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r26cr"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s2hn5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8wicv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vn0im"]
 
 [node name="transition" type="Control"]
 layout_mode = 3
@@ -32,15 +35,18 @@ texture = ExtResource("1_25vw3")
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_right = 724.0
-offset_bottom = 1281.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_r26cr")
+offset_right = 800.0
+offset_bottom = 1653.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_s2hn5")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_8wicv")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_vn0im")
 
 [node name="Messagebox" type="Sprite2D" parent="."]
 position = Vector2(358, 569)
 texture = ExtResource("2_u8a0l")
 
 [node name="Label" type="Label" parent="."]
+layout_mode = 0
 offset_left = -1.0
 offset_top = 383.0
 offset_right = 717.0
@@ -51,6 +57,7 @@ text = "YOU GET DIAMOND"
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="."]
+layout_mode = 0
 offset_left = -3.0
 offset_top = 671.0
 offset_right = 715.0
