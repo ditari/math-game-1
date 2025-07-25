@@ -287,13 +287,11 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-visible = false
 position = Vector2(362, 642)
 sprite_frames = SubResource("SpriteFrames_8qcqi")
 animation = &"flash"
 
 [node name="electric" type="AnimatedSprite2D" parent="."]
-visible = false
 position = Vector2(347, 296)
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_f55t3")

@@ -51,7 +51,7 @@ func _process(delta):
 		elif doorhp == 0:
 			win()
 	else :
-		gameover()
+		lose()
 			
 	#else
 	if generatenext == 1:
@@ -179,6 +179,6 @@ func lose():
 	await get_tree().create_timer(0.5).timeout	
 	get_tree().change_scene_to_file("res://scenes/transitionlosedoor.tscn") 
 
-func gameover():
-	await get_tree().create_timer(0.5).timeout	
-	get_tree().change_scene_to_file("res://scenes/gameover.tscn")
+#func gameover():
+#	await get_tree().create_timer(0.5).timeout	
+#	get_tree().change_scene_to_file("res://scenes/gameover.tscn")

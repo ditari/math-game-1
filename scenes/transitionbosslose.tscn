@@ -1,0 +1,70 @@
+[gd_scene load_steps=7 format=3 uid="uid://dsrs0dika3oey"]
+
+[ext_resource type="Script" path="res://scripts/transitionbosslose.gd" id="1_5eu6t"]
+[ext_resource type="Texture2D" uid="uid://bvpce48rytcm2" path="res://assets/bg.png" id="1_87c7c"]
+[ext_resource type="Texture2D" uid="uid://854wqvbu52qp" path="res://assets/messagebox.png" id="2_ti4ba"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r26cr"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hbpos"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h3aj0"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="transition" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -720.0
+offset_bottom = -1280.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5eu6t")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 720.0
+offset_bottom = 1280.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_87c7c")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_right = 859.0
+offset_bottom = 1544.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_r26cr")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hbpos")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_h3aj0")
+
+[node name="Messagebox" type="Sprite2D" parent="."]
+position = Vector2(358, 580.5)
+scale = Vector2(1, 1.26302)
+texture = ExtResource("2_ti4ba")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 2.0
+offset_top = 351.0
+offset_right = 720.0
+offset_bottom = 437.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 60
+text = "WRONG ANSWERS..."
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+offset_top = 723.0
+offset_right = 718.0
+offset_bottom = 809.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 60
+text = "BOSS WINS"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
