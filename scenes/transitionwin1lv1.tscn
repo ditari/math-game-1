@@ -5,11 +5,14 @@
 [ext_resource type="Texture2D" uid="uid://854wqvbu52qp" path="res://assets/messagebox.png" id="2_a0n5u"]
 [ext_resource type="PackedScene" uid="uid://24xygqluuq3w" path="res://scenes/calculator.tscn" id="3_7qtx1"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0vo2b"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nmyko"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vk3td"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qo8jl"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_laue1"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kn54h"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="transition" type="Control"]
 layout_mode = 3
@@ -37,9 +40,9 @@ texture = ExtResource("1_bateo")
 layout_mode = 0
 offset_right = 837.0
 offset_bottom = 1654.0
-theme_override_styles/normal = SubResource("StyleBoxEmpty_0vo2b")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_vk3td")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_laue1")
+theme_override_styles/normal = SubResource("StyleBoxFlat_nmyko")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qo8jl")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_kn54h")
 
 [node name="Messagebox" type="Sprite2D" parent="."]
 position = Vector2(358, 569)

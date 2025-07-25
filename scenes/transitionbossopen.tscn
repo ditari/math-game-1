@@ -5,11 +5,14 @@
 [ext_resource type="Texture2D" uid="uid://854wqvbu52qp" path="res://assets/messagebox.png" id="3_23oon"]
 [ext_resource type="Texture2D" uid="uid://pdu7a48tiala" path="res://assets/bossdooropen.png" id="4_74be2"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cuglf"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dorjl"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7hn7p"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ufxr"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vkapb"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3qmbb"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="transition" type="Control"]
 layout_mode = 3
@@ -32,6 +35,14 @@ offset_bottom = 1280.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_3hj70")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_right = 832.0
+offset_bottom = 1687.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_dorjl")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5ufxr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_3qmbb")
 
 [node name="Messagebox" type="Sprite2D" parent="."]
 position = Vector2(358, 579)
@@ -59,14 +70,6 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 60
 text = "IS UNLOCKED"
 horizontal_alignment = 1
-
-[node name="Button" type="Button" parent="."]
-layout_mode = 0
-offset_right = 817.0
-offset_bottom = 1591.0
-theme_override_styles/normal = SubResource("StyleBoxEmpty_cuglf")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_7hn7p")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_vkapb")
 
 [node name="Bossdooropen" type="Sprite2D" parent="."]
 position = Vector2(358, 576)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://benh3j7qb6c6n"]
+[gd_scene load_steps=10 format=3 uid="uid://benh3j7qb6c6n"]
 
 [ext_resource type="Script" path="res://scripts/transitionwin3lv1.gd" id="1_1ghev"]
 [ext_resource type="Texture2D" uid="uid://bvpce48rytcm2" path="res://assets/bg.png" id="2_qne0k"]
@@ -6,6 +6,18 @@
 [ext_resource type="Texture2D" uid="uid://dkxxbesiew7ev" path="res://assets/boxlong.png" id="4_4deyl"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r26cr"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k1g6f"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uci76"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r6t1e"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_04w3w"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="transition" type="Control"]
@@ -87,6 +99,8 @@ offset_top = 663.0
 offset_right = 323.0
 offset_bottom = 780.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_r26cr")
+theme_override_styles/hover = SubResource("StyleBoxFlat_k1g6f")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_uci76")
 
 [node name="Button2" type="Button" parent="."]
 layout_mode = 0
@@ -95,6 +109,8 @@ offset_top = 660.0
 offset_right = 623.0
 offset_bottom = 777.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_r26cr")
+theme_override_styles/hover = SubResource("StyleBoxFlat_r6t1e")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_04w3w")
 
 [connection signal="pressed" from="Button1" to="." method="_on_button_1_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]

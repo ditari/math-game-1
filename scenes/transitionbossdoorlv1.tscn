@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dbulxlxi4uixk"]
+[gd_scene load_steps=15 format=3 uid="uid://dbulxlxi4uixk"]
 
 [ext_resource type="Script" path="res://scripts/transitionbossdoorlv1.gd" id="1_4b36x"]
 [ext_resource type="Texture2D" uid="uid://bvpce48rytcm2" path="res://assets/bg.png" id="1_vrlwk"]
@@ -7,6 +7,15 @@
 [ext_resource type="Texture2D" uid="uid://0c47i0nax74r" path="res://assets/key2.png" id="4_nevdd"]
 [ext_resource type="Texture2D" uid="uid://bvwm4jnejjry8" path="res://assets/buttonlong.png" id="5_gdddq"]
 [ext_resource type="Texture2D" uid="uid://dkxxbesiew7ev" path="res://assets/boxlong.png" id="6_mmkrt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sjxow"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fp2bj"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3vqvb"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vpfna"]
 animations = [{
@@ -26,6 +35,15 @@ animations = [{
 "name": &"on",
 "speed": 5.0
 }]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5bkm4"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wwoom"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6dfoq"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="transition" type="Control"]
 layout_mode = 3
@@ -113,6 +131,9 @@ offset_left = 38.0
 offset_top = 713.0
 offset_right = 324.0
 offset_bottom = 847.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_sjxow")
+theme_override_styles/hover = SubResource("StyleBoxFlat_fp2bj")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_3vqvb")
 
 [node name="unlockbg" type="AnimatedSprite2D" parent="."]
 position = Vector2(180, 780)
@@ -138,6 +159,9 @@ offset_left = 387.0
 offset_top = 711.0
 offset_right = 674.0
 offset_bottom = 849.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_5bkm4")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wwoom")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6dfoq")
 
 [node name="cancelbg" type="Sprite2D" parent="."]
 position = Vector2(530, 780)
