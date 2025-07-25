@@ -1,16 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://vt842o4s5g16"]
+[gd_scene load_steps=5 format=3 uid="uid://c0trs85jofm4v"]
 
-[ext_resource type="Texture2D" uid="uid://bvpce48rytcm2" path="res://assets/bg.png" id="1_8unu4"]
-[ext_resource type="Script" path="res://scripts/gameover.gd" id="1_biop3"]
-[ext_resource type="Texture2D" uid="uid://854wqvbu52qp" path="res://assets/messagebox.png" id="2_q0mgc"]
+[ext_resource type="Script" path="res://scripts/transitiongameover.gd" id="1_81mx3"]
+[ext_resource type="Texture2D" uid="uid://bvpce48rytcm2" path="res://assets/bg.png" id="2_s28fj"]
+[ext_resource type="Texture2D" uid="uid://854wqvbu52qp" path="res://assets/messagebox.png" id="3_nht12"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r26cr"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_byweg"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u7gq3"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="gameover" type="Control"]
@@ -22,7 +16,7 @@ offset_right = -720.0
 offset_bottom = -1280.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_biop3")
+script = ExtResource("1_81mx3")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -33,19 +27,17 @@ offset_right = 720.0
 offset_bottom = 1280.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_8unu4")
+texture = ExtResource("2_s28fj")
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_right = 901.0
-offset_bottom = 1678.0
+offset_right = 724.0
+offset_bottom = 1281.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_r26cr")
-theme_override_styles/hover = SubResource("StyleBoxFlat_byweg")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_u7gq3")
 
 [node name="Messagebox" type="Sprite2D" parent="."]
 position = Vector2(358, 569)
-texture = ExtResource("2_q0mgc")
+texture = ExtResource("3_nht12")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0

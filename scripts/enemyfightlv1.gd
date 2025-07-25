@@ -82,7 +82,7 @@ func _process(delta):
 		elif enemyhp == 0:
 			win()
 	else :
-		gameover()
+		lose()
 	
 func generatequestion(type):
 	if type == 1:
@@ -236,7 +236,7 @@ func lose():
 	get_tree().change_scene_to_file("res://scenes/transitionenemyloselv1.tscn") 
 
 
-func gameover():
+#func gameover():
 	#print("gameover")
-	await get_tree().create_timer(0.5).timeout	
-	get_tree().change_scene_to_file("res://scenes/gameover.tscn") 
+	#await get_tree().create_timer(0.5).timeout	
+	#get_tree().change_scene_to_file("res://scenes/gameover.tscn") 
