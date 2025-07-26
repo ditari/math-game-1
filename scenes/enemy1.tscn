@@ -1,9 +1,24 @@
-[gd_scene load_steps=32 format=3 uid="uid://cjvrhlo8gwtje"]
+[gd_scene load_steps=35 format=3 uid="uid://cjvrhlo8gwtje"]
 
 [ext_resource type="Script" path="res://scripts/enemy1.gd" id="1_q1qcy"]
 [ext_resource type="Texture2D" uid="uid://cbv6q72d82evw" path="res://assets/enemy1afire-sprite.png" id="2_fg0ew"]
 [ext_resource type="Texture2D" uid="uid://mmr56ro7k1ph" path="res://assets/enemy1a-sprite.png" id="2_qmf5d"]
 [ext_resource type="Texture2D" uid="uid://c4mup1t70prlg" path="res://assets/enemy1ahurt-sprite.png" id="2_x8jvs"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_of6do"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hxydj"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_scfm5"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ar6j"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ph8yf"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qfivj"]
 atlas = ExtResource("2_fg0ew")
@@ -191,24 +206,21 @@ animations = [{
 "speed": 8.0
 }]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_of6do"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_scfm5"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_q1qcy")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(63, 65)
-sprite_frames = SubResource("SpriteFrames_s6ruh")
-animation = &"fire"
 
 [node name="Button" type="Button" parent="."]
 offset_right = 127.0
 offset_bottom = 118.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_of6do")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hxydj")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_scfm5")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_3ar6j")
+theme_override_styles/focus = SubResource("StyleBoxFlat_ph8yf")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(63, 65)
+sprite_frames = SubResource("SpriteFrames_s6ruh")
+animation = &"fire"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

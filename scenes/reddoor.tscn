@@ -1,9 +1,24 @@
-[gd_scene load_steps=12 format=3 uid="uid://ck1ept43ybccc"]
+[gd_scene load_steps=17 format=3 uid="uid://ck1ept43ybccc"]
 
 [ext_resource type="Script" path="res://scripts/reddoor.gd" id="1_v3glu"]
 [ext_resource type="Texture2D" uid="uid://cplvb6j8p5ja" path="res://assets/bossdoor.png" id="2_s7ksh"]
 [ext_resource type="Texture2D" uid="uid://pdu7a48tiala" path="res://assets/bossdooropen.png" id="3_66b3p"]
 [ext_resource type="Texture2D" uid="uid://d072gwjncyclp" path="res://assets/bossdoor-sprite.png" id="4_caca6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_casvp"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8as5e"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8w8tq"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ogom"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_77kt3"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dv117"]
 atlas = ExtResource("4_caca6")
@@ -78,6 +93,11 @@ script = ExtResource("1_v3glu")
 offset_left = 6.0
 offset_right = 125.0
 offset_bottom = 251.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_casvp")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8as5e")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_8w8tq")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_5ogom")
+theme_override_styles/focus = SubResource("StyleBoxFlat_77kt3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(64, 126)

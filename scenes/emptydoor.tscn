@@ -1,8 +1,23 @@
-[gd_scene load_steps=11 format=3 uid="uid://cfjxa4uinto0r"]
+[gd_scene load_steps=16 format=3 uid="uid://cfjxa4uinto0r"]
 
 [ext_resource type="Script" path="res://scripts/emptydoor.gd" id="1_bdmqs"]
 [ext_resource type="Texture2D" uid="uid://50h7d8ov7kyf" path="res://assets/opendoor.png" id="2_6eiy1"]
 [ext_resource type="Texture2D" uid="uid://b8vax5rauxwht" path="res://assets/opendoor-sprite.png" id="3_cw30w"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_45f4x"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hw7wg"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fqtxt"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pq3x2"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uuirc"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s4dac"]
 atlas = ExtResource("3_cw30w")
@@ -76,6 +91,11 @@ script = ExtResource("1_bdmqs")
 [node name="Button" type="Button" parent="."]
 offset_right = 126.0
 offset_bottom = 253.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_45f4x")
+theme_override_styles/hover = SubResource("StyleBoxFlat_hw7wg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fqtxt")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_pq3x2")
+theme_override_styles/focus = SubResource("StyleBoxFlat_uuirc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(64, 126)

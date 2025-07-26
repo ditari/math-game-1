@@ -1,9 +1,21 @@
-[gd_scene load_steps=4 format=3 uid="uid://cfputnd550qet"]
+[gd_scene load_steps=8 format=3 uid="uid://cfputnd550qet"]
 
 [ext_resource type="Script" path="res://scripts/box.gd" id="1_er5m6"]
 [ext_resource type="Texture2D" uid="uid://cxlg8b83gj1vt" path="res://assets/box.png" id="2_wygrg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mtvu4"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g7yr0"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w0rhn"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nobc1"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t2nvo"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="box" type="Node2D"]
@@ -13,6 +25,10 @@ script = ExtResource("1_er5m6")
 offset_right = 151.0
 offset_bottom = 155.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_mtvu4")
+theme_override_styles/hover = SubResource("StyleBoxFlat_g7yr0")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_w0rhn")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_nobc1")
+theme_override_styles/focus = SubResource("StyleBoxFlat_t2nvo")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(80, 80)

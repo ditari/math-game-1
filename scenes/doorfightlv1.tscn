@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://1c0ige5curdk"]
+[gd_scene load_steps=36 format=3 uid="uid://1c0ige5curdk"]
 
 [ext_resource type="Script" path="res://scripts/doorfightlv1.gd" id="1_2x5l7"]
 [ext_resource type="Texture2D" uid="uid://bvpce48rytcm2" path="res://assets/bg.png" id="2_yoj06"]
@@ -23,7 +23,19 @@ bg_color = Color(0, 1, 0, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c8dre"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p0pxs"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_naxx1"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dv8xe"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7tst3"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_da0n2"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f8myp"]
@@ -225,11 +237,6 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 40
 text = "HP:"
 
-[node name="button1sprite" type="Sprite2D" parent="."]
-position = Vector2(200, 970)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("4_gnbwd")
-
 [node name="Button1" type="Button" parent="."]
 layout_mode = 0
 offset_left = 114.0
@@ -237,6 +244,13 @@ offset_top = 886.0
 offset_right = 287.0
 offset_bottom = 1054.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_c8dre")
+theme_override_styles/hover = SubResource("StyleBoxFlat_p0pxs")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_naxx1")
+
+[node name="button1sprite" type="Sprite2D" parent="Button1"]
+position = Vector2(86, 84)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("4_gnbwd")
 
 [node name="Label1" type="Label" parent="Button1"]
 layout_mode = 0
@@ -250,11 +264,6 @@ text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="button2sprite" type="Sprite2D" parent="."]
-position = Vector2(525, 970)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("4_gnbwd")
-
 [node name="Button2" type="Button" parent="."]
 layout_mode = 0
 offset_left = 438.0
@@ -262,6 +271,13 @@ offset_top = 887.0
 offset_right = 614.0
 offset_bottom = 1053.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_dv8xe")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7tst3")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_da0n2")
+
+[node name="button2sprite" type="Sprite2D" parent="Button2"]
+position = Vector2(87, 83)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("4_gnbwd")
 
 [node name="Label2" type="Label" parent="Button2"]
 layout_mode = 0

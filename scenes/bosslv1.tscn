@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dfdaxgvsckf8d"]
+[gd_scene load_steps=27 format=3 uid="uid://dfdaxgvsckf8d"]
 
 [ext_resource type="Script" path="res://scripts/bosslv1.gd" id="1_07grg"]
 [ext_resource type="Texture2D" uid="uid://cl2vvg3h2t7sf" path="res://assets/boss1fire-sprite.png" id="1_e0osq"]
@@ -6,6 +6,18 @@
 [ext_resource type="Texture2D" uid="uid://duovcpjbwg37j" path="res://assets/boss1hurt-sprite.png" id="2_f3sf0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ke3or"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yldth"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_djm4j"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5km6r"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r1hu7"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ky1aa"]
@@ -148,6 +160,10 @@ script = ExtResource("1_07grg")
 offset_right = 126.0
 offset_bottom = 253.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_ke3or")
+theme_override_styles/hover = SubResource("StyleBoxFlat_yldth")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_djm4j")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_5km6r")
+theme_override_styles/focus = SubResource("StyleBoxFlat_r1hu7")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(64, 126)

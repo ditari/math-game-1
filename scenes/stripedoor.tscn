@@ -1,10 +1,25 @@
-[gd_scene load_steps=21 format=3 uid="uid://dij0s1q66u46b"]
+[gd_scene load_steps=26 format=3 uid="uid://dij0s1q66u46b"]
 
 [ext_resource type="Script" path="res://scripts/stripedoor.gd" id="1_g188w"]
 [ext_resource type="Texture2D" uid="uid://bmcl55nsm5kdk" path="res://assets/closedoor.png" id="2_yvkeo"]
 [ext_resource type="Texture2D" uid="uid://cb3yhqogxhqdg" path="res://assets/door2hurt-sprite.png" id="3_2m4x1"]
 [ext_resource type="Texture2D" uid="uid://50h7d8ov7kyf" path="res://assets/opendoor.png" id="3_bey6f"]
 [ext_resource type="Texture2D" uid="uid://b8vax5rauxwht" path="res://assets/opendoor-sprite.png" id="4_e823c"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wy1nh"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0oowa"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7x85w"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wnmbi"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dxqi2"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1ddm4"]
 atlas = ExtResource("3_2m4x1")
@@ -139,6 +154,11 @@ script = ExtResource("1_g188w")
 [node name="Button" type="Button" parent="."]
 offset_right = 129.0
 offset_bottom = 252.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_wy1nh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0oowa")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7x85w")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_wnmbi")
+theme_override_styles/focus = SubResource("StyleBoxFlat_dxqi2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(64, 126)
