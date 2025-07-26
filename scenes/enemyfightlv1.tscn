@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://cg6lrvhupcfcp"]
+[gd_scene load_steps=55 format=3 uid="uid://cg6lrvhupcfcp"]
 
 [ext_resource type="Script" path="res://scripts/enemyfightlv1.gd" id="1_bsqm0"]
 [ext_resource type="Texture2D" uid="uid://bvpce48rytcm2" path="res://assets/bg.png" id="2_aiqcs"]
@@ -18,6 +18,78 @@
 [ext_resource type="Texture2D" uid="uid://by1hmb6xwk7o6" path="res://assets/flash-sprite.png" id="15_tpjpp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ircx0"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2jprx"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6trjq"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xqxxu"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ox5fs"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gluu0"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7lcm4"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5vxda"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yrhe0"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pijmv"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yxpct"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ov1eb"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sovmk"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7p05b"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wh6j2"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_af7g7"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ii2bd"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wt5w1"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ymtah"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_md2yd"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6gqh8"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pscb5"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hhrch"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pl6d7"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6pnnq"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0dn4y"]
@@ -134,16 +206,22 @@ alignment = 1
 [node name="Button1" type="Button" parent="VBoxContainer/HBoxContainer1"]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_ircx0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2jprx")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6trjq")
 icon = ExtResource("3_lknd4")
 
 [node name="Button2" type="Button" parent="VBoxContainer/HBoxContainer1"]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_ircx0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_xqxxu")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ox5fs")
 icon = ExtResource("4_6aib5")
 
 [node name="Button3" type="Button" parent="VBoxContainer/HBoxContainer1"]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_ircx0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_gluu0")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7lcm4")
 icon = ExtResource("5_e55tm")
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
@@ -154,16 +232,22 @@ alignment = 1
 [node name="Button4" type="Button" parent="VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_ircx0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5vxda")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_yrhe0")
 icon = ExtResource("6_s3w4d")
 
 [node name="Button5" type="Button" parent="VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_ircx0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_pijmv")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_yxpct")
 icon = ExtResource("7_2bten")
 
 [node name="Button6" type="Button" parent="VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_ircx0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ov1eb")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_sovmk")
 icon = ExtResource("8_q8cjs")
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
@@ -174,16 +258,22 @@ alignment = 1
 [node name="Button7" type="Button" parent="VBoxContainer/HBoxContainer3"]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_ircx0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7p05b")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wh6j2")
 icon = ExtResource("9_f3mae")
 
 [node name="Button8" type="Button" parent="VBoxContainer/HBoxContainer3"]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_ircx0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_af7g7")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ii2bd")
 icon = ExtResource("10_5ulwb")
 
 [node name="Button9" type="Button" parent="VBoxContainer/HBoxContainer3"]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_ircx0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wt5w1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ymtah")
 icon = ExtResource("11_ro6s7")
 
 [node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer"]
@@ -194,16 +284,22 @@ alignment = 1
 [node name="Buttonerase" type="Button" parent="VBoxContainer/HBoxContainer4"]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_ircx0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_md2yd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6gqh8")
 icon = ExtResource("12_drk08")
 
 [node name="Button0" type="Button" parent="VBoxContainer/HBoxContainer4"]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_ircx0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_pscb5")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_hhrch")
 icon = ExtResource("13_gtbao")
 
 [node name="Buttonequal" type="Button" parent="VBoxContainer/HBoxContainer4"]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_ircx0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_pl6d7")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6pnnq")
 icon = ExtResource("14_grebm")
 
 [node name="enemyprogressbar" type="ProgressBar" parent="."]
