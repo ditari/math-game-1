@@ -15,10 +15,16 @@ var rng = RandomNumberGenerator.new()
 
 var generatenext = 0
 
+var xgaps
+var ygaps
+
 #var door = get_node("door")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	#position sprite
+	update_sprite()
+	
 	#calculator
 	if Global.calculator == 0:
 		$calculator.visible = false
@@ -59,6 +65,39 @@ func _process(delta):
 		generatequestion()
 		generatewronganswer()
 		generatechoice()
+
+func update_sprite():
+	var screen_size = get_viewport_rect().size
+	ygaps = screen_size.y/10
+	#print (ygaps)
+	#udahlah calculator position x nya biarin 
+	$calculator.position.y = ygaps - 96
+	
+	$doorprogressbar.position.x = (screen_size.x - 300)/2
+	$doorprogressbar.position.y = ygaps - 16
+	
+	$door.position.x = (screen_size.x - 128)/2 -32
+	$door.position.y = ygaps+ 48
+	
+	#$electric.position.x = (screen_size.x - 128)/2 -32
+	#$electric.position.y = ygaps+ 48
+	
+	$questionlabel.position.y = 4*ygaps + 72
+	$answerlabel.position.y = 5*ygaps + 72
+	
+	xgaps = (screen_size.x - 384) / 3 
+	$Button1.position.x = xgaps
+	$Button1.position.y = 7*ygaps
+	
+	$Button2.position.x = 2*xgaps + 192
+	$Button2.position.y = 7*ygaps
+	
+	$playerprogressbar.position.x = 192
+	$playerprogressbar.position.y = 9*ygaps + 16 #8*ygaps + 72
+	
+	$hplabel.position.x = 32
+	$hplabel.position.y = 9*ygaps#8*ygaps + 60
+
 
 #autoanswer
 func _on_calculator_button_pressed():
@@ -131,7 +170,7 @@ func _on_button_1_pressed():
 		$answerlabel.text = str (wronganswer)
 		
 		$AnimatedSprite2D.play("flash")
-		$electric.play("on")
+		$door/electric.play("on")
 		
 	#wait dulu
 	await get_tree().create_timer(0.5).timeout
@@ -152,7 +191,7 @@ func _on_button_2_pressed():
 		$answerlabel.text = str (wronganswer)
 		
 		$AnimatedSprite2D.play("flash")
-		$electric.play("on")
+		$door/electric.play("on")
 
 	#wait dulu
 	await get_tree().create_timer(0.5).timeout				

@@ -200,10 +200,6 @@ text = "Question"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="door" parent="." instance=ExtResource("3_5sihm")]
-position = Vector2(250, 120)
-scale = Vector2(1.5, 1.5)
-
 [node name="doorprogressbar" type="ProgressBar" parent="."]
 layout_mode = 0
 offset_left = 195.0
@@ -220,7 +216,7 @@ show_percentage = false
 layout_mode = 0
 offset_left = 160.0
 offset_top = 1170.0
-offset_right = 660.0
+offset_right = 620.0
 offset_bottom = 1200.0
 theme_override_styles/background = SubResource("StyleBoxFlat_nns6r")
 theme_override_styles/fill = SubResource("StyleBoxFlat_gt76y")
@@ -303,13 +299,17 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(362, 642)
+position = Vector2(432, 863)
+scale = Vector2(1.19444, 1.34531)
 sprite_frames = SubResource("SpriteFrames_8qcqi")
 animation = &"flash"
 
-[node name="electric" type="AnimatedSprite2D" parent="."]
-position = Vector2(347, 296)
+[node name="door" parent="." instance=ExtResource("3_5sihm")]
+position = Vector2(250, 120)
 scale = Vector2(1.5, 1.5)
+
+[node name="electric" type="AnimatedSprite2D" parent="door"]
+position = Vector2(64.6667, 117.333)
 sprite_frames = SubResource("SpriteFrames_f55t3")
 animation = &"on"
 
