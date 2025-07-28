@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://c8qpu1wm4pju3"]
+[gd_scene load_steps=15 format=3 uid="uid://c8qpu1wm4pju3"]
 
 [ext_resource type="Script" path="res://scripts/puzzlelv1.gd" id="1_hj3ff"]
 [ext_resource type="Texture2D" uid="uid://bvpce48rytcm2" path="res://assets/bg.png" id="2_fiw3o"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dkxxbesiew7ev" path="res://assets/boxlong.png" id="6_0hgqa"]
 [ext_resource type="Texture2D" uid="uid://gdg74pno3apk" path="res://assets/buttondoor.png" id="7_k7m16"]
 [ext_resource type="PackedScene" uid="uid://24xygqluuq3w" path="res://scenes/calculator.tscn" id="8_0k6v4"]
+[ext_resource type="Texture2D" uid="uid://cwsv8p4u0q0vt" path="res://assets/reload4.png" id="9_7e6dg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xxd63"]
 bg_color = Color(0, 0, 1, 0)
@@ -199,18 +200,6 @@ scale = Vector2(1.2, 1.139)
 sprite_frames = SubResource("SpriteFrames_1yuh2")
 animation = &"off"
 
-[node name="reloadlabel" type="Label" parent="."]
-layout_mode = 0
-offset_left = 472.0
-offset_top = 624.0
-offset_right = 609.0
-offset_bottom = 754.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 90
-text = "⭮"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="calculator" parent="." instance=ExtResource("8_0k6v4")]
 position = Vector2(575, 20)
 scale = Vector2(0.8, 0.8)
@@ -223,6 +212,10 @@ offset_bottom = 152.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 50
 text = "99"
+
+[node name="Reload4" type="Sprite2D" parent="."]
+position = Vector2(542, 691)
+texture = ExtResource("9_7e6dg")
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]

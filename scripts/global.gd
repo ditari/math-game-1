@@ -8,7 +8,7 @@ var score = 0
 var items = [0,3,3,0]
 
 #jumlah kalkulator
-var calculator = 0
+var calculator = 1
 
 #-------doors-----------
 
@@ -50,7 +50,7 @@ var currentenemytype = 0
 var enemydefeated = 0 #jumlah enemy defeated
 
 #-------treasure chest 
-var whatexist = 3
+var whatexist = 2
 #0 = nothing
 #1 = treasure
 #2 = pc diamnond
