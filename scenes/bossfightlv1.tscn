@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://xybcefbacpfd"]
+[gd_scene load_steps=80 format=3 uid="uid://xybcefbacpfd"]
 
 [ext_resource type="Script" path="res://scripts/bossfightlv1.gd" id="1_s4exw"]
 [ext_resource type="Texture2D" uid="uid://bvpce48rytcm2" path="res://assets/bg.png" id="2_mpqxh"]
@@ -19,6 +19,150 @@
 [ext_resource type="Texture2D" uid="uid://by1hmb6xwk7o6" path="res://assets/flash-sprite.png" id="16_mkf54"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ircx0"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oo1ml"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_likhj"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rqhtd"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n0f1k"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qtf6x"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sdx3x"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w56wy"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_an81q"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1k4ye"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_04vhk"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yrvd2"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ikjl"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_80p70"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hjmq4"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hiu5x"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ugv46"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2syjd"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jjllq"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_34vlu"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yyhlo"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_al0j0"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_61eey"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wxuhu"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cfbvn"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oyq2r"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0qwr2"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qmvjf"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lb2fr"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6dyqm"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xbgke"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wdx5f"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_arxie"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5hesy"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6p5kk"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h38do"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c4yf4"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ujvkh"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_26ura"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o3g8f"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uyr4d"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p2fyx"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5j1hx"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pg5dp"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xh7su"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o4ga8"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fe26p"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0wlhn"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ynyyj"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0dn4y"]
@@ -135,16 +279,28 @@ alignment = 1
 [node name="Button1" type="Button" parent="VBoxContainer/HBoxContainer1"]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_ircx0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_oo1ml")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_likhj")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_rqhtd")
+theme_override_styles/focus = SubResource("StyleBoxFlat_n0f1k")
 icon = ExtResource("3_ex7iy")
 
 [node name="Button2" type="Button" parent="VBoxContainer/HBoxContainer1"]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_ircx0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qtf6x")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_sdx3x")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_w56wy")
+theme_override_styles/focus = SubResource("StyleBoxFlat_an81q")
 icon = ExtResource("4_h7e4k")
 
 [node name="Button3" type="Button" parent="VBoxContainer/HBoxContainer1"]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_ircx0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1k4ye")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_04vhk")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_yrvd2")
+theme_override_styles/focus = SubResource("StyleBoxFlat_3ikjl")
 icon = ExtResource("5_uxlhe")
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
@@ -155,16 +311,28 @@ alignment = 1
 [node name="Button4" type="Button" parent="VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_ircx0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_80p70")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_hjmq4")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_hiu5x")
+theme_override_styles/focus = SubResource("StyleBoxFlat_ugv46")
 icon = ExtResource("6_qpew5")
 
 [node name="Button5" type="Button" parent="VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_ircx0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_2syjd")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jjllq")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_34vlu")
+theme_override_styles/focus = SubResource("StyleBoxFlat_yyhlo")
 icon = ExtResource("7_yyu73")
 
 [node name="Button6" type="Button" parent="VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_ircx0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_al0j0")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_61eey")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_wxuhu")
+theme_override_styles/focus = SubResource("StyleBoxFlat_cfbvn")
 icon = ExtResource("8_57vta")
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
@@ -175,16 +343,28 @@ alignment = 1
 [node name="Button7" type="Button" parent="VBoxContainer/HBoxContainer3"]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_ircx0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_oyq2r")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0qwr2")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_qmvjf")
+theme_override_styles/focus = SubResource("StyleBoxFlat_lb2fr")
 icon = ExtResource("9_d3trv")
 
 [node name="Button8" type="Button" parent="VBoxContainer/HBoxContainer3"]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_ircx0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6dyqm")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_xbgke")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_wdx5f")
+theme_override_styles/focus = SubResource("StyleBoxFlat_arxie")
 icon = ExtResource("10_0ibl0")
 
 [node name="Button9" type="Button" parent="VBoxContainer/HBoxContainer3"]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_ircx0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5hesy")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6p5kk")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_h38do")
+theme_override_styles/focus = SubResource("StyleBoxFlat_c4yf4")
 icon = ExtResource("11_2nphe")
 
 [node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer"]
@@ -195,16 +375,28 @@ alignment = 1
 [node name="Buttonerase" type="Button" parent="VBoxContainer/HBoxContainer4"]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_ircx0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ujvkh")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_26ura")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_o3g8f")
+theme_override_styles/focus = SubResource("StyleBoxFlat_uyr4d")
 icon = ExtResource("12_kigqn")
 
 [node name="Button0" type="Button" parent="VBoxContainer/HBoxContainer4"]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_ircx0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_p2fyx")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5j1hx")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_pg5dp")
+theme_override_styles/focus = SubResource("StyleBoxFlat_xh7su")
 icon = ExtResource("13_1scwn")
 
 [node name="Buttonequal" type="Button" parent="VBoxContainer/HBoxContainer4"]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_ircx0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_o4ga8")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fe26p")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_0wlhn")
+theme_override_styles/focus = SubResource("StyleBoxFlat_ynyyj")
 icon = ExtResource("14_s4fq4")
 
 [node name="enemyprogressbar" type="ProgressBar" parent="."]

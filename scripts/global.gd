@@ -5,7 +5,7 @@ var playerhp = 100
 var score = 0
 
 #key items
-var items = [0,0,0,0]
+var items = [0,3,3,0]
 
 #jumlah kalkulator
 var calculator = 0
@@ -45,14 +45,14 @@ var isenemyexist = [0,1,2,0]
 #currentenemy (number kalau di enemy scene) ini position ya kalau 1 berarti di door 1 kiri
 var currentenemy = 0
 #currentenemytype baru tipe enemy nya apa
-var currentenemytype = 1
+var currentenemytype = 0
 
 var enemydefeated = 0 #jumlah enemy defeated
 
 #-------treasure chest 
-var whatexist = 1
+var whatexist = 3
 #0 = nothing
 #1 = treasure
 #2 = pc diamnond
 #3 = pc off no diamond
-var treasurescore = 10
+var treasurescore = 0
