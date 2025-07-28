@@ -204,29 +204,30 @@ func _on_button_0_pressed():
 		inputanswer = inputanswer + "0"	
 
 func _on_buttonequal_pressed():
-	var input = int(inputanswer)
-	if input == answer:
-		enemyhp = enemyhp -1
+	if inputanswer!= "" :
+		var input = int(inputanswer)
+		if input == answer:
+			enemyhp = enemyhp -1
+			#play animation
+			enemy.get_node("AnimatedSprite2D").play("hurt")
+		else :
+			Global.playerhp = Global.playerhp - minusplayer
+			chance = chance - 1
 		#play animation
-		enemy.get_node("AnimatedSprite2D").play("hurt")
-	else :
-		Global.playerhp = Global.playerhp - minusplayer
-		chance = chance - 1
-		#play animation
-		enemy.get_node("AnimatedSprite2D").play("fire")
+			enemy.get_node("AnimatedSprite2D").play("fire")
 		#flash screen here
-		$AnimatedSprite2D.play("flash")
+			$AnimatedSprite2D.play("flash")
 		
-	await get_tree().create_timer(0.5).timeout	
-	enemy.get_node("AnimatedSprite2D").play("idle")
+		await get_tree().create_timer(0.5).timeout	
+		enemy.get_node("AnimatedSprite2D").play("idle")
 
-	inputanswer = ""
+		inputanswer = ""
 	
 	#jika enemyhp masih ada, generatequestion. dengan syarat masih ada chance
 	#kalau cuma ada chance tapi enemyhp sudah habis jgn generate question 
-	if chance > 0 and enemyhp > 0:
-		generatequestion(enemytype)
-		$timer.start()	
+		if chance > 0 and enemyhp > 0:
+			generatequestion(enemytype)
+			$timer.start()	
 	#else :
 	#	await get_tree().create_timer(0.5).timeout	
 

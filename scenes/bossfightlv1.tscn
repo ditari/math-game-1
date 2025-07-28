@@ -415,7 +415,7 @@ show_percentage = false
 layout_mode = 0
 offset_left = 160.0
 offset_top = 1210.0
-offset_right = 660.0
+offset_right = 620.0
 offset_bottom = 1240.0
 theme_override_styles/background = SubResource("StyleBoxFlat_0dn4y")
 theme_override_styles/fill = SubResource("StyleBoxFlat_0kb6y")
@@ -458,7 +458,7 @@ horizontal_alignment = 1
 
 [node name="timer" type="Timer" parent="."]
 
-[node name="label2" type="Label" parent="."]
+[node name="hplabel" type="Label" parent="."]
 layout_mode = 0
 offset_left = 40.0
 offset_top = 1190.0
@@ -482,7 +482,8 @@ theme_override_font_sizes/font_size = 50
 text = "99"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(362, 637)
+position = Vector2(458, 808)
+scale = Vector2(1.26667, 1.26719)
 sprite_frames = SubResource("SpriteFrames_mx4xu")
 animation = &"flash"
 

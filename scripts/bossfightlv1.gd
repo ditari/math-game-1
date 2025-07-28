@@ -13,8 +13,12 @@ var enemyhp = 5
 #var chance = 3 
 var minusplayer = 10
 
+var xgaps
+var ygaps
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	update_sprite()
 	#calculator
 	if Global.calculator == 0:
 		$calculator.visible = false
@@ -55,7 +59,34 @@ func _process(delta):
 	else :
 		gameover()
 
+func update_sprite():
+	var screen_size = get_viewport_rect().size
+	ygaps = screen_size.y/10
+	#xgaps = (screen_size.x - 192)/2
 
+	$calculator.position.x = screen_size.x - 128
+	$calculator.position.y = ygaps - 112
+	
+	$timerprogressbar.position.x = (screen_size.x - 300)/2
+	$timerprogressbar.position.y = ygaps - 112
+	
+	$enemyprogressbar.position.x = (screen_size.x - 300)/2
+	$enemyprogressbar.position.y = ygaps - 64
+	
+	$boss.position.x = (screen_size.x - 167)/2
+	$boss.position.y = ygaps - 16
+	
+	$questionlabel.position.y = 3*ygaps +32
+	$answerlabel.position.y = 4*ygaps
+	
+	$VBoxContainer.position.y = 5*ygaps + 16
+	
+	$hplabel.position.x = 32
+	$hplabel.position.y = 9*ygaps + 48
+	
+	$playerprogressbar.position.x = 148
+	$playerprogressbar.position.y = 9*ygaps + 64
+	
 func generatequestion():
 	var type = randi_range(1,2)
 	if type == 1:
@@ -147,27 +178,28 @@ func _on_button_0_pressed():
 		inputanswer = inputanswer + "0"	
 
 func _on_buttonequal_pressed():
-	var input = int(inputanswer)
-	if input == answer:
-		enemyhp = enemyhp -1
-		#play animation
-		$boss.get_node("AnimatedSprite2D").play("hurt")
-	else :
-		Global.playerhp = Global.playerhp - minusplayer
-		#chance = chance - 1
-		#play animation
-		$boss.get_node("AnimatedSprite2D").play("fire")
-		#flash screen here
-		$AnimatedSprite2D.play("flash")
+	if inputanswer != "":
+		var input = int(inputanswer)
+		if input == answer:
+			enemyhp = enemyhp -1
+			#play animation
+			$boss.get_node("AnimatedSprite2D").play("hurt")
+		else :
+			Global.playerhp = Global.playerhp - minusplayer
+			#chance = chance - 1
+			#play animation
+			$boss.get_node("AnimatedSprite2D").play("fire")
+			#flash screen here
+			$AnimatedSprite2D.play("flash")
 		
-	await get_tree().create_timer(0.5).timeout	
-	$boss.get_node("AnimatedSprite2D").play("idle")
-
-	inputanswer = ""
+		await get_tree().create_timer(0.5).timeout	
+		$boss.get_node("AnimatedSprite2D").play("idle")
 	
-	if enemyhp > 0:
-		generatequestion()
-		$timer.start()	
+		inputanswer = ""
+	
+		if enemyhp > 0:
+			generatequestion()
+			$timer.start()	
 
 func _on_timer_timeout():
 	Global.playerhp = Global.playerhp - minusplayer
