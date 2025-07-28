@@ -5,8 +5,8 @@ func _ready():
 	
 	var ygaps = screen_size.y/10
 	var xgaps = (screen_size.x - 256)/2
-	print (screen_size.x)
-	print(ygaps)
+	#print (screen_size.x)
+	#print(ygaps)
 	
 	$bg1.position.x = xgaps + 128 
 	#karena sprite2d masuk langsung ke scene titik 0 dihitung dari tengah
@@ -24,7 +24,7 @@ func _on_button_1_pressed():
 	#Global.numberofdoors = 1
 	#Global.door1type = 1
 	
-	#sisanya pastikan mulai dari nol
+	#sisanya pastikan mulai dari awal
 	#Global.currentlevel = 1
 	#Global.playerhp = 100
 	#Global.score = 0
