@@ -70,7 +70,8 @@ func update_sprite():
 	var screen_size = get_viewport_rect().size
 	ygaps = screen_size.y/10
 	#print (ygaps)
-	#udahlah calculator position x nya biarin 
+	
+	$calculator.position.x = screen_size.x - 128
 	$calculator.position.y = ygaps - 96
 	
 	$doorprogressbar.position.x = (screen_size.x - 300)/2
@@ -92,12 +93,12 @@ func update_sprite():
 	$Button2.position.x = 2*xgaps + 192
 	$Button2.position.y = 7*ygaps
 	
-	$playerprogressbar.position.x = 192
-	$playerprogressbar.position.y = 9*ygaps + 16 #8*ygaps + 72
-	
 	$hplabel.position.x = 32
 	$hplabel.position.y = 9*ygaps#8*ygaps + 60
 
+	$playerprogressbar.position.x = 192
+	$playerprogressbar.position.y = 9*ygaps + 16 #8*ygaps + 72
+	
 
 #autoanswer
 func _on_calculator_button_pressed():

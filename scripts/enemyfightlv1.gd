@@ -23,9 +23,13 @@ var enemy
 
 var enemytype = Global.currentenemytype
 
+var ygaps
+var xgaps
 
 # Called when the node enters the scene tree for the first time.
 func _ready():	
+	update_sprite()
+	
 	#calculator
 	if Global.calculator == 0:
 		$calculator.visible = false
@@ -41,7 +45,7 @@ func _ready():
 	else :	
 		enemy = enemy2.instantiate()
 
-	enemy.position = Vector2(275,140)
+	enemy.position = Vector2(xgaps,ygaps + 32)
 	enemy.scale = Vector2(1.5,1.5)
 	enemy.get_node("AnimatedSprite2D").play("idle")	
 	
@@ -83,15 +87,40 @@ func _process(delta):
 			win()
 	else :
 		lose()
+		
+func update_sprite():
+	var screen_size = get_viewport_rect().size
+	ygaps = screen_size.y/10
+	xgaps = (screen_size.x - 192)/2
+
+	$calculator.position.x = screen_size.x - 128
+	$calculator.position.y = ygaps - 96
+	
+	$timerprogressbar.position.x = (screen_size.x - 300)/2
+	$timerprogressbar.position.y = ygaps - 80
+	
+	$enemyprogressbar.position.x = (screen_size.x - 300)/2
+	$enemyprogressbar.position.y = ygaps - 32
+	
+	$questionlabel.position.y = 3*ygaps - 32
+	$answerlabel.position.y = 3*ygaps + 80
+	
+	$VBoxContainer.position.y = 5*ygaps - 32
+	
+	$hplabel.position.x = 32
+	$hplabel.position.y = 9*ygaps + 32
+	
+	$playerprogressbar.position.x = 148#192
+	$playerprogressbar.position.y = 9*ygaps + 48
 	
 func generatequestion(type):
 	if type == 1:
 		generatequestionplus()
-	elif type == 2 :
+	#elif type == 2 :
 		#var v = randi_range(1,2)
 		#if v == 1 :
 		#	generatequestionplus()
-		#else :
+	else :
 		generatequestionminus()				
 
 func generatequestionplus():
