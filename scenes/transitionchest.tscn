@@ -48,29 +48,28 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_02pe1")
 position = Vector2(358, 569)
 texture = ExtResource("2_4em44")
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 230.0
-offset_top = 383.0
-offset_right = 485.0
-offset_bottom = 469.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 60
-text = "YOU GET"
-
-[node name="Gold" type="Sprite2D" parent="."]
-position = Vector2(350, 550)
-texture = ExtResource("3_6a1e2")
-
-[node name="Label2" type="Label" parent="."]
-layout_mode = 0
-offset_left = 226.0
-offset_top = 653.0
-offset_right = 481.0
-offset_bottom = 739.0
+[node name="Label2" type="Label" parent="Messagebox"]
+offset_left = -359.0
+offset_top = 95.0
+offset_right = 358.0
+offset_bottom = 181.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 60
 text = "GOLD"
 horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="Messagebox"]
+offset_left = -355.0
+offset_top = -186.0
+offset_right = 358.0
+offset_bottom = -100.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 60
+text = "YOU GET"
+horizontal_alignment = 1
+
+[node name="Gold" type="Sprite2D" parent="Messagebox"]
+position = Vector2(-8, -19)
+texture = ExtResource("3_6a1e2")
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

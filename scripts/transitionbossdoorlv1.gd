@@ -3,14 +3,27 @@ var enoughkey = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$key1label.text = str(Global.reddoorkey[1])
-	$key2label.text = str(Global.reddoorkey[2])
+	var screen_size = get_viewport_rect().size
+	#var ygaps = screen_size.y/10
+	
+	$Messagebox.position.y = (screen_size.y/2) - 192 #ada button jadi ga pas di tengah
+	
+	$Messagebox/key1label.text = str(Global.reddoorkey[1])
+	$Messagebox/key2label.text = str(Global.reddoorkey[2])
+
+	var xgaps = (screen_size.x - 615)/3
+	var ygaps = screen_size.y/10
+	$unlockbutton.position.x = xgaps
+	$unlockbutton.position.y = 5*ygaps +64
+	
+	$cancelbutton.position.x =  2*xgaps +307
+	$cancelbutton.position.y =  5*ygaps +64
 	
 	checkkey()
 	if enoughkey == false :
-		$unlockbg.play("off")
+		$unlockbutton/unlockbg.play("off")
 	else :
-		$unlockbg.play("on")
+		$unlockbutton/unlockbg.play("on")
 		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

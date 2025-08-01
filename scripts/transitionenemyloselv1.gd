@@ -7,6 +7,9 @@ var enemy
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	var screen_size = get_viewport_rect().size
+	$Messagebox.position.y = screen_size.y/2
+	
 	var enemytype = Global.currentenemytype
 	
 	if enemytype == 1:
@@ -14,7 +17,7 @@ func _ready():
 	else :
 		enemy = enemy2scene.instantiate()
 	
-	enemy.position = Vector2(264,460)
+	enemy.position = Vector2(264,(screen_size.y/2)-128)
 	enemy.scale = Vector2(1.5,1.5)
 		
 	add_child(enemy)

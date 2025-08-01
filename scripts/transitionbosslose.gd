@@ -1,12 +1,20 @@
 extends Control
 
-var boss1scene: PackedScene = load("res://scenes/bosslv1.tscn")
-var boss
+#var boss1scene: PackedScene = load("res://scenes/bosslv1.tscn")
+#var boss
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	boss = boss1scene.instantiate()		
-	boss.position = Vector2(300,450)
-	add_child(boss)
+	#boss = boss1scene.instantiate()		
+	#boss.position = Vector2(300,450)
+	#add_child(boss)
+	var screen_size = get_viewport_rect().size
+	var ygaps = screen_size.y/2
+	
+	$Messagebox.position.y = ygaps - 16
+	$Label.position.y = ygaps - 256
+	$Label2.position.y = ygaps + 144
+	$Node2D.position.y = ygaps - 172
+	#$array.position.y = ygaps
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

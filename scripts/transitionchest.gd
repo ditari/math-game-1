@@ -3,7 +3,10 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$Label2.text = str(Global.treasurescore) + " G"
+	var screen_size = get_viewport_rect().size
+	$Messagebox.position.y = screen_size.y/2
+	
+	$Messagebox/Label2.text = str(Global.treasurescore) + " G"
 	
 	Global.score = Global.score + Global.treasurescore 
 	Global.treasurescore = 0

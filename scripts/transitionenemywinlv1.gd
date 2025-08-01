@@ -7,6 +7,8 @@ var key
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	var screen_size = get_viewport_rect().size
+	$Messagebox.position.y = screen_size.y/2
 
 	var n = Global.currentenemy
 	Global.isenemyexist[n] = 0	
@@ -20,7 +22,7 @@ func _ready():
 	else :
 		key = key2scene.instantiate()
 	
-	key.position = Vector2(296,500)
+	key.position = Vector2(296,(screen_size.y/2) - 64)
 	key.scale = Vector2(2,2)
 	key.get_node("AnimatedSprite2D").play("on")	
 

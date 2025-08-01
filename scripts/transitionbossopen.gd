@@ -3,9 +3,13 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
-
+	var screen_size = get_viewport_rect().size
+	var ygaps = screen_size.y/2
+	
+	$Messagebox.position.y = ygaps 
+	$Label.position.y = ygaps - 240
+	$Label2.position.y = ygaps + 144
+	$Bossdooropen.position.y = ygaps
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass

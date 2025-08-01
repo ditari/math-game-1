@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dbulxlxi4uixk"]
+[gd_scene load_steps=19 format=3 uid="uid://dbulxlxi4uixk"]
 
 [ext_resource type="Script" path="res://scripts/transitionbossdoorlv1.gd" id="1_4b36x"]
 [ext_resource type="Texture2D" uid="uid://bvpce48rytcm2" path="res://assets/bg.png" id="1_vrlwk"]
@@ -15,6 +15,12 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3vqvb"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q3dxi"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jjubg"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vpfna"]
@@ -45,6 +51,12 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6dfoq"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0ptsf"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ibd2j"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
 [node name="transition" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -71,55 +83,51 @@ texture = ExtResource("1_vrlwk")
 position = Vector2(362, 465)
 texture = ExtResource("2_itk04")
 
-[node name="Label2" type="Label" parent="."]
-layout_mode = 0
-offset_left = 3.0
-offset_top = 565.0
-offset_right = 721.0
-offset_bottom = 651.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 60
-text = "TO UNLOCK THE DOOR"
-horizontal_alignment = 1
+[node name="Key1" type="Sprite2D" parent="Messagebox"]
+position = Vector2(-192, -5)
+scale = Vector2(2, 2)
+texture = ExtResource("3_yt2w1")
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 3.0
-offset_top = 283.0
-offset_right = 721.0
-offset_bottom = 369.0
+[node name="Key2" type="Sprite2D" parent="Messagebox"]
+position = Vector2(108, -5)
+scale = Vector2(2, 2)
+texture = ExtResource("4_nevdd")
+
+[node name="Label" type="Label" parent="Messagebox"]
+offset_left = -359.0
+offset_top = -182.0
+offset_right = 359.0
+offset_bottom = -96.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 60
 text = "YOU NEED"
 horizontal_alignment = 1
 
-[node name="Key1" type="Sprite2D" parent="."]
-position = Vector2(170, 460)
-scale = Vector2(2, 2)
-texture = ExtResource("3_yt2w1")
+[node name="Label2" type="Label" parent="Messagebox"]
+offset_left = -359.0
+offset_top = 100.0
+offset_right = 359.0
+offset_bottom = 186.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 60
+text = "TO UNLOCK THE DOOR"
+horizontal_alignment = 1
 
-[node name="Key2" type="Sprite2D" parent="."]
-position = Vector2(470, 460)
-scale = Vector2(2, 2)
-texture = ExtResource("4_nevdd")
-
-[node name="key1label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 270.0
-offset_top = 397.0
-offset_right = 395.0
-offset_bottom = 524.0
+[node name="key1label" type="Label" parent="Messagebox"]
+offset_left = -92.0
+offset_top = -68.0
+offset_right = 33.0
+offset_bottom = 59.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 90
 text = "0
 "
 
-[node name="key2label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 561.0
-offset_top = 395.0
-offset_right = 686.0
-offset_bottom = 522.0
+[node name="key2label" type="Label" parent="Messagebox"]
+offset_left = 199.0
+offset_top = -70.0
+offset_right = 324.0
+offset_bottom = 57.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 90
 text = "0
@@ -134,19 +142,21 @@ offset_bottom = 847.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_sjxow")
 theme_override_styles/hover = SubResource("StyleBoxFlat_fp2bj")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_3vqvb")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_q3dxi")
+theme_override_styles/focus = SubResource("StyleBoxFlat_jjubg")
 
-[node name="unlockbg" type="AnimatedSprite2D" parent="."]
-position = Vector2(180, 780)
+[node name="unlockbg" type="AnimatedSprite2D" parent="unlockbutton"]
+position = Vector2(142, 67)
 scale = Vector2(1.2, 1.2)
 sprite_frames = SubResource("SpriteFrames_vpfna")
 animation = &"off"
 
-[node name="unlocklabel" type="Label" parent="."]
+[node name="unlocklabel" type="Label" parent="unlockbutton"]
 layout_mode = 0
-offset_left = 30.0
-offset_top = 710.0
-offset_right = 328.0
-offset_bottom = 850.0
+offset_left = -8.0
+offset_top = -3.0
+offset_right = 290.0
+offset_bottom = 137.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 60
 text = "UNLOCK"
@@ -162,18 +172,20 @@ offset_bottom = 849.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_5bkm4")
 theme_override_styles/hover = SubResource("StyleBoxFlat_wwoom")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_6dfoq")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_0ptsf")
+theme_override_styles/focus = SubResource("StyleBoxFlat_ibd2j")
 
-[node name="cancelbg" type="Sprite2D" parent="."]
-position = Vector2(530, 780)
+[node name="cancelbg" type="Sprite2D" parent="cancelbutton"]
+position = Vector2(143, 69)
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("6_mmkrt")
 
-[node name="cancellabel" type="Label" parent="."]
+[node name="cancellabel" type="Label" parent="cancelbutton"]
 layout_mode = 0
-offset_left = 380.0
-offset_top = 708.0
-offset_right = 678.0
-offset_bottom = 848.0
+offset_left = -7.0
+offset_top = -3.0
+offset_right = 291.0
+offset_bottom = 137.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 60
 text = "CANCEL"

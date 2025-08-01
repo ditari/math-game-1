@@ -47,23 +47,21 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_dkdj2")
 position = Vector2(358, 569)
 texture = ExtResource("3_txpv6")
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = -1.0
-offset_top = 383.0
-offset_right = 717.0
-offset_bottom = 469.0
+[node name="Label" type="Label" parent="Messagebox"]
+offset_left = -359.0
+offset_top = -186.0
+offset_right = 359.0
+offset_bottom = -100.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 60
 text = "WRONG ANSWERS..."
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="."]
-layout_mode = 0
-offset_left = 3.0
-offset_top = 666.0
-offset_right = 718.0
-offset_bottom = 752.0
+[node name="Label2" type="Label" parent="Messagebox"]
+offset_left = -355.0
+offset_top = 97.0
+offset_right = 360.0
+offset_bottom = 183.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 60
 text = "ENEMY WINS"
