@@ -3,7 +3,10 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$scorelabel.text = "SCORE : " + str(Global.score)
+	var screen_size = get_viewport_rect().size
+	$Messagebox.position.y = screen_size.y/2
+	
+	$Messagebox/scorelabel.text = "SCORE : " + str(Global.score)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

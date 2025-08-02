@@ -10,10 +10,10 @@ func _ready():
 	var screen_size = get_viewport_rect().size
 	var ygaps = screen_size.y/2
 	
-	$Messagebox.position.y = ygaps - 16
-	$Label.position.y = ygaps - 256
-	$Label2.position.y = ygaps + 144
-	$Node2D.position.y = ygaps - 172
+	$Messagebox.position.y = ygaps
+	$Label.position.y = ygaps - 240
+	$Label2.position.y = ygaps + 160
+	$Node2D.position.y = ygaps - 156
 	#$array.position.y = ygaps
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

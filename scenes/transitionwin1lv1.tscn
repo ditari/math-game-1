@@ -48,30 +48,28 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_kn54h")
 position = Vector2(358, 569)
 texture = ExtResource("2_a0n5u")
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = -1.0
-offset_top = 380.0
-offset_right = 718.0
-offset_bottom = 466.0
+[node name="Label" type="Label" parent="Messagebox"]
+offset_left = -359.0
+offset_top = -189.0
+offset_right = 360.0
+offset_bottom = -103.0
 rotation = -0.000195553
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 60
 text = "YOU DEFEAT THE BOSS"
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="."]
-layout_mode = 0
-offset_left = -1.0
-offset_top = 667.0
-offset_right = 718.0
-offset_bottom = 753.0
+[node name="Label2" type="Label" parent="Messagebox"]
+offset_left = -359.0
+offset_top = 98.0
+offset_right = 360.0
+offset_bottom = 184.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 60
 text = "YOU GET CALCULATOR"
 horizontal_alignment = 1
 
-[node name="Node2D" parent="." instance=ExtResource("3_7qtx1")]
-position = Vector2(301, 486)
+[node name="Node2D" parent="Messagebox" instance=ExtResource("3_7qtx1")]
+position = Vector2(-57, -83)
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

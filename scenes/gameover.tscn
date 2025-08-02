@@ -47,24 +47,22 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_u7gq3")
 position = Vector2(358, 569)
 texture = ExtResource("2_q0mgc")
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = -4.0
-offset_top = 383.0
-offset_right = 717.0
-offset_bottom = 575.0
+[node name="Label" type="Label" parent="Messagebox"]
+offset_left = -362.0
+offset_top = -186.0
+offset_right = 359.0
+offset_bottom = 6.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 60
 text = "GAME OVER"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="scorelabel" type="Label" parent="."]
-layout_mode = 0
-offset_left = -4.0
-offset_top = 561.0
-offset_right = 717.0
-offset_bottom = 753.0
+[node name="scorelabel" type="Label" parent="Messagebox"]
+offset_left = -362.0
+offset_top = -8.0
+offset_right = 359.0
+offset_bottom = 184.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 60
 text = "SCORE"

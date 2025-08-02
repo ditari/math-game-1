@@ -3,8 +3,20 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
+	var screen_size = get_viewport_rect().size
+	var xgaps = (screen_size.x - 512)/3
+	#print(xgaps)
+	#var ygaps = screen_size.y/10
+	
+	$Messagebox.position.y = (screen_size.y/2) - 180 #ada button jadi ga pas di tengah
+	$Label.position.y = (screen_size.y/2) - 256
+	
+	$bg1.position.x = xgaps + 128
+	$bg1.position.y = (screen_size.y/2) + 96
+	
+	$bg2.position.x = 2*xgaps + 384
+	$bg2.position.y = (screen_size.y/2) + 96	
+	#$bg1.position.y
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

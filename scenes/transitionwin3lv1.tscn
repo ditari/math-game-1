@@ -48,11 +48,9 @@ scale = Vector2(1, 0.808594)
 texture = ExtResource("3_t6he6")
 
 [node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 11.0
-offset_top = 307.0
-offset_right = 731.0
-offset_bottom = 607.0
+offset_top = 350.0
+offset_right = 720.0
+offset_bottom = 522.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 60
 text = "RETRY THIS LEVEL?
@@ -64,53 +62,49 @@ vertical_alignment = 1
 position = Vector2(200, 720)
 texture = ExtResource("4_4deyl")
 
-[node name="bg2" type="Sprite2D" parent="."]
-position = Vector2(500, 720)
-texture = ExtResource("4_4deyl")
-
-[node name="label1" type="Label" parent="."]
-layout_mode = 0
-offset_left = 79.0
-offset_top = 658.0
-offset_right = 323.0
-offset_bottom = 776.0
+[node name="label1" type="Label" parent="bg1"]
+offset_left = -121.0
+offset_top = -62.0
+offset_right = 123.0
+offset_bottom = 56.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 60
 text = "RETRY"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="label2" type="Label" parent="."]
-layout_mode = 0
-offset_left = 379.0
-offset_top = 657.0
-offset_right = 627.0
-offset_bottom = 775.0
+[node name="Button1" type="Button" parent="bg1"]
+offset_left = -125.0
+offset_top = -57.0
+offset_right = 123.0
+offset_bottom = 60.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_r26cr")
+theme_override_styles/hover = SubResource("StyleBoxFlat_k1g6f")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_uci76")
+
+[node name="bg2" type="Sprite2D" parent="."]
+position = Vector2(500, 720)
+texture = ExtResource("4_4deyl")
+
+[node name="label2" type="Label" parent="bg2"]
+offset_left = -121.0
+offset_top = -63.0
+offset_right = 127.0
+offset_bottom = 55.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 60
 text = "CANCEL"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button1" type="Button" parent="."]
-layout_mode = 0
-offset_left = 75.0
-offset_top = 663.0
-offset_right = 323.0
-offset_bottom = 780.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_r26cr")
-theme_override_styles/hover = SubResource("StyleBoxFlat_k1g6f")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_uci76")
-
-[node name="Button2" type="Button" parent="."]
-layout_mode = 0
-offset_left = 375.0
-offset_top = 660.0
-offset_right = 623.0
-offset_bottom = 777.0
+[node name="Button2" type="Button" parent="bg2"]
+offset_left = -125.0
+offset_top = -60.0
+offset_right = 123.0
+offset_bottom = 57.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_r26cr")
 theme_override_styles/hover = SubResource("StyleBoxFlat_r6t1e")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_04w3w")
 
-[connection signal="pressed" from="Button1" to="." method="_on_button_1_pressed"]
-[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="bg1/Button1" to="." method="_on_button_1_pressed"]
+[connection signal="pressed" from="bg2/Button2" to="." method="_on_button_2_pressed"]

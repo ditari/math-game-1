@@ -50,11 +50,10 @@ texture = ExtResource("1_1b7a5")
 
 [node name="Messagebox" type="Sprite2D" parent="."]
 position = Vector2(360, 310.75)
-scale = Vector2(1, 0.808594)
+scale = Vector2(1, 0.809)
 texture = ExtResource("2_ytlkn")
 
 [node name="Label" type="Label" parent="."]
-layout_mode = 0
 offset_left = 2.0
 offset_top = 161.0
 offset_right = 722.0
@@ -69,80 +68,74 @@ vertical_alignment = 1
 position = Vector2(360, 600)
 texture = ExtResource("3_o2vbk")
 
-[node name="bg2" type="Sprite2D" parent="."]
-position = Vector2(360, 790)
-texture = ExtResource("3_o2vbk")
-
-[node name="bg3" type="Sprite2D" parent="."]
-position = Vector2(360, 980)
-texture = ExtResource("3_o2vbk")
-
-[node name="label1" type="Label" parent="."]
-layout_mode = 0
-offset_left = 239.0
-offset_top = 541.0
-offset_right = 483.0
-offset_bottom = 659.0
+[node name="label1" type="Label" parent="bg1"]
+offset_left = -121.0
+offset_top = -59.0
+offset_right = 123.0
+offset_bottom = 59.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 60
 text = "NEXT"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="label2" type="Label" parent="."]
-layout_mode = 0
-offset_left = 237.0
-offset_top = 728.0
-offset_right = 485.0
-offset_bottom = 846.0
+[node name="Button1" type="Button" parent="bg1"]
+offset_left = -121.0
+offset_top = -62.0
+offset_right = 127.0
+offset_bottom = 55.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_r26cr")
+theme_override_styles/hover = SubResource("StyleBoxFlat_comb2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4npfi")
+
+[node name="bg2" type="Sprite2D" parent="."]
+position = Vector2(360, 790)
+texture = ExtResource("3_o2vbk")
+
+[node name="label2" type="Label" parent="bg2"]
+offset_left = -123.0
+offset_top = -62.0
+offset_right = 125.0
+offset_bottom = 56.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 60
 text = "RETRY"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="label3" type="Label" parent="."]
-layout_mode = 0
-offset_left = 237.0
-offset_top = 920.0
-offset_right = 485.0
-offset_bottom = 1038.0
+[node name="Button2" type="Button" parent="bg2"]
+offset_left = -122.0
+offset_top = -59.0
+offset_right = 126.0
+offset_bottom = 58.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_r26cr")
+theme_override_styles/hover = SubResource("StyleBoxFlat_a0484")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jr5s3")
+
+[node name="bg3" type="Sprite2D" parent="."]
+position = Vector2(360, 980)
+texture = ExtResource("3_o2vbk")
+
+[node name="label3" type="Label" parent="bg3"]
+offset_left = -123.0
+offset_top = -60.0
+offset_right = 125.0
+offset_bottom = 58.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 60
 text = "MENU"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button1" type="Button" parent="."]
-layout_mode = 0
-offset_left = 239.0
-offset_top = 538.0
-offset_right = 487.0
-offset_bottom = 655.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_r26cr")
-theme_override_styles/hover = SubResource("StyleBoxFlat_comb2")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_4npfi")
-
-[node name="Button2" type="Button" parent="."]
-layout_mode = 0
-offset_left = 238.0
-offset_top = 731.0
-offset_right = 486.0
-offset_bottom = 848.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_r26cr")
-theme_override_styles/hover = SubResource("StyleBoxFlat_a0484")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_jr5s3")
-
-[node name="Button3" type="Button" parent="."]
-layout_mode = 0
-offset_left = 239.0
-offset_top = 918.0
-offset_right = 487.0
-offset_bottom = 1035.0
+[node name="Button3" type="Button" parent="bg3"]
+offset_left = -121.0
+offset_top = -62.0
+offset_right = 127.0
+offset_bottom = 55.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_r26cr")
 theme_override_styles/hover = SubResource("StyleBoxFlat_wfna7")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_oyvv3")
 
-[connection signal="pressed" from="Button1" to="." method="_on_button_1_pressed"]
-[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
-[connection signal="pressed" from="Button3" to="." method="_on_button_3_pressed"]
+[connection signal="pressed" from="bg1/Button1" to="." method="_on_button_1_pressed"]
+[connection signal="pressed" from="bg2/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="bg3/Button3" to="." method="_on_button_3_pressed"]

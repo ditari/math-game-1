@@ -45,9 +45,14 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_cwsic")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_dfjrw")
 
 [node name="Messagebox" type="Sprite2D" parent="."]
-position = Vector2(360, 578)
-scale = Vector2(1, 1.14323)
+position = Vector2(360, 588.25)
+scale = Vector2(1, 1.19661)
 texture = ExtResource("3_2qbpc")
+
+[node name="Diamondgray" type="Sprite2D" parent="Messagebox"]
+position = Vector2(1, -33.2392)
+scale = Vector2(1, 0.874715)
+texture = ExtResource("3_ci3me")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 0
@@ -71,9 +76,5 @@ theme_override_font_sizes/font_size = 60
 text = "THE DIAMOND IS 
 LOCKED AWAY"
 horizontal_alignment = 1
-
-[node name="Diamondgray" type="Sprite2D" parent="."]
-position = Vector2(361, 540)
-texture = ExtResource("3_ci3me")
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
