@@ -94,7 +94,7 @@ func update_sprite():
 	xgaps = (screen_size.x - 192)/2
 
 	$calculator.position.x = screen_size.x - 128
-	$calculator.position.y = ygaps - 96
+	$calculator.position.y = ygaps - 112
 	
 	$timerprogressbar.position.x = (screen_size.x - 300)/2
 	$timerprogressbar.position.y = ygaps - 80

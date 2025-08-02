@@ -72,7 +72,7 @@ func update_sprite():
 	#print (ygaps)
 	
 	$calculator.position.x = screen_size.x - 128
-	$calculator.position.y = ygaps - 96
+	$calculator.position.y = ygaps - 112
 	
 	$doorprogressbar.position.x = (screen_size.x - 300)/2
 	$doorprogressbar.position.y = ygaps - 16
