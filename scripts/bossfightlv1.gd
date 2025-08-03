@@ -135,39 +135,66 @@ func _on_calculator_button_pressed():
 
 func _on_button_1_pressed():
 	if inputanswer.length() < 3 :
-		inputanswer = inputanswer + "1"
+		if inputanswer == "0" :
+			inputanswer = "1"
+		else:	
+			inputanswer = inputanswer + "1"
 
 func _on_button_2_pressed():
 	if inputanswer.length() < 3 :	
-		inputanswer = inputanswer + "2"
+		if inputanswer == "0" :
+			inputanswer = "2"
+		else:	
+			inputanswer = inputanswer + "2"
 
 func _on_button_3_pressed():
-	if inputanswer.length() < 3 :	
-		inputanswer = inputanswer + "3"
+	if inputanswer.length() < 3 :
+		if inputanswer == "0" :
+			inputanswer = "3"
+		else:				
+			inputanswer = inputanswer + "3"
 
 func _on_button_4_pressed():
 	if inputanswer.length() < 3 :
-		inputanswer = inputanswer + "4"
+		if inputanswer == "0" :
+			inputanswer = "4"
+		else:	
+			inputanswer = inputanswer + "4"
 
 func _on_button_5_pressed():
 	if inputanswer.length() < 3 :
-		inputanswer = inputanswer + "5"
+		if inputanswer == "0" :
+			inputanswer = "5"
+		else:	
+			inputanswer = inputanswer + "5"
 	
 func _on_button_6_pressed():
 	if inputanswer.length() < 3 :
-		inputanswer = inputanswer + "6"	
+		if inputanswer == "0" :
+			inputanswer = "6"
+		else:			
+			inputanswer = inputanswer + "6"	
 
 func _on_button_7_pressed():
-	if inputanswer.length() < 3 :
-		inputanswer = inputanswer + "7"	
+	if inputanswer.length() < 3:
+		if inputanswer == "0" :
+			inputanswer = "7"
+		else:			
+			inputanswer = inputanswer + "7"	
 
 func _on_button_8_pressed():
 	if inputanswer.length() < 3 :
-		inputanswer = inputanswer + "8"	
+		if inputanswer == "0" :
+			inputanswer = "8"
+		else:	
+			inputanswer = inputanswer + "8"	
 
 func _on_button_9_pressed():
 	if inputanswer.length() < 3 :
-		inputanswer = inputanswer + "9"	
+		if inputanswer == "0" :
+			inputanswer = "9"
+		else:	
+			inputanswer = inputanswer + "9"	
 		
 func _on_buttonerase_pressed():
 	if inputanswer.length() > 0 :
@@ -175,7 +202,8 @@ func _on_buttonerase_pressed():
 
 func _on_button_0_pressed():
 	if inputanswer.length() < 3 :
-		inputanswer = inputanswer + "0"	
+		if inputanswer != "0" :
+			inputanswer = inputanswer + "0"	
 
 func _on_buttonequal_pressed():
 	if inputanswer != "":

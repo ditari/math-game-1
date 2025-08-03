@@ -50,7 +50,7 @@ var currentenemytype = 0
 var enemydefeated = 0 #jumlah enemy defeated
 
 #-------treasure chest 
-var whatexist = 2
+var whatexist = 1
 #0 = nothing
 #1 = treasure
 #2 = pc diamnond

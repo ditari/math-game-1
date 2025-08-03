@@ -25,10 +25,9 @@ func _on_button_1_pressed():
 	#Global.door1type = 1
 	
 	#sisanya pastikan mulai dari awal
-	#Global.currentlevel = 1
-	#Global.playerhp = 100
-	#Global.score = 0
-
+	Global.currentlevel = 1
+	Global.playerhp = 100
+	Global.score = 0
 
 	get_tree().change_scene_to_file("res://scenes/level1.tscn") 
 

@@ -11,13 +11,13 @@ func _ready():
 	$Label.position.y = ygaps
 	
 	$bg1.position.x = xgaps + 128
-	$bg1.position.y = 5*ygaps - 64
+	$bg1.position.y = 5*ygaps
 
 	$bg2.position.x = xgaps + 128	
-	$bg2.position.y = 6*ygaps 
+	$bg2.position.y = 6*ygaps +64
 	
 	$bg3.position.x = xgaps + 128
-	$bg3.position.y = 8*ygaps - 64	
+	$bg3.position.y = 7*ygaps + 128
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
