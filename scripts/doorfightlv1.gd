@@ -206,7 +206,7 @@ func _on_button_2_pressed():
 func win():
 	var n = Global.currentdoor
 	Global.arraydooropen[n] = 1
-	
+	#untuk animasi
 	Global.currentdooropened = n
 	
 	#print("door open")

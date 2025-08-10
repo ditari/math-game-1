@@ -43,8 +43,10 @@ func checkkey():
 func _on_unlockbutton_pressed():
 	if enoughkey == true:
 		var n = Global.currentdoor
-		print(n)
 		Global.arraydooropen[n] = 1
+		
+		#untuk animasi
+		Global.currentdooropened = n
 	
 		#kurangi item sesuai jumlah lock key
 		Global.items[1] = Global.items[1] - Global.reddoorkey[1]
