@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cc2jfwi0gebox"
+path="res://.godot/imported/you lost.wav-05d8939da198cf22c58c3bd144afe0df.sample"
+
+[deps]
+
+source_file="res://assets/SFX/you lost.wav"
+dest_files=["res://.godot/imported/you lost.wav-05d8939da198cf22c58c3bd144afe0df.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

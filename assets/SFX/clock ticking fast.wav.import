@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bxpw7qyn8axoq"
+path="res://.godot/imported/clock ticking fast.wav-c71188009c4c969b38329f9868198102.sample"
+
+[deps]
+
+source_file="res://assets/SFX/clock ticking fast.wav"
+dest_files=["res://.godot/imported/clock ticking fast.wav-c71188009c4c969b38329f9868198102.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
