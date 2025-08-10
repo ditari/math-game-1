@@ -1,10 +1,11 @@
-[gd_scene load_steps=26 format=3 uid="uid://dij0s1q66u46b"]
+[gd_scene load_steps=32 format=3 uid="uid://dij0s1q66u46b"]
 
 [ext_resource type="Script" path="res://scripts/stripedoor.gd" id="1_g188w"]
 [ext_resource type="Texture2D" uid="uid://bmcl55nsm5kdk" path="res://assets/closedoor.png" id="2_yvkeo"]
 [ext_resource type="Texture2D" uid="uid://cb3yhqogxhqdg" path="res://assets/door2hurt-sprite.png" id="3_2m4x1"]
 [ext_resource type="Texture2D" uid="uid://50h7d8ov7kyf" path="res://assets/opendoor.png" id="3_bey6f"]
 [ext_resource type="Texture2D" uid="uid://b8vax5rauxwht" path="res://assets/opendoor-sprite.png" id="4_e823c"]
+[ext_resource type="Texture2D" uid="uid://bf2wjqed6p5eh" path="res://assets/doorunlocked-sprite.png" id="6_vnlax"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wy1nh"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -77,6 +78,26 @@ region = Rect2(512, 0, 128, 256)
 atlas = ExtResource("4_e823c")
 region = Rect2(640, 0, 128, 256)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_hpat5"]
+atlas = ExtResource("6_vnlax")
+region = Rect2(0, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ylgf"]
+atlas = ExtResource("6_vnlax")
+region = Rect2(128, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xieku"]
+atlas = ExtResource("6_vnlax")
+region = Rect2(256, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1pgf6"]
+atlas = ExtResource("6_vnlax")
+region = Rect2(384, 0, 128, 256)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_81ppw"]
+atlas = ExtResource("6_vnlax")
+region = Rect2(512, 0, 128, 256)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_50ann"]
 animations = [{
 "frames": [{
@@ -146,6 +167,26 @@ animations = [{
 "loop": false,
 "name": &"opening",
 "speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hpat5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ylgf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xieku")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1pgf6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_81ppw")
+}],
+"loop": false,
+"name": &"unlocked",
+"speed": 10.0
 }]
 
 [node name="Node2D" type="Node2D"]
@@ -163,6 +204,6 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_dxqi2")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(64, 126)
 sprite_frames = SubResource("SpriteFrames_50ann")
-animation = &"close"
+animation = &"unlocked"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

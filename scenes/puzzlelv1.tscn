@@ -225,7 +225,6 @@ animation = &"off"
 
 [node name="Reload4" type="Sprite2D" parent="Button2"]
 position = Vector2(73, 69)
-scale = Vector2(1, 1)
 texture = ExtResource("9_7e6dg")
 
 [node name="calculator" parent="." instance=ExtResource("8_0k6v4")]

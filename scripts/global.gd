@@ -16,9 +16,9 @@ var numberofdoors = 3
 
 #typenya 1 2 3
 #type 1 emptydoor type2 stripedoor type3 reddoor
-var door1type = 1
+var door1type = 2
 var door2type = 2
-var door3type = 3
+var door3type = 2
 
 #var isdoor1open = 0
 #var isdoor2open = 0
@@ -29,13 +29,15 @@ var arraydooropen = [0,0,0,0]
 var currentdoor = 0
 #var previousdoortype = 0 #untuk generate chance apakah ada treasure enemy atau apa
 
+var currentdooropened = 0 #untuk animasi open
+
 var reddoorexist = 0 #check jika reddoor ada
 var reddoorkey = [0,1,2,0]
 #reddoor [0,3,2,1] artinya butuh 3 kunci tipe1, 2 kunci tipe 2, 1 tkunci tipe 3
 
 
 #-------enemy---------
-var isenemyexist = [0,1,2,0]
+var isenemyexist = [0,0,0,0]
 #posisi enemy kalau satu berarti di pintu tengah [0,0,1,0]
 #kalau ada dua enemy berarti di kanan kiri [0,1,0,1]
 #kalau ada tiga enemy semua [0,1,1,1]

@@ -141,8 +141,12 @@ func createdoor(doorposition, type):
 
 	door.number = n		
 	$array.add_child(door)
+	
+	if Global.currentdooropened == n :
+		door.get_node("AnimatedSprite2D").play("unlocked")	
+		Global.currentdooropened = 0
 	#if dooropen is true play animation open
-	if Global.arraydooropen [n] == 1 :
+	elif Global.arraydooropen [n] == 1 :
 		door.get_node("AnimatedSprite2D").play("open")
 	
 func _emptydoor_on_button_pressed(sender, number):
