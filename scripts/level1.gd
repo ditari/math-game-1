@@ -51,6 +51,9 @@ func _ready():
 	else:
 		$calculatorlabel.text = str (Global.calculator)
 		
+	audio_controller.play_ambient_industrial()
+	
+		
 
 func sprite_position():
 	var screen_size = get_viewport_rect().size
@@ -143,7 +146,9 @@ func createdoor(doorposition, type):
 	$array.add_child(door)
 	
 	if Global.currentdooropened == n :
-		door.get_node("AnimatedSprite2D").play("unlocked")	
+		door.get_node("AnimatedSprite2D").play("unlocked")
+		audio_controller.play_doorbell()	
+		await get_tree().create_timer(0.5).timeout
 		Global.currentdooropened = 0
 	#if dooropen is true play animation open
 	elif Global.arraydooropen [n] == 1 :
@@ -153,10 +158,12 @@ func _emptydoor_on_button_pressed(sender, number):
 	#jika tidak ada enemy
 	if Global.isenemyexist[number]==0:	
 		sender.get_node("AnimatedSprite2D").play("opening")
+		audio_controller.play_sliding_door()
 		await get_tree().create_timer(0.5).timeout
 		loadnextlevel(1)
 	else :
 		Global.currentenemy = number
+		audio_controller.stop_ambient_industrial()
 		get_tree().change_scene_to_file("res://scenes/transitionenemyblockedlv1.tscn")	
 
 func _stripedoor_on_button_pressed(sender,number):
@@ -165,14 +172,20 @@ func _stripedoor_on_button_pressed(sender,number):
 		#kalau door open
 		if Global.arraydooropen [number] == 1 :
 			sender.get_node("AnimatedSprite2D").play("opening")
+			audio_controller.play_sliding_door()
 			await get_tree().create_timer(0.5).timeout		
 			loadnextlevel(2)
 		#doorclose	
 		else :
 			Global.currentdoor = number
+			audio_controller.play_door_open()
+			await get_tree().create_timer(0.3).timeout
+			
+			audio_controller.stop_ambient_industrial()
 			get_tree().change_scene_to_file("res://scenes/doorfightlv1.tscn") 
 	else :
 		Global.currentenemy = number
+		audio_controller.stop_ambient_industrial()
 		get_tree().change_scene_to_file("res://scenes/transitionenemyblockedlv1.tscn")
 	
 func _reddoor_on_button_pressed(sender, number):
@@ -181,21 +194,25 @@ func _reddoor_on_button_pressed(sender, number):
 		#kalau door open ke boss
 		if Global.arraydooropen [number] == 1 :
 			sender.get_node("AnimatedSprite2D").play("opening")
-			await get_tree().create_timer(0.5).timeout				
+			audio_controller.play_sliding_door()
+			await get_tree().create_timer(0.5).timeout
+			
+			audio_controller.stop_ambient_industrial()				
 			get_tree().change_scene_to_file("res://scenes/bossroomlv1.tscn")
 		#kalau doorclose	
 		else :
 			Global.currentdoor = number
+			audio_controller.play_door_open()
+			await get_tree().create_timer(0.3).timeout
+			
+			audio_controller.stop_ambient_industrial()
 			get_tree().change_scene_to_file("res://scenes/transitionbossdoorlv1.tscn") 
 	else :
 		Global.currentenemy = number
+		audio_controller.stop_ambient_industrial()
 		get_tree().change_scene_to_file("res://scenes/transitionenemyblockedlv1.tscn")	
 	
 	
-	#	if Global.hasredkey == 1:	
-	#	loadnextlevel(3)
-	#else message you dont have key	
-
 func generateenemy():
 	var e = 0 
 	
@@ -236,11 +253,13 @@ func enemytype(xpos,ypos,number,type) :
 func _enemy_on_button_pressed(number,type):
 	Global.currentenemy = number
 	Global.currentenemytype = type
-	#if type == 1:
-	get_tree().change_scene_to_file("res://scenes/enemyfightlv1.tscn") 
-	#else:
-	#	get_tree().change_scene_to_file("res://scenes/enemy2fightlv1.tscn") 
 	
+	audio_controller.play_reload()
+	await get_tree().create_timer(0.5).timeout
+	
+	audio_controller.stop_ambient_industrial()
+	get_tree().change_scene_to_file("res://scenes/enemyfightlv1.tscn") 
+		
 func generatecontent():
 	var gaps = (screen_size_x - 128)/2
 	
@@ -263,12 +282,19 @@ func generatecontent():
 
 func _treasure_on_button_pressed():
 	Global.whatexist = 0
+	#audio_controller.play_glass()
+	#await get_tree().create_timer(0.5).timeout
+	audio_controller.stop_ambient_industrial()
 	get_tree().change_scene_to_file("res://scenes/transitionchest.tscn") 
 
 
 func _scale_on_button_pressed():
 	Global.whatexist = 3
 	#jadiabu2
+	audio_controller.play_beep()
+	await get_tree().create_timer(0.4).timeout
+	
+	audio_controller.stop_ambient_industrial()
 	get_tree().change_scene_to_file("res://scenes/puzzlelv1.tscn") 
 
 #---------------generate buat level berikutnya-----------

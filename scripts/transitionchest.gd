@@ -10,6 +10,8 @@ func _ready():
 	
 	Global.score = Global.score + Global.treasurescore 
 	Global.treasurescore = 0
+	
+	audio_controller.play_glass()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

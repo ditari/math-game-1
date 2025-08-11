@@ -8,5 +8,6 @@ signal button_pressed(number, type)
 
 
 func _on_button_pressed():
+	
 	emit_signal("button_pressed", number,type)
 	#print("here")

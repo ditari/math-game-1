@@ -1,0 +1,70 @@
+[gd_scene load_steps=18 format=3 uid="uid://vxpkbjldcd88"]
+
+[ext_resource type="Script" path="res://scripts/audio_controller.gd" id="1_4tpyc"]
+[ext_resource type="AudioStream" uid="uid://c10v0xhph1eao" path="res://assets/SFX/reload.wav" id="1_bu7nw"]
+[ext_resource type="AudioStream" uid="uid://c5gufi5a2rc3e" path="res://assets/SFX/beep.wav" id="2_3v5vh"]
+[ext_resource type="AudioStream" uid="uid://dqbyenhoofi71" path="res://assets/SFX/ambient industrial cave.wav" id="2_d7oi3"]
+[ext_resource type="AudioStream" uid="uid://badocxx5gr0xq" path="res://assets/SFX/bling.wav" id="2_ngqds"]
+[ext_resource type="AudioStream" uid="uid://oqr70ogwb3es" path="res://assets/SFX/buzzer.wav" id="2_nppgq"]
+[ext_resource type="AudioStream" uid="uid://1judsg23rxi3" path="res://assets/SFX/ding.mp3" id="4_chfev"]
+[ext_resource type="AudioStream" uid="uid://1oqkq052665k" path="res://assets/SFX/door open.wav" id="5_ovr8p"]
+[ext_resource type="AudioStream" uid="uid://8kr6024qiwct" path="res://assets/SFX/electric.wav" id="6_42ya5"]
+[ext_resource type="AudioStream" uid="uid://2ffgcbfrfut0" path="res://assets/SFX/click.wav" id="6_kbt6w"]
+[ext_resource type="AudioStream" uid="uid://bg7qdijdwiify" path="res://assets/SFX/doorbell.wav" id="6_ud6wt"]
+[ext_resource type="AudioStream" uid="uid://cku0unokjogqr" path="res://assets/SFX/glass.wav" id="7_j4x3i"]
+[ext_resource type="AudioStream" uid="uid://dycditmdxsrtm" path="res://assets/SFX/gunshot.wav" id="8_tol87"]
+[ext_resource type="AudioStream" uid="uid://b3mqsqivlh46p" path="res://assets/SFX/laser.wav" id="9_5fpag"]
+[ext_resource type="AudioStream" uid="uid://ctucc3sk7cuvy" path="res://assets/SFX/mechanical keyboard 1.wav" id="10_hyd4f"]
+[ext_resource type="AudioStream" uid="uid://tjf2avpcb6b4" path="res://assets/SFX/sliding door.wav" id="12_bjfqq"]
+[ext_resource type="AudioStream" uid="uid://c2t27nqt3slxb" path="res://assets/SFX/mechanical keyboard 3.wav" id="13_gda7a"]
+
+[node name="audio_controller" type="Node2D"]
+script = ExtResource("1_4tpyc")
+
+[node name="ambient_industrial" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_d7oi3")
+
+[node name="beep" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_3v5vh")
+
+[node name="bling" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_ngqds")
+
+[node name="buzzer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_nppgq")
+
+[node name="click" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_kbt6w")
+
+[node name="ding" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_chfev")
+
+[node name="doorbell" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_ud6wt")
+
+[node name="door_open" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_ovr8p")
+
+[node name="electric" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_42ya5")
+
+[node name="glass" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_j4x3i")
+
+[node name="gunshot" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_tol87")
+
+[node name="laser" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_5fpag")
+
+[node name="mechanical_keyboard_1" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_hyd4f")
+
+[node name="mechanical_keyboard_3" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("13_gda7a")
+
+[node name="reload" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_bu7nw")
+
+[node name="sliding_door" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_bjfqq")
