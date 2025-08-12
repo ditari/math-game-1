@@ -40,6 +40,8 @@ func _ready():
 	boss.connect("button_pressed", _on_button_pressed)
 	
 	$array.add_child(boss)
+	
+	audio_controller.play_ambient_industrial()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -83,4 +85,8 @@ func update_sprite():
 	$calculatorlabel.position.y = 9*ygaps	
 
 func _on_button_pressed():
+	audio_controller.stop_ambient_industrial()
+	audio_controller.play_reload()
+
+	await get_tree().create_timer(0.5).timeout
 	get_tree().change_scene_to_file("res://scenes/bossfightlv1.tscn") 
