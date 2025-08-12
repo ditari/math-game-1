@@ -148,6 +148,7 @@ func generatequestionminus():
 
 #autoanswer
 func _on_calculator_button_pressed():
+	audio_controller.play_ding()
 	Global.calculator = Global.calculator - 1
 	inputanswer = str (answer)
 	###

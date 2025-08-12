@@ -105,6 +105,7 @@ func update_sprite():
 
 #autoanswer
 func _on_calculator_button_pressed():
+	audio_controller.play_ding()
 	Global.calculator = Global.calculator - 1
 
 	doorhp = doorhp - 1

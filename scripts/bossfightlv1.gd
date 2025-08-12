@@ -35,6 +35,8 @@ func _ready():
 	
 	$timer.wait_time = 15
 	$timer.start() 
+	
+	audio_controller.play_ambient_industrial()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -117,6 +119,7 @@ func generatequestionminus():
 	$questionlabel.text = question
 	
 func _on_calculator_button_pressed():
+	audio_controller.play_ding()
 	Global.calculator = Global.calculator - 1
 	inputanswer = str (answer)
 
@@ -135,6 +138,7 @@ func _on_calculator_button_pressed():
 
 func _on_button_1_pressed():
 	if inputanswer.length() < 3 :
+		audio_controller.play_click()
 		if inputanswer == "0" :
 			inputanswer = "1"
 		else:	
@@ -142,6 +146,7 @@ func _on_button_1_pressed():
 
 func _on_button_2_pressed():
 	if inputanswer.length() < 3 :	
+		audio_controller.play_click()
 		if inputanswer == "0" :
 			inputanswer = "2"
 		else:	
@@ -149,6 +154,7 @@ func _on_button_2_pressed():
 
 func _on_button_3_pressed():
 	if inputanswer.length() < 3 :
+		audio_controller.play_click()
 		if inputanswer == "0" :
 			inputanswer = "3"
 		else:				
@@ -156,6 +162,7 @@ func _on_button_3_pressed():
 
 func _on_button_4_pressed():
 	if inputanswer.length() < 3 :
+		audio_controller.play_click()
 		if inputanswer == "0" :
 			inputanswer = "4"
 		else:	
@@ -163,6 +170,7 @@ func _on_button_4_pressed():
 
 func _on_button_5_pressed():
 	if inputanswer.length() < 3 :
+		audio_controller.play_click()
 		if inputanswer == "0" :
 			inputanswer = "5"
 		else:	
@@ -170,6 +178,7 @@ func _on_button_5_pressed():
 	
 func _on_button_6_pressed():
 	if inputanswer.length() < 3 :
+		audio_controller.play_click()
 		if inputanswer == "0" :
 			inputanswer = "6"
 		else:			
@@ -177,6 +186,7 @@ func _on_button_6_pressed():
 
 func _on_button_7_pressed():
 	if inputanswer.length() < 3:
+		audio_controller.play_click()
 		if inputanswer == "0" :
 			inputanswer = "7"
 		else:			
@@ -184,6 +194,7 @@ func _on_button_7_pressed():
 
 func _on_button_8_pressed():
 	if inputanswer.length() < 3 :
+		audio_controller.play_click()
 		if inputanswer == "0" :
 			inputanswer = "8"
 		else:	
@@ -191,6 +202,7 @@ func _on_button_8_pressed():
 
 func _on_button_9_pressed():
 	if inputanswer.length() < 3 :
+		audio_controller.play_click()
 		if inputanswer == "0" :
 			inputanswer = "9"
 		else:	
@@ -198,20 +210,24 @@ func _on_button_9_pressed():
 		
 func _on_buttonerase_pressed():
 	if inputanswer.length() > 0 :
+		audio_controller.play_click()
 		inputanswer = inputanswer.substr(0, inputanswer.length() - 1)
 
 func _on_button_0_pressed():
 	if inputanswer.length() < 3 :
 		if inputanswer != "0" :
+			audio_controller.play_click()
 			inputanswer = inputanswer + "0"	
 
 func _on_buttonequal_pressed():
 	if inputanswer != "":
+		audio_controller.play_click()
 		var input = int(inputanswer)
 		if input == answer:
 			enemyhp = enemyhp -1
 			#play animation
 			$boss.get_node("AnimatedSprite2D").play("hurt")
+			audio_controller.play_ding()
 		else :
 			Global.playerhp = Global.playerhp - minusplayer
 			#chance = chance - 1
@@ -219,6 +235,7 @@ func _on_buttonequal_pressed():
 			$boss.get_node("AnimatedSprite2D").play("fire")
 			#flash screen here
 			$AnimatedSprite2D.play("flash")
+			audio_controller.play_laser()
 		
 		await get_tree().create_timer(0.5).timeout	
 		$boss.get_node("AnimatedSprite2D").play("idle")
@@ -236,6 +253,8 @@ func _on_timer_timeout():
 	$boss.get_node("AnimatedSprite2D").play("fire")
 		#flash screen here
 	$AnimatedSprite2D.play("flash")
+	#audio
+	audio_controller.play_laser()
 	
 	await get_tree().create_timer(0.5).timeout	
 	$boss.get_node("AnimatedSprite2D").play("idle")
@@ -249,11 +268,13 @@ func _on_timer_timeout():
 
 func win():
 	await get_tree().create_timer(0.5).timeout
+	audio_controller.stop_ambient_industrial()
 	audio_controller.play_glass()
 	get_tree().change_scene_to_file("res://scenes/transitionwin1lv1.tscn") 
 
 
 func gameover():
 	await get_tree().create_timer(0.5).timeout
+	audio_controller.stop_ambient_industrial()
 	audio_controller.play_buzzer()
 	get_tree().change_scene_to_file("res://scenes/transitionbosslose.tscn") 

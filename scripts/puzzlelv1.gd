@@ -39,6 +39,9 @@ func _ready():
 	generatebox(2,answerarray[2])
 	generatebox(3,answerarray[3])
 	generatebox(4,answerarray[4])
+	
+	#audio
+	audio_controller.play_ambient_industrial()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -77,6 +80,7 @@ func update_sprite():
 		
 #autoanswer		
 func _on_calculator_button_pressed():
+	audio_controller.play_ding()
 	#delete semua button dulu
 	for child in $array.get_children():
 		child.queue_free()
@@ -147,6 +151,7 @@ func generatebox(indexpos,value):
 	box.connect("button_pressed", boxpressed)
 
 func boxpressed(index):
+	audio_controller.play_click()
 	#print("here")
 	clicked = clicked + 1
 	if clicked == 1:
@@ -159,6 +164,7 @@ func boxpressed(index):
 
 
 func _on_button_2_pressed():
+	audio_controller.play_click()
 	for child in $array.get_children():
 		child.queue_free()
 
@@ -175,6 +181,7 @@ func _on_button_2_pressed():
 func _on_button_pressed():
 	if clicked == 2:
 		Global.whatexist = 3
+		audio_controller.stop_ambient_industrial()
 		
 		if answerarray[indexa] + answerarray[indexb] == answer:			
 			audio_controller.play_glass()
