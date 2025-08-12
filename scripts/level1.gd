@@ -163,7 +163,7 @@ func _emptydoor_on_button_pressed(sender, number):
 		loadnextlevel(1)
 	else :
 		Global.currentenemy = number
-		audio_controller.stop_ambient_industrial()
+		#audio_controller.stop_ambient_industrial()
 		audio_controller.play_buzzer()
 		get_tree().change_scene_to_file("res://scenes/transitionenemyblockedlv1.tscn")	
 
@@ -182,11 +182,11 @@ func _stripedoor_on_button_pressed(sender,number):
 			audio_controller.play_door_open()
 			await get_tree().create_timer(0.3).timeout
 			
-			audio_controller.stop_ambient_industrial()
+			#audio_controller.stop_ambient_industrial()
 			get_tree().change_scene_to_file("res://scenes/doorfightlv1.tscn") 
 	else :
 		Global.currentenemy = number
-		audio_controller.stop_ambient_industrial()
+		#audio_controller.stop_ambient_industrial()
 		audio_controller.play_buzzer()
 		get_tree().change_scene_to_file("res://scenes/transitionenemyblockedlv1.tscn")
 	
@@ -199,7 +199,7 @@ func _reddoor_on_button_pressed(sender, number):
 			audio_controller.play_sliding_door()
 			await get_tree().create_timer(0.5).timeout
 			
-			audio_controller.stop_ambient_industrial()				
+			#audio_controller.stop_ambient_industrial()				
 			get_tree().change_scene_to_file("res://scenes/bossroomlv1.tscn")
 		#kalau doorclose	
 		else :
@@ -207,11 +207,11 @@ func _reddoor_on_button_pressed(sender, number):
 			audio_controller.play_door_open()
 			await get_tree().create_timer(0.3).timeout
 			
-			audio_controller.stop_ambient_industrial()
+			#audio_controller.stop_ambient_industrial()
 			get_tree().change_scene_to_file("res://scenes/transitionbossdoorlv1.tscn") 
 	else :
 		Global.currentenemy = number
-		audio_controller.stop_ambient_industrial()
+		#audio_controller.stop_ambient_industrial()
 		audio_controller.play_buzzer()
 		get_tree().change_scene_to_file("res://scenes/transitionenemyblockedlv1.tscn")	
 	
@@ -260,7 +260,7 @@ func _enemy_on_button_pressed(number,type):
 	audio_controller.play_reload()
 	await get_tree().create_timer(0.5).timeout
 	
-	audio_controller.stop_ambient_industrial()
+	#audio_controller.stop_ambient_industrial()
 	get_tree().change_scene_to_file("res://scenes/enemyfightlv1.tscn") 
 		
 func generatecontent():
@@ -287,7 +287,7 @@ func _treasure_on_button_pressed():
 	Global.whatexist = 0
 	audio_controller.play_glass()
 	#await get_tree().create_timer(0.5).timeout
-	audio_controller.stop_ambient_industrial()
+	#audio_controller.stop_ambient_industrial()
 	get_tree().change_scene_to_file("res://scenes/transitionchest.tscn") 
 
 
@@ -297,7 +297,7 @@ func _scale_on_button_pressed():
 	audio_controller.play_beep()
 	await get_tree().create_timer(0.4).timeout
 	
-	audio_controller.stop_ambient_industrial()
+	#audio_controller.stop_ambient_industrial()
 	get_tree().change_scene_to_file("res://scenes/puzzlelv1.tscn") 
 
 #---------------generate buat level berikutnya-----------

@@ -19,6 +19,8 @@ func _ready():
 	$bg3.position.x = xgaps + 128
 	$bg3.position.y = 7*ygaps + 128
 	
+	audio_controller.stop_ambient_industrial()
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
@@ -26,7 +28,7 @@ func _process(delta):
 
 func _on_button_1_pressed():
 	audio_controller.play_click()
-	print ("go to level 2")
+	#print ("go to level 2")
 
 func _on_button_2_pressed():
 	audio_controller.play_click()

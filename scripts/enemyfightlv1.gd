@@ -64,7 +64,7 @@ func _ready():
 	$timer.start() 
 	
 	#audio?
-	audio_controller.play_ambient_industrial()
+	#audio_controller.play_ambient_industrial()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -310,7 +310,7 @@ func win():
 	#ganti global di transition
 	await get_tree().create_timer(0.5).timeout	
 	#audio_controller.stop_clock_tick_slow()
-	audio_controller.stop_ambient_industrial()
+	#audio_controller.stop_ambient_industrial()
 	
 	audio_controller.play_glass()
 	get_tree().change_scene_to_file("res://scenes/transitionenemywinlv1.tscn") 
@@ -320,7 +320,7 @@ func win():
 #jika lose
 func lose():
 	await get_tree().create_timer(0.5).timeout	
-	audio_controller.stop_ambient_industrial()
+	#audio_controller.stop_ambient_industrial()
 	#audio_controller.stop_clock_tick_slow()
 	
 	audio_controller.play_buzzer()

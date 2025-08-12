@@ -38,7 +38,7 @@ func _ready():
 	generatechoice()
 	
 	#audio?
-	audio_controller.play_ambient_industrial()
+	#audio_controller.play_ambient_industrial()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -220,7 +220,7 @@ func win():
 	
 	#print("door open")
 	await get_tree().create_timer(0.5).timeout	
-	audio_controller.stop_ambient_industrial()
+	#audio_controller.stop_ambient_industrial()
 	
 	audio_controller.play_glass()	
 	get_tree().change_scene_to_file("res://scenes/transitiondoorwin.tscn") 
@@ -231,7 +231,7 @@ func win():
 func lose():	
 	#print ("door is still locked")
 	await get_tree().create_timer(0.5).timeout	
-	audio_controller.stop_ambient_industrial()
+	#audio_controller.stop_ambient_industrial()
 	
 	audio_controller.play_buzzer()
 	get_tree().change_scene_to_file("res://scenes/transitiondoorlose.tscn") 

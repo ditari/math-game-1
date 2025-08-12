@@ -9,7 +9,8 @@ func play_ambient_industrial():
 	$ambient_industrial.play()
 
 func stop_ambient_industrial():
-	$ambient_industrial.stop()
+	if $ambient_industrial.playing:
+		$ambient_industrial.stop()
 
 func play_beep():
 	$beep.play()
@@ -22,12 +23,6 @@ func play_buzzer():
 
 func play_click():
 	$click.play()
-	
-func play_clock_tick_slow():
-	$clock_tick_slow.play()
-
-func stop_clock_tick_slow():
-	$clock_tick_slow.stop()
 
 func play_ding():
 	$ding.play()
@@ -53,11 +48,11 @@ func play_laser():
 func play_mechanical_key():
 	$mechanical_key.play()
 	
-func play_mechanical_keyboard_1():
-	$mechanical_keyboard_1.play()
+#func play_mechanical_keyboard_1():
+##	$mechanical_keyboard_1.play()
 	
-func play_mechanical_keyboard_3():
-	$mechanical_keyboard_3.play()
+#func play_mechanical_keyboard_3():
+#	$mechanical_keyboard_3.play()
 	
 func play_reload():
 	$reload.play()

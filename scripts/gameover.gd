@@ -3,6 +3,7 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	audio_controller.stop_ambient_industrial()
 	var screen_size = get_viewport_rect().size
 	$Messagebox.position.y = screen_size.y/2
 	

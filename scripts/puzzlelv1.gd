@@ -41,7 +41,7 @@ func _ready():
 	generatebox(4,answerarray[4])
 	
 	#audio
-	audio_controller.play_ambient_industrial()
+	#audio_controller.play_ambient_industrial()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -181,7 +181,7 @@ func _on_button_2_pressed():
 func _on_button_pressed():
 	if clicked == 2:
 		Global.whatexist = 3
-		audio_controller.stop_ambient_industrial()
+		#audio_controller.stop_ambient_industrial()
 		
 		if answerarray[indexa] + answerarray[indexb] == answer:			
 			audio_controller.play_glass()

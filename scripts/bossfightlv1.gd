@@ -36,7 +36,7 @@ func _ready():
 	$timer.wait_time = 15
 	$timer.start() 
 	
-	audio_controller.play_ambient_industrial()
+	#audio_controller.play_ambient_industrial()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -268,13 +268,13 @@ func _on_timer_timeout():
 
 func win():
 	await get_tree().create_timer(0.5).timeout
-	audio_controller.stop_ambient_industrial()
+	#audio_controller.stop_ambient_industrial()
 	audio_controller.play_glass()
 	get_tree().change_scene_to_file("res://scenes/transitionwin1lv1.tscn") 
 
 
 func gameover():
 	await get_tree().create_timer(0.5).timeout
-	audio_controller.stop_ambient_industrial()
+	#audio_controller.stop_ambient_industrial()
 	audio_controller.play_buzzer()
 	get_tree().change_scene_to_file("res://scenes/transitionbosslose.tscn") 
