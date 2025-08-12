@@ -49,10 +49,12 @@ func play_gunshot():
 	
 func play_laser():
 	$laser.play()
+
+func play_mechanical_key():
+	$mechanical_key.play()
 	
 func play_mechanical_keyboard_1():
 	$mechanical_keyboard_1.play()
-	
 	
 func play_mechanical_keyboard_3():
 	$mechanical_keyboard_3.play()

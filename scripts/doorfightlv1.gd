@@ -36,6 +36,9 @@ func _ready():
 	generatequestion()
 	generatewronganswer()
 	generatechoice()
+	
+	#audio?
+	audio_controller.play_ambient_industrial()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -164,6 +167,7 @@ func _on_button_1_pressed():
 		$answerlabel.text = str (answer)
 		
 		$door.get_node("AnimatedSprite2D").play("hurt")
+		audio_controller.play_ding()
 		
 	else:
 		Global.playerhp = Global.playerhp - minusplayer
@@ -172,7 +176,8 @@ func _on_button_1_pressed():
 		
 		$AnimatedSprite2D.play("flash")
 		$door/electric.play("on")
-		
+		audio_controller.play_electric()
+				
 	#wait dulu
 	await get_tree().create_timer(0.5).timeout
 	$door.get_node("AnimatedSprite2D").play("close")
@@ -186,6 +191,8 @@ func _on_button_2_pressed():
 		$answerlabel.text = str (answer)
 		
 		$door.get_node("AnimatedSprite2D").play("hurt")
+		audio_controller.play_ding()
+		
 	else:
 		Global.playerhp = Global.playerhp - minusplayer
 		chance = chance - 1
@@ -193,6 +200,7 @@ func _on_button_2_pressed():
 		
 		$AnimatedSprite2D.play("flash")
 		$door/electric.play("on")
+		audio_controller.play_electric()
 
 	#wait dulu
 	await get_tree().create_timer(0.5).timeout				
@@ -211,6 +219,7 @@ func win():
 	
 	#print("door open")
 	await get_tree().create_timer(0.5).timeout	
+	audio_controller.stop_ambient_industrial()
 	
 	audio_controller.play_glass()	
 	get_tree().change_scene_to_file("res://scenes/transitiondoorwin.tscn") 
@@ -221,6 +230,7 @@ func win():
 func lose():	
 	#print ("door is still locked")
 	await get_tree().create_timer(0.5).timeout	
+	audio_controller.stop_ambient_industrial()
 	
 	audio_controller.play_buzzer()
 	get_tree().change_scene_to_file("res://scenes/transitiondoorlose.tscn") 

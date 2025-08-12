@@ -62,6 +62,9 @@ func _ready():
 	
 	$timer.wait_time = 15
 	$timer.start() 
+	
+	#audio?
+	audio_controller.play_ambient_industrial()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -165,13 +168,15 @@ func _on_calculator_button_pressed():
 	
 func _on_button_1_pressed():
 	if inputanswer.length() < 3 :
+		audio_controller.play_click()
 		if inputanswer == "0" :
 			inputanswer = "1"
 		else:	
 			inputanswer = inputanswer + "1"
 
 func _on_button_2_pressed():
-	if inputanswer.length() < 3 :	
+	if inputanswer.length() < 3 :
+		audio_controller.play_click()	
 		if inputanswer == "0" :
 			inputanswer = "2"
 		else:	
@@ -179,6 +184,7 @@ func _on_button_2_pressed():
 
 func _on_button_3_pressed():
 	if inputanswer.length() < 3 :
+		audio_controller.play_click()
 		if inputanswer == "0" :
 			inputanswer = "3"
 		else:				
@@ -186,6 +192,7 @@ func _on_button_3_pressed():
 
 func _on_button_4_pressed():
 	if inputanswer.length() < 3 :
+		audio_controller.play_click()
 		if inputanswer == "0" :
 			inputanswer = "4"
 		else:	
@@ -193,6 +200,7 @@ func _on_button_4_pressed():
 
 func _on_button_5_pressed():
 	if inputanswer.length() < 3 :
+		audio_controller.play_click()
 		if inputanswer == "0" :
 			inputanswer = "5"
 		else:	
@@ -200,6 +208,7 @@ func _on_button_5_pressed():
 	
 func _on_button_6_pressed():
 	if inputanswer.length() < 3 :
+		audio_controller.play_click()
 		if inputanswer == "0" :
 			inputanswer = "6"
 		else:			
@@ -207,6 +216,7 @@ func _on_button_6_pressed():
 
 func _on_button_7_pressed():
 	if inputanswer.length() < 3:
+		audio_controller.play_click()
 		if inputanswer == "0" :
 			inputanswer = "7"
 		else:			
@@ -214,6 +224,7 @@ func _on_button_7_pressed():
 
 func _on_button_8_pressed():
 	if inputanswer.length() < 3 :
+		audio_controller.play_click()
 		if inputanswer == "0" :
 			inputanswer = "8"
 		else:	
@@ -221,6 +232,7 @@ func _on_button_8_pressed():
 
 func _on_button_9_pressed():
 	if inputanswer.length() < 3 :
+		audio_controller.play_click()
 		if inputanswer == "0" :
 			inputanswer = "9"
 		else:	
@@ -228,20 +240,25 @@ func _on_button_9_pressed():
 		
 func _on_buttonerase_pressed():
 	if inputanswer.length() > 0 :
+		audio_controller.play_click()
 		inputanswer = inputanswer.substr(0, inputanswer.length() - 1)
 
 func _on_button_0_pressed():
 	if inputanswer.length() < 3 :
 		if inputanswer != "0" :
+			audio_controller.play_click()
 			inputanswer = inputanswer + "0"	
 
 func _on_buttonequal_pressed():
 	if inputanswer!= "" :
+		audio_controller.play_click()
 		var input = int(inputanswer)
 		if input == answer:
 			enemyhp = enemyhp -1
 			#play animation
 			enemy.get_node("AnimatedSprite2D").play("hurt")
+			#audio
+			audio_controller.play_ding()
 		else :
 			Global.playerhp = Global.playerhp - minusplayer
 			chance = chance - 1
@@ -249,6 +266,8 @@ func _on_buttonequal_pressed():
 			enemy.get_node("AnimatedSprite2D").play("fire")
 		#flash screen here
 			$AnimatedSprite2D.play("flash")
+		#audio	
+			audio_controller.play_gunshot()
 		
 		await get_tree().create_timer(0.5).timeout	
 		enemy.get_node("AnimatedSprite2D").play("idle")
@@ -273,6 +292,8 @@ func _on_timer_timeout():
 		enemy.get_node("AnimatedSprite2D").play("fire")
 		#flash screen
 		$AnimatedSprite2D.play("flash")
+		#play audio
+		audio_controller.play_gunshot()
 		
 		await get_tree().create_timer(0.5).timeout
 		enemy.get_node("AnimatedSprite2D").play("idle")
@@ -288,6 +309,7 @@ func win():
 	#ganti global di transition
 	await get_tree().create_timer(0.5).timeout	
 	#audio_controller.stop_clock_tick_slow()
+	audio_controller.stop_ambient_industrial()
 	
 	audio_controller.play_glass()
 	get_tree().change_scene_to_file("res://scenes/transitionenemywinlv1.tscn") 
@@ -297,6 +319,7 @@ func win():
 #jika lose
 func lose():
 	await get_tree().create_timer(0.5).timeout	
+	audio_controller.stop_ambient_industrial()
 	#audio_controller.stop_clock_tick_slow()
 	
 	audio_controller.play_buzzer()
