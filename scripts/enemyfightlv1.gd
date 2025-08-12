@@ -28,7 +28,11 @@ var xgaps
 
 # Called when the node enters the scene tree for the first time.
 func _ready():	
+	#ui
 	update_sprite()
+	
+	#audio
+	#audio_controller.play_clock_tick_slow()
 	
 	#calculator
 	if Global.calculator == 0:
@@ -281,9 +285,11 @@ func _on_timer_timeout():
 		
 #jika win
 func win():	
-	
 	#ganti global di transition
 	await get_tree().create_timer(0.5).timeout	
+	#audio_controller.stop_clock_tick_slow()
+	
+	audio_controller.play_glass()
 	get_tree().change_scene_to_file("res://scenes/transitionenemywinlv1.tscn") 
 
 
@@ -291,6 +297,9 @@ func win():
 #jika lose
 func lose():
 	await get_tree().create_timer(0.5).timeout	
+	#audio_controller.stop_clock_tick_slow()
+	
+	audio_controller.play_buzzer()
 	get_tree().change_scene_to_file("res://scenes/transitionenemyloselv1.tscn") 
 
 

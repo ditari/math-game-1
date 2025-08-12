@@ -210,8 +210,10 @@ func win():
 	Global.currentdooropened = n
 	
 	#print("door open")
-	await get_tree().create_timer(0.5).timeout		
-	get_tree().change_scene_to_file("res://scenes/transitionwindoor.tscn") 
+	await get_tree().create_timer(0.5).timeout	
+	
+	audio_controller.play_glass()	
+	get_tree().change_scene_to_file("res://scenes/transitiondoorwin.tscn") 
 
 
 
@@ -219,7 +221,9 @@ func win():
 func lose():	
 	#print ("door is still locked")
 	await get_tree().create_timer(0.5).timeout	
-	get_tree().change_scene_to_file("res://scenes/transitionlosedoor.tscn") 
+	
+	audio_controller.play_buzzer()
+	get_tree().change_scene_to_file("res://scenes/transitiondoorlose.tscn") 
 
 #func gameover():
 #	await get_tree().create_timer(0.5).timeout	

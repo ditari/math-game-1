@@ -22,6 +22,12 @@ func play_buzzer():
 
 func play_click():
 	$click.play()
+	
+func play_clock_tick_slow():
+	$clock_tick_slow.play()
+
+func stop_clock_tick_slow():
+	$clock_tick_slow.stop()
 
 func play_ding():
 	$ding.play()
@@ -57,3 +63,8 @@ func play_reload():
 func play_sliding_door():
 	$sliding_door.play()
 
+func play_you_lost():
+	$you_lost.play()
+
+func play_you_won():
+	$you_won.play()

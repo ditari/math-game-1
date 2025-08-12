@@ -176,13 +176,11 @@ func _on_button_pressed():
 	if clicked == 2:
 		Global.whatexist = 3
 		
-		if answerarray[indexa] + answerarray[indexb] == answer:
-			#print("correct answer")
-			#var reward = 100 #randi_range(50,100)
-			#print("you get" + str(reward))
-			#Global.score=Global.score+reward
+		if answerarray[indexa] + answerarray[indexb] == answer:			
+			audio_controller.play_glass()
 			get_tree().change_scene_to_file("res://scenes/transitionpuzzlewinlv1.tscn") 
 		else :
+			audio_controller.play_buzzer()
 			get_tree().change_scene_to_file("res://scenes/transitionpuzzleloselv1.tscn") 
 			
 	#get_tree().change_scene_to_file("res://scenes/level1.tscn") 

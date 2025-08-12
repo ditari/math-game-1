@@ -11,7 +11,7 @@ func _ready():
 	Global.score = Global.score + Global.treasurescore 
 	Global.treasurescore = 0
 	
-	audio_controller.play_glass()
+	#audio_controller.play_glass() di play di lv1 aja
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

@@ -164,6 +164,7 @@ func _emptydoor_on_button_pressed(sender, number):
 	else :
 		Global.currentenemy = number
 		audio_controller.stop_ambient_industrial()
+		audio_controller.play_buzzer()
 		get_tree().change_scene_to_file("res://scenes/transitionenemyblockedlv1.tscn")	
 
 func _stripedoor_on_button_pressed(sender,number):
@@ -186,6 +187,7 @@ func _stripedoor_on_button_pressed(sender,number):
 	else :
 		Global.currentenemy = number
 		audio_controller.stop_ambient_industrial()
+		audio_controller.play_buzzer()
 		get_tree().change_scene_to_file("res://scenes/transitionenemyblockedlv1.tscn")
 	
 func _reddoor_on_button_pressed(sender, number):
@@ -210,6 +212,7 @@ func _reddoor_on_button_pressed(sender, number):
 	else :
 		Global.currentenemy = number
 		audio_controller.stop_ambient_industrial()
+		audio_controller.play_buzzer()
 		get_tree().change_scene_to_file("res://scenes/transitionenemyblockedlv1.tscn")	
 	
 	
@@ -282,7 +285,7 @@ func generatecontent():
 
 func _treasure_on_button_pressed():
 	Global.whatexist = 0
-	#audio_controller.play_glass()
+	audio_controller.play_glass()
 	#await get_tree().create_timer(0.5).timeout
 	audio_controller.stop_ambient_industrial()
 	get_tree().change_scene_to_file("res://scenes/transitionchest.tscn") 

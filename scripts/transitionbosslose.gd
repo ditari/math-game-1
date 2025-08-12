@@ -15,6 +15,8 @@ func _ready():
 	$Label2.position.y = ygaps + 160
 	$Node2D.position.y = ygaps - 156
 	#$array.position.y = ygaps
+	#audio_controller.play_buzzer()
+	#await get_tree().create_timer(0.5).timeout
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -22,4 +24,5 @@ func _process(delta):
 
 
 func _on_button_pressed():
+	audio_controller.play_you_lost()
 	get_tree().change_scene_to_file("res://scenes/gameover.tscn") 

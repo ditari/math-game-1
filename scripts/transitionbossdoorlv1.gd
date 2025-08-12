@@ -25,6 +25,10 @@ func _ready():
 	else :
 		$unlockbutton/unlockbg.play("on")
 		
+	#audio
+	#audio_controller.play_click()
+	#berisik udah ada suara knock dari sebelumnya
+		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
@@ -53,10 +57,12 @@ func _on_unlockbutton_pressed():
 		Global.items[2] = Global.items[2] - Global.reddoorkey[2]	
 		
 		#print("dooropen")
+		audio_controller.play_click()
 		get_tree().change_scene_to_file("res://scenes/transitionbossopen.tscn") 
 
 
 func _on_cancelbutton_pressed():
 	#print("go back")
+	audio_controller.play_click()
 	get_tree().change_scene_to_file("res://scenes/level1.tscn") 
 

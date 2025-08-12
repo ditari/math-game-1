@@ -29,14 +29,20 @@ func _on_button_1_pressed():
 	Global.playerhp = 100
 	Global.score = 0
 
+	audio_controller.play_click()
+	await get_tree().create_timer(0.3).timeout
 	get_tree().change_scene_to_file("res://scenes/level1.tscn") 
 
 
 
 
 func _on_button_2_pressed():
+	audio_controller.play_click()	
+	await get_tree().create_timer(0.3).timeout
 	print("go to choose level")
 
 
 func _on_button_3_pressed():
+	audio_controller.play_click()
+	await get_tree().create_timer(0.3).timeout
 	get_tree().quit()

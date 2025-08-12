@@ -76,8 +76,8 @@ func update_sprite():
 	$boss.position.x = (screen_size.x - 167)/2
 	$boss.position.y = ygaps - 16
 	
-	$questionlabel.position.y = 3*ygaps +32
-	$answerlabel.position.y = 4*ygaps
+	$questionlabel.position.y = 3*ygaps +48
+	$answerlabel.position.y = 4*ygaps+12
 	
 	$VBoxContainer.position.y = 5*ygaps + 16
 	
@@ -249,9 +249,11 @@ func _on_timer_timeout():
 
 func win():
 	await get_tree().create_timer(0.5).timeout
+	audio_controller.play_glass()
 	get_tree().change_scene_to_file("res://scenes/transitionwin1lv1.tscn") 
 
 
 func gameover():
 	await get_tree().create_timer(0.5).timeout
+	audio_controller.play_buzzer()
 	get_tree().change_scene_to_file("res://scenes/transitionbosslose.tscn") 

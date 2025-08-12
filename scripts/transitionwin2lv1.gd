@@ -25,13 +25,16 @@ func _process(delta):
 
 
 func _on_button_1_pressed():
+	audio_controller.play_click()
 	print ("go to level 2")
 
 func _on_button_2_pressed():
+	audio_controller.play_click()
 	get_tree().change_scene_to_file("res://scenes/transitionwin3lv1.tscn") 
 
 
 func _on_button_3_pressed():
+	audio_controller.play_click()
 	get_tree().change_scene_to_file("res://scenes/menu.tscn") 
 
 

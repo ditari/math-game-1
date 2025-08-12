@@ -45,8 +45,10 @@ func _on_button_1_pressed():
 	Global.whatexist = 0
 	Global.treasurescore = 0
 
+	audio_controller.play_click()
 	get_tree().change_scene_to_file("res://scenes/level1.tscn") 
 
 
 func _on_button_2_pressed():
+	audio_controller.play_click()
 	get_tree().change_scene_to_file("res://scenes/transitionwin2lv1.tscn") 

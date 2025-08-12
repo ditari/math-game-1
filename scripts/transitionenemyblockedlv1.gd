@@ -15,7 +15,7 @@ func _ready():
 	else :
 		enemy = enemy2scene.instantiate()
 	
-	enemy.position = Vector2(264,(screen_size.y/2)-128)
+	enemy.position = Vector2(264,(screen_size.y/2)-112)
 	enemy.scale = Vector2(1.5,1.5)
 
 	add_child(enemy)

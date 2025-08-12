@@ -1,0 +1,77 @@
+[gd_scene load_steps=8 format=3 uid="uid://djiml01oc1jkf"]
+
+[ext_resource type="Script" path="res://scripts/transitiondoorlose.gd" id="1_ahjv2"]
+[ext_resource type="Texture2D" uid="uid://bvpce48rytcm2" path="res://assets/bg.png" id="2_vcaf1"]
+[ext_resource type="Texture2D" uid="uid://854wqvbu52qp" path="res://assets/messagebox.png" id="3_c5amv"]
+[ext_resource type="PackedScene" uid="uid://dij0s1q66u46b" path="res://scenes/stripedoor.tscn" id="4_0goiw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yibji"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vh4yy"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oldd8"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="transition" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -720.0
+offset_bottom = -1280.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ahjv2")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 720.0
+offset_bottom = 1280.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_vcaf1")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_right = 936.0
+offset_bottom = 1597.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_yibji")
+theme_override_styles/hover = SubResource("StyleBoxFlat_vh4yy")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_oldd8")
+
+[node name="Messagebox" type="Sprite2D" parent="."]
+position = Vector2(358, 579)
+scale = Vector2(1, 1.28125)
+texture = ExtResource("3_c5amv")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 351.0
+offset_right = 708.0
+offset_bottom = 437.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 60
+text = "WRONG ANSWERS..."
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 710.0
+offset_right = 713.0
+offset_bottom = 796.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 60
+text = "THE DOOR IS LOCKED"
+horizontal_alignment = 1
+
+[node name="Node2D" parent="." instance=ExtResource("4_0goiw")]
+position = Vector2(300, 450)
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
